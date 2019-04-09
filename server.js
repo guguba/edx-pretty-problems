@@ -5,6 +5,9 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+
+const problemsRouter = require('./server/problems_renderer/problems')
+
 const path = require('path');
 const app = express();
 
@@ -13,7 +16,9 @@ const uploader = require('./upload');
 
 const port = process.env.PORT || 5000;
 
+
 app.use(express.static('build'));
+app.set('view engine', 'hbs');
 
 //uuid
 
@@ -32,6 +37,10 @@ console.log("first created filename " + fileName)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use('/problems', problemsRouter)
+
 
 
 app.get('/api/uuid', (req, res) => {
@@ -77,7 +86,7 @@ const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/
      console.log("1 document inserted");
      client.close();
    });
- 
+
 }); */
 
 app.post('/api/auth', (req, res) => {
@@ -103,7 +112,7 @@ app.post('/api/auth', (req, res) => {
 
   console.log(params);
   // TODO - refactor the uploader callback to a async promise
-  
+
   MongoClient.connect(uri, { useNewUrlParser: true })
     .then((client) => {
       const dbo = client.db("designedx");
