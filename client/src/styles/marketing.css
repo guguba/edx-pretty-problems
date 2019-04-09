@@ -1,0 +1,149 @@
+.marketing-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  color: #737373;
+}
+
+.marketing-box {
+  padding: 40px;
+  border-bottom: 2px solid #E0758E;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.marketing-box h2 {
+  margin: 0;
+}
+
+.marketing-box p {
+  opacity: 1;
+  color: #737373;
+  line-height: 250%;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.top-section {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.top-section .top-description {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+}
+
+.top-section .top-description .button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 62px;
+  text-align: center;
+  font-size: 16px;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.top-section .top-description .button :visited {
+  color: white;
+}
+
+.top-section .video-box {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  padding-bottom: 16.875%;
+  width: 30%;
+  margin: auto;
+  border: 5px solid lightgray;
+}
+
+.pricing .contact {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.pricing .pricing-details {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px 0;
+}
+
+.pricing .price-box {
+  border: 1px solid lightgray;
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  text-align: left;
+}
+
+.pricing .price-box p {
+  line-height: 1.5;
+}
+
+.pricing .price-box h2:last-of-type {
+  text-align: center;
+  color: #E0758E;
+  justify-self: flex-end;
+}
+
+.pricing .price-box:last-of-type {
+  width: 25%;
+}
+
+.pricing .price-box:last-of-type li {
+  margin-bottom: 10px;
+}
+/*# sourceMappingURL=marketing.css.map */

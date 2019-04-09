@@ -1,0 +1,8 @@
+to deploy:
+1. in client, do: npm run build
+2. move build from client to main folder
+3. zip all files (except for prev deploy zips
+4. upload to amazon beanstalk
+
+to run locally:
+1. from main filder, do: npm run start:dev

@@ -1,0 +1,102 @@
+.marketing-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #737373;
+}
+
+.marketing-box {
+    padding: 40px;
+    border-bottom: 2px solid #E0758E;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h2 {
+        margin: 0;
+    }
+    p {
+        opacity: 1;
+        color: #737373;
+        line-height: 250%;
+        font-size: 1rem;
+        text-align: left;
+    }
+
+}
+
+.top-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .top-description {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 62px;
+            text-align: center;
+            font-size: 16px;
+            margin-right: auto;
+            text-decoration: none;
+            :visited {
+                color: white;
+
+            }
+       }  
+    }
+    .video-box {
+        position: relative;
+        display: block;
+        height: 0;
+        padding: 0;
+        padding-bottom: 16.875%;
+        width: 30%;
+        margin: auto;
+        border: 5px solid lightgray;
+    }  
+}
+
+
+.pricing {
+    .contact {
+        align-self: center;
+    }
+    .pricing-details {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 40px 0;
+    }
+    .price-box {
+        border: 1px solid lightgray;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        text-align: left;
+        p {
+            line-height: 1.5;
+        }
+        h2:last-of-type {
+            text-align: center;
+            color: #E0758E;
+            justify-self: flex-end;
+        }
+        &:last-of-type {
+            width: 25%;
+            li {
+                margin-bottom: 10px;;
+            }
+        }
+    }
+}
+
