@@ -1,5 +1,8 @@
 'use strict';
 
+
+// todo: separate to: server.js, api.js, and make api routes to be a router (google: "express router")
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
