@@ -1,0 +1,28 @@
+Client creates a question using the ui.
+A question can look like:
+
+{
+  id
+  title: String
+  Options: [
+   {
+    text: String
+    correct: Bool
+   }
+  ]
+  Styling: {
+
+  }
+}
+
+Using POST server/api/question
+
+Question is saved to the DB
+
+and return to the client the id of the newly saved question
+
+The user see: `www.guysServer.com/htmls/${ id }`
+so he can copy it to EDX
+
+The server, when receiving /htmls/:id will render an hbs view, according to data he fetches from DB using the id.
+
