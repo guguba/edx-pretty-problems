@@ -2,16 +2,13 @@ const express = require('express')
 const router = express.Router()
 
 
-
-
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
   res.send('Birds home page')
 })
 // define the about route
 router.get('/about', function (req, res) {
-  res.render('problems', { titie: 'sdf', body: 'asdasd'})
+  res.send('About birds')
 })
 
 
-
-module.exports = router
+module.exports = router;

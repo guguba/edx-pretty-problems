@@ -1,95 +1,45 @@
-'use strict';
-
-
-// todo: separate to: server.js, api.js, and make api routes to be a router (google: "express router")
-
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const problemsRouter = require('./server/problems_renderer/problems')
-
+const express = require('express')
 const path = require('path');
+const MongoClient = require('mongodb').MongoClient;
+
+const createProblemHtml = require('../server/createHTML');
+const problemsRouter = require('../problems_renderer/problems')
+const uploader = require('../server/upload');
+const filename = require('../server/server');
+
 const app = express();
-
-const createProblemHtml = require('./createHTML');
-const uploader = require('./upload');
-
-const port = process.env.PORT || 5000;
-
-
-app.use(express.static('build'));
-app.set('view engine', 'hbs');
-
-//uuid
-
-function guid() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-  }
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
-};
-
-let fileName = guid() + ".html";
-console.log("first created filename " + fileName)
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
-app.use('/problems', problemsRouter)
+const router = express.Router()
 
 
 
-app.get('/api/uuid', (req, res) => {
-  res.send({ express: fileName });
+//app.use('/problems', problemsRouter)
+
+router.get('/test', (req, res) => {
+  console.log('starting api');
+  res.send('hey');
 });
 
-app.post('/api/post', (req, res) => {
+router.get('/uuid', (req, res) => {
+  console.log(filename);
+  res.send({ express: filename });
+});
+
+router.post('/post', (req, res) => {
     let params = req.body.params;
     console.log(params);
     // TODO - refactor the uploader callback to a async promise
-    createProblemHtml(params, fileName, uploader);
+    createProblemHtml(params, filename, uploader);
     res.send('okay!');
-    fileName = guid() + ".html";
-    console.log("renamed filename to " + fileName);
+    filname = guid() + ".html";
+    console.log("renamed filename to " + filname);
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
 
+// mongodb API
 
-
-module.exports = fileName;
-
-//mongo db connection. TODO - refactor to separate file
-
-
-
-const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/test?retryWrites=true";
 
-/* MongoClient.connect(uri, { useNewUrlParser: true }, function(err, client) {
-   if(err) {
-        console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
-   }
-   console.log('Connected...');
-   var dbo = client.db("designedx");
-   /* var newUser = {
-     username: "test",
-     email: "test@test.test",
-     password: "test1"
-   };
-   dbo.collection("users").insertOne(newUser, function(err, res) {
-     if (err) throw err;
-     console.log("1 document inserted");
-     client.close();
-   });
-
-}); */
-
-app.post('/api/auth', (req, res) => {
+router.post('/auth', (req, res) => {
   let params = req.body.params;
   console.log("uri is  " + uri);
 
@@ -148,11 +98,14 @@ app.post('/api/auth', (req, res) => {
 })
 
 // redirect all routes back to index (prevents react router issue)
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '/build/index.html'), function(err) {
+
+router.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../build/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
   })
 })
 
+
+module.exports = router;
