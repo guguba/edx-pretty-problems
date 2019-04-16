@@ -6,25 +6,27 @@ const createProblemHtml = require('../server/createHTML');
 const problemsRouter = require('../problems_renderer/problems')
 const uploader = require('../server/upload');
 const filename = require('../server/server');
+const problem_api = require('./problems_api');
 
-const app = express();
-const router = express.Router()
+const api = express.Router()
+
+api.use('/problem',problem_api)
 
 
 
-//app.use('/problems', problemsRouter)
 
-router.get('/test', (req, res) => {
+api.get('/test', (req, res) => {
   console.log('starting api');
   res.send('hey');
 });
 
-router.get('/uuid', (req, res) => {
+api.get('/uuid', (req, res) => {
   console.log(filename);
   res.send({ express: filename });
 });
 
-router.post('/post', (req, res) => {
+api.post('/post', (req, res) => {
+
     let params = req.body.params;
     console.log(params);
     // TODO - refactor the uploader callback to a async promise
@@ -39,7 +41,7 @@ router.post('/post', (req, res) => {
 
 const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/test?retryWrites=true";
 
-router.post('/auth', (req, res) => {
+api.post('/auth', (req, res) => {
   let params = req.body.params;
   console.log("uri is  " + uri);
 
@@ -99,7 +101,7 @@ router.post('/auth', (req, res) => {
 
 // redirect all routes back to index (prevents react router issue)
 
-router.get('/*', function(req, res) {
+api.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../build/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
@@ -108,4 +110,4 @@ router.get('/*', function(req, res) {
 })
 
 
-module.exports = router;
+module.exports = api;
