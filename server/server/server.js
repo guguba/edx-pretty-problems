@@ -6,8 +6,12 @@ const app = express();
 const api = require('../api/api');
 const problemsRouter = require('../problems_renderer/problems');
 
+
 app.use(express.static('build'));
 app.set('view engine', 'hbs');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', api);
 app.use('/problems', problemsRouter);
@@ -27,12 +31,10 @@ function guid() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
       s4() + '-' + s4() + s4() + s4();
   };
-  
+
 let filename = guid() + ".html";
 console.log("first created filename " + filename)
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 module.exports = filename;
-  
+
