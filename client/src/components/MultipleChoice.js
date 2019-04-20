@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/mystyle.css';
-import edxText from './edxText.js';
 import translations from '../Translations/translations';
 
 let emptyOptions = [
@@ -22,7 +21,7 @@ let emptyOptions = [
     }
 ]
 
-class MyltipleChoice extends Component {
+class MultipleChoice extends Component {
     
     constructor(props) {
         super(props);
@@ -55,6 +54,7 @@ class MyltipleChoice extends Component {
     }
     
     async sendJson() {
+        console.log('sending jspn ');
         let params = {
             question: this.state.question,
             options: {...this.state.options},
@@ -62,17 +62,33 @@ class MyltipleChoice extends Component {
             ...this.props.styler,
         }
         //refactor required
-        let test = JSON.stringify({params: params});
+        let body = JSON.stringify({params: params});
         const options = {
             method: 'POST',
               headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
-            body: test
+            body: body
         };
-        const request = new Request('/api/post', options);
-        const response = await fetch(request);
+        
+        let filename;
+
+        fetch('/api/post', options)
+            .then(res => {
+                return  res.json();
+            })
+            .then(res => {
+                console.log('bbb');
+                console.log(res.filename);
+                this.props.setFilename(res.filename);
+            })
+            .catch(function(error) {
+                console.log('There has been a problem with your fetch operation: ', error.message);
+              });
+
+        return "testing";
+        
     }
     
     onSubmit() {
@@ -93,11 +109,18 @@ class MyltipleChoice extends Component {
         let newValidation = {show: false, text: 'placeholder'};
         //if all fields are okay
         if (textValidation && selectValidation) {
-            this.props.getUuid()
+            () => this.setState({
+                validation: newValidation
+            });
+            this.sendJson()
                 .then(
-                    () => this.setState({
-                        validation: newValidation
-                    }, () => this.sendJson()));            
+                    res => {
+                        console.log('heyyyy'); 
+                        console.log(res) 
+
+                    }
+                ) 
+                     
             this.props.showOutput();
         }
         else {
@@ -221,4 +244,4 @@ class MyltipleChoice extends Component {
   }
 }
 
-export default MyltipleChoice;
+export default MultipleChoice;

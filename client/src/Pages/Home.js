@@ -88,6 +88,12 @@ class Home extends Component {
           .catch(err => console.log(err));
     }
 
+    setFilename(filename) {
+        console.log('setting filename')
+        console.log(filename)
+        this.setState({fileName: filename})
+    }
+
     showOutput() {
         this.setState({showOutput: true });
     }
@@ -101,7 +107,7 @@ class Home extends Component {
         <Header onLogout={this.props.onLogout} user={this.props.user}></Header>,
         <div className="app-content">
             <Styler styler={this.state.styler} onStyleChange={(e, style)=>this.onStyleChange(e, style)}/>
-            <MultipleChoice user={this.props.user} styler={this.state.styler} showOutput={(e) => this.showOutput(e)} getUuid={(e) => this.getUuid(e)}/>
+            <MultipleChoice user={this.props.user} styler={this.state.styler} showOutput={(e) => this.showOutput(e)} setFilename={(e) => this.setFilename(e)} getUuid={(e) => this.getUuid(e)}/>
             <Output user={this.props.user} fileName={this.state.fileName} showOutput={this.state.showOutput}/>
         </div>
         ]

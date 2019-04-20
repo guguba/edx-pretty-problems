@@ -9,7 +9,7 @@ AWS.config.update({
 
 const uploader = async (filename, userId) => {
 
-pathFilename = "./problem_htmls/" + userId + '/' + filename;
+pathFilename = "../../problem_htmls/" + userId + '/' + filename;
 // Read in the file, convert it to base64, store to S3
 fs.readFile(pathFilename, function (err, data) {
   if (err) { throw err; }
@@ -24,7 +24,7 @@ fs.readFile(pathFilename, function (err, data) {
     Body: data
     //ACL: 'public-read'
   },function (resp) {
-    console.log(arguments);
+    //console.log(arguments);
     console.log('Successfully uploaded package.');
   });
 

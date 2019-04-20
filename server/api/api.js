@@ -14,24 +14,37 @@ const router = express.Router()
 
 //app.use('/problems', problemsRouter)
 
-router.get('/test', (req, res) => {
-  console.log('starting api');
-  res.send('hey');
-});
-
 router.get('/uuid', (req, res) => {
   console.log(filename);
   res.send({ express: filename });
 });
 
+router.get('/test', (req, res) => {
+  res.send('hey 1');
+});
+
+
 router.post('/post', (req, res) => {
-    let params = req.body.params;
-    console.log(params);
-    // TODO - refactor the uploader callback to a async promise
-    createProblemHtml(params, filename, uploader);
-    res.send('okay!');
-    filname = guid() + ".html";
-    console.log("renamed filename to " + filname);
+
+  function guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+      s4() + '-' + s4() + s4() + s4();
+  };
+  
+  let filename = guid() + ".html";
+  console.log("first created filename " + filename)
+
+  let params = req.body.params;
+  //console.log(params);
+  // TODO - refactor the uploader callback to a async promise
+  createProblemHtml(params, filename, uploader);
+  console.log('2');
+  res.send({filename: filename});
 });
 
 
@@ -40,6 +53,8 @@ router.post('/post', (req, res) => {
 const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/test?retryWrites=true";
 
 router.post('/auth', (req, res) => {
+  console.log("req is ");
+  console.log(req.body);
   let params = req.body.params;
   console.log("uri is  " + uri);
 

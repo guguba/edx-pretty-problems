@@ -29,10 +29,10 @@ let createProblemHtml = (params, filename, callbackUploader) => {
     var fs = require('fs');
     
     let userId = params.userId;
-    console.log('params are');
-    console.log(params)
+    //console.log('params are');
+    //console.log(params);
 
-    let folderPath = "./problem_htmls/" + userId + '/';
+    let folderPath = "../../problem_htmls/" + userId + '/';
     //add the folder if doesnt exist
     if (!fs.existsSync(folderPath)) {fs.mkdir(folderPath, function (err){
         if (err) {

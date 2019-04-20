@@ -51,7 +51,7 @@ class Routing extends Component {
 
       const authParams = {
          method: 'POST',
-            headers: {
+         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
          },
@@ -59,7 +59,7 @@ class Routing extends Component {
       };
       const request = new Request('/api/auth', authParams);
       const response = await fetch(request);
-      const body = await response.json();    
+      const body = await response.json();  
       return body;
    }
 
