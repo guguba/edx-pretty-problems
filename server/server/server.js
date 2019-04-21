@@ -3,9 +3,6 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 const api = require('../api/api');
 const problemsRouter = require('../problems_renderer/problems');
 
