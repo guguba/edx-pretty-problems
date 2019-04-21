@@ -71,26 +71,35 @@ class MultipleChoice extends Component {
             },
             body: body
         };
-        
+
         let filename;
 
-        fetch('/api/post', options)
-            .then(res => {
-                return  res.json();
-            })
-            .then(res => {
-                console.log('bbb');
-                console.log(res.filename);
-                this.props.setFilename(res.filename);
-            })
-            .catch(function(error) {
-                console.log('There has been a problem with your fetch operation: ', error.message);
-              });
+        try {
+            const res = await fetch('/api/post', options)
+            const json = await res.json();
+            this.props.setFilename(json.filename);
+        } catch (error) {
+            console.log('There has been a problem with your fetch operation: ', error.message);
+        }
+
+
+        // fetch('/api/post', options)
+        //     .then(res => {
+        //         return  res.json();
+        //     })
+        //     .then(res => {
+        //         console.log('bbb');
+        //         console.log(res.filename);
+        //         this.props.setFilename(res.filename);
+        //     })
+        //     .catch(function(error) {
+        //         console.log('There has been a problem with your fetch operation: ', error.message);
+        //       });
 
         return "testing";
-        
+
     }
-    
+
     onSubmit() {
         //one missing answer will make this false
         let textValidation = true;
