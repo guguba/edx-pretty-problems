@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "scripts": {
         "client": "cd client && npm start",
-        "server": "cd server/server && nodemon --inspect server.js",
-        "start": "cd server/server && node server.js",
+        "server": "nodemon server/server/server.js",
+        "start": "node server/server/server.js",
         "start:dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
     },
     "dependencies": {
