@@ -12,46 +12,38 @@ const api = express.Router()
 
 api.use('/problem',problem_api)
 
+// used for authentication and problem uploading to the DB
+const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/test?retryWrites=true";
 
-
-
-api.get('/uuid', (req, res) => {
-  console.log(filename);
-  res.send({ express: filename });
-});
-
-
+ // TODO change name to problem
 
 api.post('/post', (req, res) => {
 
-  function guid() {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-      s4() + '-' + s4() + s4() + s4();
-  };
-  
-  let filename = guid() + ".html";
-  console.log("first created filename " + filename)
-
   let params = req.body.params;
-  //console.log(params);
+  console.log('params are ');
+  console.log(params);
   // TODO - refactor the uploader callback to a async promise
   createProblemHtml(params, filename, uploader);
   console.log('2');
-  res.send({filename: filename});
+  //res.send({filename: filename});
+
+  // uploading the problem to the DB and retrieving the uuid
+
+  MongoClient.connect(uri, { useNewUrlParser: true })
+  .then((client) => {
+    const dbo = client.db("designedx");
+    console.log('adding problem');
+    dbo.collection("problems").insertOne(params)
+    .then( response => res.send({ id: response.insertedId }) )
+    .catch( err => console.log(`Failed to insert problem: ${err}`) )
+  })
 });
 
 
-// mongodb API
-
-const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/test?retryWrites=true";
+// authentications API - login and signup
 
 api.post('/auth', (req, res) => {
-   console.log("req is ");
+  console.log("req is ");
   console.log(req.body); 
   let params = req.body.params;
   console.log("uri is  " + uri);

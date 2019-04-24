@@ -76,26 +76,14 @@ class MultipleChoice extends Component {
         try {
             const res = await fetch('/api/post', options)
             const json = await res.json();
-            this.props.setFilename(json.filename);
+            this.props.setFilename(json.id + '.html');
+            console.log('problemId');
+            console.log(json.id);
         } catch (error) {
             console.log('There has been a problem with your fetch operation: ', error.message);
         }
 
-
-        // fetch('/api/post', options)
-        //     .then(res => {
-        //         return  res.json();
-        //     })
-        //     .then(res => {
-        //         console.log('bbb');
-        //         console.log(res.filename);
-        //         this.props.setFilename(res.filename);
-        //     })
-        //     .catch(function(error) {
-        //         console.log('There has been a problem with your fetch operation: ', error.message);
-        //       });
-
-        return "testing";
+        return;
 
     }
 
