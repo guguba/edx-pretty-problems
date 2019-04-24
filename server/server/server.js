@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const api = require('../api/api');
-const problemsRouter = require('../problems_renderer/problems');
+const problemsRouter = require('../problems_renderer/problems_renderer');
 
 
 app.use(express.static('build'));

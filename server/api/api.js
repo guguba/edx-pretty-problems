@@ -3,28 +3,26 @@ const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
 
 const createProblemHtml = require('../server/createHTML');
-const problemsRouter = require('../problems_renderer/problems')
+const problemsRouter = require('../problems_renderer/problems_renderer')
 const uploader = require('../server/upload');
 const filename = require('../server/server');
 const problem_api = require('./problems_api');
 
 const api = express.Router()
 
-api.use('/problem',problem_api)
+//api.use('/problem',problem_api)
 
 // used for authentication and problem uploading to the DB
 const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/test?retryWrites=true";
 
  // TODO change name to problem
 
-api.post('/post', (req, res) => {
+api.post('/problem', (req, res) => {
 
   let params = req.body.params;
   console.log('params are ');
   console.log(params);
   // TODO - refactor the uploader callback to a async promise
-  createProblemHtml(params, filename, uploader);
-  console.log('2');
   //res.send({filename: filename});
 
   // uploading the problem to the DB and retrieving the uuid

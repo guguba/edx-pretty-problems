@@ -74,7 +74,7 @@ class MultipleChoice extends Component {
         let filename;
 
         try {
-            const res = await fetch('/api/post', options)
+            const res = await fetch('/api/problem', options)
             const json = await res.json();
             this.props.setFilename(json.id + '.html');
             console.log('problemId');
