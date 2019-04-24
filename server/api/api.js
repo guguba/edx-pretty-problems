@@ -32,7 +32,10 @@ api.post('/problem', (req, res) => {
     const dbo = client.db("designedx");
     console.log('adding problem');
     dbo.collection("problems").insertOne(params)
-    .then( response => res.send({ id: response.insertedId }) )
+    .then( response => {
+      res.send({ id: response.insertedId });
+      createProblemHtml(params, response.insertedId + '.html', uploader);
+    })
     .catch( err => console.log(`Failed to insert problem: ${err}`) )
   })
 });

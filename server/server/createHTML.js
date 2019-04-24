@@ -86,64 +86,63 @@ let htmlTemplate = (params) => {
     
     
     return (
-        '<!doctype html>' + '\n' +
-        '<html lang="en">'  + '\n' +
+        `<!doctype html>
+        <html lang="en"> 
 
-          '<head>' + '\n' +
-            '<meta charset="UTF-8">' + '\n' +
-            '<title>Untitled Document</title>' + '\n' +
-            '<link rel="stylesheet" href="https://s3.us-east-2.amazonaws.com/edx-js-problems/styles.css">' + '\n' +
+          <head>
+            <meta charset="UTF-8">
+            <title>Untitled Document</title>
+            <link rel="stylesheet" href="https://s3.us-east-2.amazonaws.com/edx-js-problems/styles.css">
 
-          '</head>'  + '\n' +
+          </head> 
 
-          '<body>' + '\n' +
-            '<script src="https://studio.edx.org/c4x/edX/DemoX/asset/jschannel.js"></script>' + '\n' +
-            '<script defer>' + '\n' +
+          <body>
+            <script src="https://studio.edx.org/c4x/edX/DemoX/asset/jschannel.js"></script>
+            <script defer>
 
-                'var try1 = (function() {' + '\n' +
+                var try1 = (function() {
 
-                    'let channel;' + '\n' +
+                    let channel;
 
-                    'if (window.parent !== window) {' + '\n' +
-                        'channel = Channel.build({' + '\n' +
-                            'window: window.parent,' + '\n' +
-                            'origin: "*",' + '\n' +
-                            'scope: "JSInput"' + '\n' +
-                        '});' + '\n' +
+                    if (window.parent !== window) {
+                        channel = Channel.build({
+                            window: window.parent,
+                            origin: "*",
+                            scope: "JSInput"
+                        });
 
-                        'channel.bind("getGrade", getGrade);' + '\n' +
-                    '}' + '\n' +
+                        channel.bind("getGrade", getGrade);
+                    }
 
-                    'function getGrade() {' + '\n' +
-                        'let corrects = [];' + '\n' +
-                        'let correct = true;' + '\n' +
-                        'for (let i=0 ; i< ' + numOfAnswers + ' ; i++) {' + '\n' +
-                            'corrects.push(document.getElementById("option" + i).checked);' + '\n' +
-                        '}' + '\n' +
-                        'correct = (JSON.stringify(corrects) === "' + JSON.stringify(corrects) + '")' + '\n' +
-                        //'let answer = document.getElementById("option' + correct + '").checked;' + '\n' +
-                        'correct = correct ? "correct" : "";' + '\n' +
-                        'return JSON.stringify({' + '\n' +
-                            'answer: correct' + '\n' +
-                        '});' + '\n' +
-                    '};' + '\n' +
+                    function getGrade() {
+                        let corrects = [];
+                        let correct = true;
+                        for (let i=0 ; i< ${numOfAnswers} ; i++) {
+                            corrects.push(document.getElementById("option" + i).checked);
+                        }
+                        correct = (JSON.stringify(corrects) === ${JSON.stringify(corrects)})
+                        correct = correct ? "correct" : "";
+                        return JSON.stringify({
+                            answer: correct
+                        });
+                    };
 
-                    'return {' + '\n' +
-                        'getGrade: getGrade,' + '\n' +
-                    '};' + '\n' +
-                '}());' + '\n' +    
+                    return {
+                        getGrade: getGrade,
+                    };
+                }());    
 
-              '</script>' + '\n' +
-              '<script>' + '\n' + 
-                'let elem = document.querySelector("html");' + '\n' + 
-                'elem.style.setProperty("--primary-color", "' + primaryColor + '");' + '\n' + 
-              '</script>' + '\n' + 
-              question +
-              '<div class="box ' + rtl + '">' + '\n' +
-                inputs
-              + '</div>' + '\n' +
-          '</body>' + '\n' +
+              </script>
+              <script> 
+                let elem = document.querySelector("html"); 
+                elem.style.setProperty("--primary-color", ${primaryColor}); 
+              </script> 
+              ${question}
+              <div class="box  ${rtl}>
+              ${inputs}
+              </div>
+          </body>
 
-        '</html>'    
+        </html>`  
     )
 } 
