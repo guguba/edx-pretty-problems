@@ -21,7 +21,6 @@ class Output extends Component {
     // 2 rem up and sown margin, plus 3 rem per option, plus 2 per each option to to borders
     // let height =  (4 + (numOfOptions * 3))  * remInPixels + (numOfOptions)*2;
     let elem = document.getElementsByClassName('problem-external-box')[0];
-    console.log(elem)
     let height;
     if (elem) {
         height = getComputedStyle(elem).height;

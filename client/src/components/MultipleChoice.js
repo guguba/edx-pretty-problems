@@ -54,7 +54,6 @@ class MultipleChoice extends Component {
     }
     
     async sendJson() {
-        console.log('sending jspn ');
         let params = {
             question: this.state.question,
             options: {...this.state.options},
@@ -122,14 +121,6 @@ class MultipleChoice extends Component {
                 validation: newValidation
             });
             this.sendJson()
-                .then(
-                    res => {
-                        console.log('heyyyy'); 
-                        console.log(res) 
-
-                    }
-                ) 
-                     
             this.props.showOutput();
         }
         else {

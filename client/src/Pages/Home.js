@@ -36,16 +36,7 @@ class Home extends Component {
         });
     }
     
-    
-  callApi = async () => {
-    const response = await fetch('/api/uuid');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-    
+   
     onStyleChange(e, style) {
         let target = e.target;
         let val;
@@ -72,7 +63,6 @@ class Home extends Component {
             val = target.value;
             let elem = document.getElementById("root");
             elem.style.setProperty("--primary-font", val);
-            console.log(val);
         }
         newStyler[style] = val;
         this.setState({
@@ -81,16 +71,7 @@ class Home extends Component {
         
     }
     
-    getUuid() {
-        console.log("getting UUID");
-        return this.callApi()
-          .then(res => {console.log(res.express); this.setState({fileName: res.express})})
-          .catch(err => console.log(err));
-    }
-
     setFilename(filename) {
-        console.log('setting filename')
-        console.log(filename)
         this.setState({fileName: filename})
     }
 
@@ -107,7 +88,7 @@ class Home extends Component {
         <Header onLogout={this.props.onLogout} user={this.props.user}></Header>,
         <div className="app-content">
             <Styler styler={this.state.styler} onStyleChange={(e, style)=>this.onStyleChange(e, style)}/>
-            <MultipleChoice user={this.props.user} styler={this.state.styler} showOutput={(e) => this.showOutput(e)} setFilename={(e) => this.setFilename(e)} getUuid={(e) => this.getUuid(e)}/>
+            <MultipleChoice user={this.props.user} styler={this.state.styler} showOutput={(e) => this.showOutput(e)} setFilename={(e) => this.setFilename(e)}/>
             <Output user={this.props.user} fileName={this.state.fileName} showOutput={this.state.showOutput}/>
         </div>
         ]

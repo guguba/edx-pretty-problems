@@ -26,8 +26,6 @@ class Styler extends Component {
         let newOption = <option value={font}>{font}</option>
         fontOptions.push(newOption)
       }
-      console.log("fontOptions");
-      console.log(fontOptions);
 
     return (
         <div className="widget-external-box">
