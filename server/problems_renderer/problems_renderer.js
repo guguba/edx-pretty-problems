@@ -23,17 +23,17 @@ problems.get('/multipleChoice/:id', function (req, res) {
       dbo.collection("problems").findOne(problemId)
         .then((response) => {
           if (response) {
-            params = response;
+            // params = response;
 
-            let questionText = params.question;
-            let options = params.options;
-            let type = params.styler.type;
-            let primaryColor = params.styler.primaryColor;
-            let rtl = (params.styler.textDirection === "rtl") ? "rtl" : '';
+            let questionText = response.question;
+            let options = response.options;
+            let type = response.styler.type;
+            let primaryColor = response.styler.primaryColor;
+            let rtl = (response.styler.textDirection === "rtl") ? "rtl" : '';
 
             //inputs
             let inputs = '';
-/*             let corrects = [];
+            let corrects = [];
             for (let i in options) {
               let addition =
                 '<input type="' + type + '" id="option' + i + '" value="' + i + '" name="example">' + '\n' +
@@ -43,18 +43,15 @@ problems.get('/multipleChoice/:id', function (req, res) {
 
               corrects.push(options[i].selected);
             }
- */
+
             res.render('problems', {
               options,
+              corrects,
               optionLength: options.length,
               primaryColor,
               questionText,
               rtl,
               type,
-
-              helpers: {
-                concat: function () { return Array.prototype.slice.call(arguments).reduce((a, b) => a + b) },
-            }
             })
 
           } else res.send({

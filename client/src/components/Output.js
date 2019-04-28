@@ -5,11 +5,11 @@ import '../styles/mystyle.css';
 
 
 class Output extends Component {
-    
+
     constructor(props) {
         super(props);
     }
-    
+
   render() {
 
     let userId = this.props.user.userId;
@@ -26,34 +26,34 @@ class Output extends Component {
         height = getComputedStyle(elem).height;
         height = parseInt(height);
         height -= 117;
-    }    
+    }
 
 
 
-      
-    let output = 
+
+    let output =
         '<problem>' + '\n' +
-        '<customresponse cfn="check_function">' + '\n' + 
-        '<script type="loncapa/python">' + '\n' + 
-        '<![CDATA[' + '\n' + 
-        'import json' + '\n' + 
-        'def check_function(e, ans):' + '\n' + 
-        ' response = json.loads(ans)' + '\n' + 
-        ' answer = response["answer"]' + '\n' + 
-        ' return answer == "correct"' + '\n' + 
-        ']]>' + '\n' + 
-        '</script>' + '\n' + 
-            ' <jsinput' + '\n' + 
-                '  gradefn="try1.getGrade"' + '\n' + 
-                '  width="600"' + '\n' + 
-                '  height="' + height + '"' + '\n' + 
-                '  html_file="https://s3.us-east-2.amazonaws.com/edx-js-problems/problem_htmls/' + userId + '/' + this.props.fileName + '"' + '\n' + 
-                '  title="Dropdown with Dynamic Text"' + '\n' + 
-                '  sop="false"/>' + '\n' + 
-            ' </customresponse>' + '\n' + 
+        '<customresponse cfn="check_function">' + '\n' +
+        '<script type="loncapa/python">' + '\n' +
+        '<![CDATA[' + '\n' +
+        'import json' + '\n' +
+        'def check_function(e, ans):' + '\n' +
+        ' response = json.loads(ans)' + '\n' +
+        ' answer = response["answer"]' + '\n' +
+        ' return answer == "correct"' + '\n' +
+        ']]>' + '\n' +
+        '</script>' + '\n' +
+            ' <jsinput' + '\n' +
+                '  gradefn="try1.getGrade"' + '\n' +
+                '  width="600"' + '\n' +
+                '  height="' + height + '"' + '\n' +
+                '  html_file="' + this.props.fileName + '"' + '\n' +
+                '  title="Dropdown with Dynamic Text"' + '\n' +
+                '  sop="false"/>' + '\n' +
+            ' </customresponse>' + '\n' +
         '</problem>'
       let showOutput = this.props.showOutput ? output : '';
-      
+
     return (
         <div className="widget-external-box">
             <div className="box-header">
