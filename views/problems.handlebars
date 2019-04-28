@@ -13,6 +13,8 @@
     <script defer>
 
         var try1 = (function () {
+          var dbCorrects = [{{ corrects}}];
+          console.log({dbCorrects})
 
             let channel;
 
@@ -28,26 +30,26 @@
 
             function getGrade() {
                 let corrects = [];
-                let correct = true;
-                for (let i = 0; i < optionLength; i++) {
-                corrects.push(document.getElementById("option" + i).checked);
-            }
-            correct = (JSON.stringify(corrects) === JSON.stringify({{ corrects }}))
-            correct = correct ? "correct" : "";
-        return JSON.stringify({
-            answer: correct
-        });
+                // let correct = true;
+                for (let i = 0; i < dbCorrects.length; i++) {
+                    corrects.push(document.getElementById("option" + i).checked);
+                }
+                var isCorrect = (JSON.stringify(corrects) === JSON.stringify(dbCorrects))
+                // correct = correct ? "correct" : "";
+                return JSON.stringify({
+                    answer: isCorrect ? "correct" : ""
+                });
             };
 
-        return {
-            getGrade: getGrade,
-        };
+            return {
+                getGrade: getGrade,
+            };
         }());
 
     </script>
     <script>
         let elem = document.querySelector("html");
-        elem.style.setProperty("--primary-color", {{primaryColor}}); 
+        elem.style.setProperty("--primary-color", "{{primaryColor}}");
     </script>
         {{#if questionText}}
         <div class="question-text">
@@ -58,8 +60,8 @@
         {{/if}}
     <div class="box" {{rtl}}>
         {{#each options}}
-            <input type={{../type}} id={{concat 'option' @index}} value={{@index}} name="example">
-            <label class={{../type}} for={{concat 'option' @index}}>{{this.text}}</label>
+            <input type={{../type}} id="option{{@index}}" value={{@index}} name="example">
+            <label class={{../type}} for="option{{@index}}">{{this.text}}</label>
         {{/each}}
     </div>
 </body>
