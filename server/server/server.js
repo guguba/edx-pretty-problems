@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
+var cors = require('cors')
 
 const app = express();
+app.use(cors())
 
 const api = require('../api/api');
 const problemsRouter = require('../problems_renderer/problems_renderer');
