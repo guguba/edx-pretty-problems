@@ -1,6 +1,67 @@
-<div class="entry">
-    <h1>{{title}}</h1>
-    <div class="body">
-        {{body}}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <link rel="stylesheet" href="https://s3.us-east-2.amazonaws.com/edx-js-problems/styles.css">
+
+</head>
+
+<body>
+    <script src="https://studio.edx.org/c4x/edX/DemoX/asset/jschannel.js"></script>
+    <script defer>
+
+        var try1 = (function () {
+
+            let channel;
+
+            if (window.parent !== window) {
+                channel = Channel.build({
+                    window: window.parent,
+                    origin: "*",
+                    scope: "JSInput"
+                });
+
+                channel.bind("getGrade", getGrade);
+            }
+
+            function getGrade() {
+                let corrects = [];
+                let correct = true;
+                for (let i = 0; i < optionLength; i++) {
+                corrects.push(document.getElementById("option" + i).checked);
+            }
+            correct = (JSON.stringify(corrects) === JSON.stringify({{ corrects }}))
+            correct = correct ? "correct" : "";
+        return JSON.stringify({
+            answer: correct
+        });
+            };
+
+        return {
+            getGrade: getGrade,
+        };
+        }());
+
+    </script>
+    <script>
+        let elem = document.querySelector("html");
+        elem.style.setProperty("--primary-color", {{primaryColor}}); 
+    </script>
+        {{#if questionText}}
+        <div class="question-text">
+            <p class={{rtl}}
+                {{questionText}}
+            </p>
+        </div>
+        {{/if}}
+    <div class="box" {{rtl}}>
+        {{#each options}}
+            <input type={{../type}} id={{concat 'option' @index}} value={{@index}} name="example">
+            <label class={{../type}} for={{concat 'option' @index}}>{{this.text}}</label>
+        {{/each}}
     </div>
-</div>
+</body>
+
+</html>

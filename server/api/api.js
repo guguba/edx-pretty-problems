@@ -2,12 +2,6 @@ const express = require('express')
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
 
-const createProblemHtml = require('../server/createHTML');
-const problemsRouter = require('../problems_renderer/problems_renderer')
-const uploader = require('../server/upload');
-const filename = require('../server/server');
-const problem_api = require('./problems_api');
-
 const api = express.Router()
 
 //api.use('/problem',problem_api)
@@ -33,8 +27,10 @@ api.post('/problem', (req, res) => {
     console.log('adding problem');
     dbo.collection("problems").insertOne(params)
     .then( response => {
-      res.send({ id: response.insertedId });
-      createProblemHtml(params, response.insertedId + '.html', uploader);
+      res.send({ url: '/problems/multipleChoice/' + response.insertedId });
+      //createProblemHtml(params, response.insertedId + '.html', uploader);
+      //params.userId = response.insertedId;
+      //const res = await fetch('/problemsRouter/multipleChoice', params);
     })
     .catch( err => console.log(`Failed to insert problem: ${err}`) )
   })

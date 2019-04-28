@@ -58,7 +58,7 @@ class MultipleChoice extends Component {
             question: this.state.question,
             options: {...this.state.options},
             userId: this.props.user.userId,
-            ...this.props.styler,
+            styler: this.props.styler,
         }
         //refactor required
         let body = JSON.stringify({params: params});
