@@ -13,14 +13,15 @@ import Home from './Pages/Home'
 import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
 import Marketing from './Pages/Marketing'
+import { Client_config } from "./client_config";
 
-// Private Route HOC 
+// Private Route HOC
 const PrivateRoute = ({ component, exact = false, path, authenticated }) => (
     <Route
        exact={exact}
        path={path}
        render={props =>
-          authenticated 
+          authenticated
           ? (React.createElement(component, props))
           : (
                 <Redirect
@@ -36,11 +37,11 @@ class Routing extends Component {
 
    user = JSON.parse(localStorage.getItem('designedx-user'))
 
-   state = { 
+   state = {
       loggedIn: this.user ? true : false,
       user: this.user ? this.user : ''
     }
-   
+
    authenticate = async (username, email, password, action) => {
       let params = JSON.stringify({params: {
          username: username,
@@ -57,13 +58,14 @@ class Routing extends Component {
          },
          body: params
       };
-      const request = new Request('/api/auth', authParams);
+
+      const request = new Request(Client_config.SERVER + '/api/auth', authParams);
       const response = await fetch(request);
-      const body = await response.json();  
+      const body = await response.json();
       return body;
    }
 
- 
+
     handleLogin = (username, password) => {
        // sending login (email is left blank)
       this.authenticate(username, '', password, 'login')
@@ -103,7 +105,7 @@ class Routing extends Component {
             }
          })
          .catch(err => console.log(err));
-      } 
+      }
       else {
          document.getElementsByClassName('login-validation')[0].innerHTML = 'Please fill all fields';
          document.getElementsByClassName('login-validation')[0].style.visibility = 'visible';
@@ -115,7 +117,7 @@ class Routing extends Component {
       this.setState({ loggedIn: false, user: null })
     }
 
- 
+
     routes() {
        let { loggedIn } = this.state
        const routeArr = [
@@ -123,8 +125,8 @@ class Routing extends Component {
              exact
              path="/"
              component={() =>
-                loggedIn 
-                ? (<Redirect to="/home" />) 
+                loggedIn
+                ? (<Redirect to="/home" />)
                 : (<Redirect to="/marketing" />)}
           />,
           <PrivateRoute
@@ -137,14 +139,14 @@ class Routing extends Component {
           <Route key="signup" exact path="/signup" component={() => <SignupPage loggedIn={loggedIn} onSignup={this.handleSignup} />} />,
           <Route key="marketing" exact path="/marketing" component={() => <Marketing loggedIn={loggedIn} />} />,
        ];
- 
+
        if (!loggedIn) {
           routeArr.push(<Redirect key="loginRedirect" to="/login" />);
        }
- 
+
        return routeArr;
     }
- 
+
     render() {
        return (
           <Router>
@@ -153,7 +155,7 @@ class Routing extends Component {
        )
     }
  }
- 
+
  const App = () => (
     <div>
         <FullStory org="K3EEH" />
@@ -162,5 +164,5 @@ class Routing extends Component {
         </div>
     </div>
  )
- 
+
 export default App

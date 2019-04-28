@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/mystyle.css';
 import translations from '../Translations/translations';
+import {Client_config} from '../client_config'
+
 
 let emptyOptions = [
     {
@@ -22,7 +24,7 @@ let emptyOptions = [
 ]
 
 class MultipleChoice extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -34,7 +36,7 @@ class MultipleChoice extends Component {
             }
         };
     }
-    
+
     //controls the checkboxes for radio/checkbox behaviors
     onSelect(e) {
         //debugger;
@@ -48,11 +50,11 @@ class MultipleChoice extends Component {
             for (let key in options) {
                 options[key].selected = false;
             }
-        } 
+        }
         options[arrayId].selected = checked;
         this.setState({options: options})
     }
-    
+
     async sendJson() {
         let params = {
             question: this.state.question,
@@ -74,11 +76,9 @@ class MultipleChoice extends Component {
         let filename;
 
         try {
-            const res = await fetch('/api/problem', options)
+            const res = await fetch( Client_config.SERVER + '/api/problem', options)
             const json = await res.json();
-            this.props.setFilename(json.id + '.html');
-            console.log('problemId');
-            console.log(json.id);
+            this.props.setFilename(Client_config.SERVER + json.url);
         } catch (error) {
             console.log('There has been a problem with your fetch operation: ', error.message);
         }
@@ -116,13 +116,13 @@ class MultipleChoice extends Component {
             if (!textValidation) {newValidation.text = "Please fill all 4 answers"};
             if (!selectValidation) {newValidation.text = "Please select at least one answer"};
             if (!textValidation && !selectValidation) {newValidation.text = "Please fill all 4 answers and select at least one answer"};
-            
+
             this.setState({
                 validation: newValidation
             })
         }
     }
-    
+
     // TODO - requires rafactor!!!
     //workaround to cancel the multiple checkmarks when switching to radio mode
     checkChangeToRadio() {
@@ -182,9 +182,9 @@ class MultipleChoice extends Component {
             options: options
         })
     }
-    
+
   render() {
-      
+
       this.checkChangeToRadio();
       let type = this.props.styler.type;
       let arrOfOptions = [];
@@ -214,8 +214,8 @@ class MultipleChoice extends Component {
       let validationStyle = {visibility: this.state.validation.show ? 'visible' : 'hidden'};
     return (
         <div className="problem-external-box">
-            <div className="question-text"><p 
-            contenteditable="true" 
+            <div className="question-text"><p
+            contenteditable="true"
             placeholder={langStrings.question}
             className={this.props.styler.textDirection}
             onInput={(e)=>this.onUpdateQuestion(e)}
@@ -224,7 +224,7 @@ class MultipleChoice extends Component {
                 {arrOfOptions}
                 <label className="add-option" onClick={(e)=>this.onAddOption(e)}>{langStrings.addOption}</label>
             </div>
-            
+
             <p style={validationStyle} className="validation">{this.state.validation.text}</p>
             <button onClick={()=>this.onSubmit()}>Create</button>
         </div>
