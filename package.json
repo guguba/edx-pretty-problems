@@ -2,8 +2,8 @@
     "name": "js-problems",
     "version": "1.0.0",
     "scripts": {
-        "client:local": "cd client && REACT_APP_ENV=local npm start",
-        "client:prod": "cd client && REACT_APP_ENV=prod npm start",
+        "client:local": "cd client && SET REACT_APP_ENV=local && npm start",
+        "client:prod": "cd client && SET REACT_APP_ENV=prod && npm start",
         "server": "nodemon server/server/server.js",
         "start": "node server/server/server.js",
         "start:dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client:local\""
