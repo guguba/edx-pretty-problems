@@ -2,8 +2,8 @@
     "name": "js-problems",
     "version": "1.0.0",
     "scripts": {
-        "client:local": "cd client && SET REACT_APP_ENV=local && npm start",
-        "client:prod": "cd client && SET REACT_APP_ENV=prod && npm start",
+        "client:local": "cd client && cross-env REACT_APP_ENV=local && npm start",
+        "client:prod": "cd client && cross-env REACT_APP_ENV=prod && npm start",
         "server": "nodemon server/server/server.js",
         "start": "node server/server/server.js",
         "start:dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client:local\""
@@ -34,6 +34,7 @@
     },
     "proxy": "http://localhost:5000/",
     "devDependencies": {
+        "cross-env": "^5.2.0",
         "node-sass": "^4.12.0",
         "nodemon": "^1.18.4",
         "sass": "^1.14.0",
