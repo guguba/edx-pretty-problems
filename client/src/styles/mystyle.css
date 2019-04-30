@@ -7,7 +7,7 @@ html {
   font-family: 'Segoe UI', 'Open Sans', sans-serif;
   background: #f1f1f1;
   color: #333;
-  text-align: center;
+  text-align: left;
 }
 
 body {
@@ -25,6 +25,8 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  --primary-color: #e0758e;
+  --primary-font: "Segoe UI";
 }
 
 .container {
@@ -39,6 +41,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 h1, h2, h3 {
@@ -58,14 +65,14 @@ h1, h2, h3 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: #e0758e;
 }
 
 .header .logo-box {
-  margin-left: 20px;
-  color: #e0758e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -87,23 +94,21 @@ h1, h2, h3 {
   font-weight: normal;
 }
 
-.my-profile {
+.header .my-profile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.my-profile p {
+.header .my-profile p {
   margin-right: 40px;
-  color: #e0758e;
-  font-size: 15px;
 }
 
-.my-profile #logout {
+.header .my-profile #logout {
   cursor: pointer;
 }
 
-.my-profile #logout:hover {
+.header .my-profile #logout:hover {
   color: #794d57;
 }
 
@@ -117,19 +122,61 @@ h1, h2, h3 {
           justify-content: space-evenly;
 }
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-}
-
 .widget-external-box {
   height: 100%;
   width: 25%;
   margin-top: 2rem;
   background: white;
   border-radius: 3px;
-  text-align: left;
   padding-bottom: 15px;
+}
+
+.widget-external-box .widget-header {
+  border-radius: 3px 3px 0 0;
+  background-color: #E4E4E4;
+}
+
+.widget-external-box .widget-header h2 {
+  font-size: 1.3rem;
+  line-height: 50px;
+  font-weight: 100;
+  margin-left: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.widget-external-box h3 {
+  font-size: 15px;
+  font-weight: 200;
+  margin: 15px 0 5px 15px;
+}
+
+.widget-external-box .radio {
+  border: 0px;
+  padding: .5rem 1rem .5rem 3rem;
+  height: 2rem;
+}
+
+.widget-external-box .radio.radio:before {
+  top: 0.5rem;
+}
+
+.widget-external-box input:checked + .radio {
+  color: #e0758e;
+}
+
+.widget-external-box input:checked + .radio:before {
+  background-color: #e0758e;
+}
+
+.widget-external-box .output {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin: 15px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  height: 500px;
 }
 
 .problem-external-box {
@@ -145,22 +192,21 @@ h1, h2, h3 {
   margin-top: 2rem;
   background: white;
   border-radius: 3px;
-  text-align: left;
-  background-color: white;
-  font-family: "Segoe UI", "Open Sans", sans-serif;
+  background-color: var(--primary-color);
+  font-family: var(--primary-font), "Open Sans", sans-serif;
 }
 
 .problem-external-box label {
-  background-color: #e0758e;
+  background-color: white;
 }
 
 .problem-external-box label input {
-  background-color: #e0758e;
+  background-color: white;
 }
 
 .problem-external-box button {
-  background-color: #e0758e;
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
   border-radius: 1px;
   padding: 5px 10px;
@@ -168,24 +214,6 @@ h1, h2, h3 {
   margin: 1rem 2rem;
   -ms-flex-item-align: end;
       align-self: flex-end;
-}
-
-.box-header {
-  width: 100%;
-  height: 50px;
-  border-radius: 3px 3px 0 0;
-  background-color: #E4E4E4;
-}
-
-.box-header h2 {
-  margin: 0;
-  font-size: 20px;
-  line-height: 50px;
-  font-weight: 100;
-  margin-left: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .question-text {
@@ -196,7 +224,7 @@ h1, h2, h3 {
 .question-text p {
   border: none;
   background: none;
-  color: #e0758e;
+  color: white;
   opacity: 1;
   font-family: inherit;
   font-size: inherit;
@@ -207,7 +235,7 @@ h1, h2, h3 {
 
 .question-text :empty:before {
   content: attr(placeholder);
-  color: rgba(224, 117, 142, 0.5);
+  color: #ddd;
 }
 
 .question-text :focus {
@@ -231,6 +259,8 @@ h1, h2, h3 {
   right: 1rem;
   top: 0.25rem;
   cursor: pointer;
+  color: white;
+  opacity: 0.6;
 }
 
 .box.rtl {
@@ -265,26 +295,6 @@ h1, h2, h3 {
 
 .add-option:before {
   content: none;
-}
-
-.output {
-  color: gray;
-  white-space: pre-wrap;
-  height: 500px;
-  margin: 15px;
-  word-wrap: break-word;
-}
-
-h3 {
-  font-size: 15px;
-  font-weight: 200;
-  margin: 15px 0 5px 15px;
-}
-
-p {
-  color: #fff;
-  font-size: .9rem;
-  opacity: .6;
 }
 
 /*****
@@ -338,12 +348,12 @@ input[type=checkbox] {
  * How it should look when hovered
  */
 .active-label, label:focus, label:active, label:hover, label:hover .labelInput, input:checked + label, input:checked + label .labelInput {
-  color: #e0758e;
+  color: var(--primary-color);
 }
 
 .active-label:before, label:focus:before, label:active:before, label:hover:before, label:hover .labelInput:before, input:checked + label:before, input:checked + label .labelInput:before {
   background: white;
-  border-color: #e0758e;
+  border-color: var(--primary-color);
 }
 
 /**
@@ -392,24 +402,6 @@ label.radio:before {
   border-radius: 50%;
 }
 
-.widget-external-box label {
-  border: 0px;
-  padding: .5rem 1rem .5rem 3rem;
-  height: 2rem;
-}
-
-.widget-external-box label.radio:before {
-  top: 0.5rem;
-}
-
-.widget-external-box input:checked + label {
-  color: #e0758e;
-}
-
-.widget-external-box input:checked + label:before {
-  background-color: #e0758e;
-}
-
 .labelInput {
   font-size: 1rem;
   height: 1rem;
@@ -446,7 +438,7 @@ label.radio:before {
 input:checked + label:before {
   border-color: white;
   border: none;
-  background: #e0758e;
+  background: var(--primary-color);
 }
 
 /**
@@ -498,7 +490,7 @@ input:disabled + label:before {
   margin-left: 15px;
 }
 
-.picker.dropdown {
+.dropdown {
   position: relative;
   background-color: white;
   width: auto;
@@ -508,7 +500,7 @@ input:disabled + label:before {
   border-radius: 3px;
 }
 
-.picker.dropdown select {
+.dropdown select {
   cursor: pointer;
   font-family: 'Segoe UI', 'Open Sans', 'sans-serif';
   font-size: 1rem;
@@ -522,13 +514,13 @@ input:disabled + label:before {
   appearance: none;
 }
 
-.picker.dropdown select:active, .picker.dropdown select:focus {
+.dropdown select:active, .dropdown select:focus {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.picker.dropdown:after {
+.dropdown:after {
   content: " ";
   position: absolute;
   top: 50%;

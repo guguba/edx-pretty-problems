@@ -20,7 +20,7 @@ class Login extends Component {
       
     return (
         [<div className="widget-external-box">
-            <div className="box-header">
+            <div className="widget-header">
                 <h2>Log in</h2>
             </div>
             <div className="options-box">

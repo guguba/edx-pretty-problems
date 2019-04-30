@@ -1,0 +1,57 @@
+.widget-external-box {
+    height: 100%;
+    width: 25%;
+    margin-top: 2rem;
+    background: white;
+    border-radius: 3px;
+    padding-bottom: 15px;
+
+    .widget-header {
+        border-radius: 3px 3px 0 0;
+        background-color: #E4E4E4;
+            
+        h2 {
+            font-size: 1.3rem;
+            line-height: 50px;
+            font-weight: 100;
+            margin-left: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    h3 {
+        font-size: 15px;
+        font-weight: 200;
+        margin: 15px 0 5px 15px;
+    }
+
+    .radio {
+        border: 0px;
+        padding: .5rem 1rem .5rem 3rem;
+        height: 2rem;
+        &.radio:before {
+            top: 0.5rem;
+        }
+    }
+
+    //might be able to remove
+    input:checked + .radio{
+        color:  #e0758e;
+        &:before {
+            background-color: #e0758e;
+        }
+    }
+
+    .output {
+        font-size: 0.9rem;
+        color: #bbb;
+        margin: 15px;       
+        white-space: pre-wrap;
+        word-wrap: break-word;
+
+        //placeholder for the text
+        height: 500px;
+    }
+}

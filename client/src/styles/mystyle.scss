@@ -1,8 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
-$primary-color: #e0758e;
-$primary-font: "Segoe UI";
-$inverted: true;
 
+
+// general settings
 
 html {
     box-sizing: border-box;
@@ -11,7 +10,7 @@ html {
     font-family: 'Segoe UI', 'Open Sans', sans-serif;
     background: #f1f1f1;
     color: #333;
-    text-align: center;
+    text-align: left;
 }
 
 body {
@@ -22,6 +21,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    --primary-color: #e0758e;
+    --primary-font: "Segoe UI";
 }
 
 .container {
@@ -31,50 +33,19 @@ body {
     align-items: center;
 }
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 h1, h2, h3, {
     margin: 0;
 }
 
-.header {
-    background-color: #E4E4E4;
-    height: 100px;
-    width: 100%;;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .logo-box {
-        margin-left: 20px;
-        color: #e0758e;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-        .logo {
-            font-size: 27px;
-        }
-        .logo-description {
-            font-size: 15px;
-            font-weight: normal;
-        }
-    }
-}
+// header 
 
-// Im here
+@import 'header';
 
-.my-profile {
-    display: flex;
-    p {
-        margin-right: 40px;
-        color: #e0758e;
-        font-size: 15px;
-    }
-    #logout {
-        cursor: pointer;
-        &:hover {
-            color: #794d57;
-        }
-    }
-}
+// app flex
 
 .app-content {
     display: flex;
@@ -82,21 +53,12 @@ h1, h2, h3, {
     justify-content: space-evenly;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
-}
+// widgets (design and output)
+
+@import 'widget';
 
 
-.widget-external-box {
-    height: 100%;
-    width: 25%;
-    margin-top: 2rem;
-    background: white;
-    border-radius: 3px;
-    text-align: left;
-    padding-bottom: 15px;
-}
-
+//skipped
 .problem-external-box {
     display: flex;
     flex-direction: column;
@@ -105,20 +67,19 @@ h1, h2, h3, {
     margin-top: 2rem;
     background: white;
     border-radius: 3px;
-    text-align: left;
-    background-color: if($inverted, white, $primary-color);
-    font-family: $primary-font, 'Open Sans', sans-serif;
+    background-color: var(--primary-color);
+    font-family: var(--primary-font), 'Open Sans', sans-serif;
 
     label {
-        background-color: if(inverted, $primary-color, white);
+        background-color: white;
         input {
-            background-color: if($inverted, $primary-color, white)
+            background-color: white;
         }
     }
 
     button {
-        background-color: if(inverted, $primary-color, white);
-        color: if($inverted, white, black);
+        background-color: white;
+        color: black;
         border: none;
         border-radius: 1px;
         padding: 5px 10px;
@@ -128,32 +89,13 @@ h1, h2, h3, {
     }
 }
 
-.box-header {
-    width: 100%;
-    height: 50px;
-    border-radius: 3px 3px 0 0;
-    background-color: #E4E4E4;
-    
-
-    h2 {
-        margin: 0;
-        font-size: 20px;
-        line-height: 50px;
-        font-weight: 100;
-        margin-left: 15px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
-
 .question-text {
     padding: 1rem 2rem 0rem 2rem;
     width: 100%;
     p {
         border: none;
         background: none;
-        color: if($inverted, $primary-color, white);
+        color: white;
         opacity: 1;
         font-family: inherit;
         font-size: inherit;
@@ -163,7 +105,7 @@ h1, h2, h3, {
     }
     :empty:before {
         content: attr(placeholder);
-        color: if($inverted, adjust-color($primary-color, $alpha: -0.5), #ddd);
+        color: #ddd;
     }
     :focus {
         outline: none;
@@ -185,6 +127,8 @@ h1, h2, h3, {
         right: 1rem;
         top: 0.25rem;
         cursor: pointer;
+        color:white;
+        opacity: 0.6;
     }
 
     &.rtl {
@@ -220,25 +164,6 @@ h1, h2, h3, {
 }
 
 
-.output {
-    color: gray;
-    white-space: pre-wrap;
-    height: 500px;
-    margin: 15px;
-    word-wrap: break-word;
-}
-
-h3 {
-    font-size: 15px;
-    font-weight: 200;
-    margin: 15px 0 5px 15px;
-}
-
-p {
-    color: #fff;
-    font-size: .9rem;
-    opacity: .6;
-}
 
 
 /*****
@@ -294,11 +219,11 @@ input[type=checkbox] {
  * How it should look when hovered
  */
 .active-label {
-    color: $primary-color;
+    color: var(--primary-color);
 
     &:before {
         background: white;
-        border-color: $primary-color;
+        border-color: var(--primary-color);
     }
 }
 
@@ -360,23 +285,6 @@ label {
     }
 }
 
-.widget-external-box {
-    label {
-        border: 0px;
-        padding: .5rem 1rem .5rem 3rem;
-        height: 2rem;
-        &.radio:before {
-            top: 0.5rem;
-        }
-    }
-    input:checked + label{
-        color:  #e0758e;
-        &:before {
-            background-color: #e0758e;
-        }
-    }
-}
-
 .labelInput {
     font-size: 1rem;
     height: 1rem;
@@ -409,7 +317,7 @@ input:checked + label {
     &:before {
         border-color: white;
         border: none;
-        background: $primary-color;
+        background: var(--primary-color);
     }
 }
 
@@ -453,45 +361,6 @@ input:disabled + label {
     display: flex;
     align-items: baseline;
     margin-left: 15px;
-
-    &.dropdown {
-        position: relative;
-        background-color: white;
-        width: auto;
-        float: left;
-        max-width: 100%;
-        border: 1px solid #e0758e;
-        border-radius: 3px;
-        select {
-          cursor: pointer;
-          font-family: 'Segoe UI', 'Open Sans', 'sans-serif';
-          font-size: 1rem;
-          font-weight: 400;
-          max-width: 100%;
-          padding: 4px 12px 4px 10px;
-          border: none;
-          background-color: transparent;
-          -webkit-appearance: none;
-             -moz-appearance: none;
-                  appearance: none;
-          &:active,
-          &:focus {
-            outline: none;
-            box-shadow: none;
-          }
-        }
-        &:after {
-          content: " ";
-          position: absolute;
-          top: 50%;
-          margin-top: -2px;
-          right: 8px;
-          width: 0; 
-          height: 0; 
-          border-left: 5px solid transparent;
-          border-right: 5px solid transparent;
-          border-top: 5px solid #aaa;
-          pointer-events: none;
-        }
-    }
 }
+
+@import 'dropdown';

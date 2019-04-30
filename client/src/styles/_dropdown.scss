@@ -1,0 +1,40 @@
+.dropdown {
+    position: relative;
+    background-color: white;
+    width: auto;
+    float: left;
+    max-width: 100%;
+    border: 1px solid #e0758e;
+    border-radius: 3px;
+    select {
+      cursor: pointer;
+      font-family: 'Segoe UI', 'Open Sans', 'sans-serif';
+      font-size: 1rem;
+      font-weight: 400;
+      max-width: 100%;
+      padding: 4px 12px 4px 10px;
+      border: none;
+      background-color: transparent;
+      -webkit-appearance: none;
+         -moz-appearance: none;
+              appearance: none;
+      &:active,
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      margin-top: -2px;
+      right: 8px;
+      width: 0; 
+      height: 0; 
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #aaa;
+      pointer-events: none;
+    }
+}

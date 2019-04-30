@@ -56,7 +56,7 @@ class Output extends Component {
 
     return (
         <div className="widget-external-box">
-            <div className="box-header">
+            <div className="widget-header">
                 <h2>Script (copy-paste to edX editor)</h2>
             </div>
             <div className="widget-internal-box">
