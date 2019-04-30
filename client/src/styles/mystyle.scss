@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+$primary-color: #e0758e;
+$primary-font: "Segoe UI";
+$inverted: true;
+
 
 html {
     box-sizing: border-box;
@@ -14,6 +18,12 @@ body {
     margin: 0;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .container {
     width: 100%;
     display: flex;
@@ -21,12 +31,8 @@ body {
     align-items: center;
 }
 
-#root {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    --primary-color: #e0758e;
-    --primary-font: "Segoe UI";
+h1, h2, h3, {
+    margin: 0;
 }
 
 .header {
@@ -44,23 +50,21 @@ body {
         align-items: flex-start;
         justify-content: space-between;
         .logo {
-            color: #e0758e;
-            margin: 0;
             font-size: 27px;
         }
         .logo-description {
-            margin: 0;
             font-size: 15px;
             font-weight: normal;
         }
     }
 }
 
+// Im here
+
 .my-profile {
     display: flex;
-    margin: 20px;
     p {
-        margin: 20px;
+        margin-right: 40px;
         color: #e0758e;
         font-size: 15px;
     }
@@ -102,13 +106,19 @@ body {
     background: white;
     border-radius: 3px;
     text-align: left;
-    background-color: var(--primary-color);
-    font-family: var(--primary-font), 'Open Sans', sans-serif;
+    background-color: if($inverted, white, $primary-color);
+    font-family: $primary-font, 'Open Sans', sans-serif;
 
+    label {
+        background-color: if(inverted, $primary-color, white);
+        input {
+            background-color: if($inverted, $primary-color, white)
+        }
+    }
 
     button {
-        background-color: white;
-        color: black;
+        background-color: if(inverted, $primary-color, white);
+        color: if($inverted, white, black);
         border: none;
         border-radius: 1px;
         padding: 5px 10px;
@@ -143,7 +153,7 @@ body {
     p {
         border: none;
         background: none;
-        color: white;
+        color: if($inverted, $primary-color, white);
         opacity: 1;
         font-family: inherit;
         font-size: inherit;
@@ -153,7 +163,7 @@ body {
     }
     :empty:before {
         content: attr(placeholder);
-        color: #ddd;
+        color: if($inverted, adjust-color($primary-color, $alpha: -0.5), #ddd);
     }
     :focus {
         outline: none;
@@ -216,12 +226,6 @@ body {
     height: 500px;
     margin: 15px;
     word-wrap: break-word;
-}
-
-
-h1 {
-    color: #fff;
-    margin: 10% 0 0 0;
 }
 
 h3 {
@@ -290,11 +294,11 @@ input[type=checkbox] {
  * How it should look when hovered
  */
 .active-label {
-    color: var(--primary-color);
+    color: $primary-color;
 
     &:before {
         background: white;
-        border-color: var(--primary-color);
+        border-color: $primary-color;
     }
 }
 
@@ -405,7 +409,7 @@ input:checked + label {
     &:before {
         border-color: white;
         border: none;
-        background: var(--primary-color);
+        background: $primary-color;
     }
 }
 
