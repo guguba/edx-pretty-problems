@@ -157,12 +157,10 @@ class Routing extends Component {
  }
 
  const App = () => (
-    <div>
-        <FullStory org="K3EEH" />
+        [<FullStory org="K3EEH" />,
         <div className="container">
             <Routing />
-        </div>
-    </div>
+        </div>]
  )
 
 export default App
