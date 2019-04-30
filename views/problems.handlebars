@@ -5,7 +5,24 @@
     <meta charset="UTF-8">
     <title>Untitled Document</title>
     <link rel="stylesheet" href="https://s3.us-east-2.amazonaws.com/edx-js-problems/styles.css">
+    <link href="https://fonts.googleapis.com/css?family={{font}}" rel="stylesheet">
+    <style>
 
+        /*
+        in server :
+            const color = inverted ? "#fff" : primaryColor
+            const bgColor = inverted ?  primaryColor : "#fff"
+        */
+
+        .problem-external-box  {
+            background-color: "{{bgColor}}"
+        }
+
+        .checkbox-circle, .checkbox-text {
+            color: "{{color}}""
+        }
+
+    </style>
 </head>
 
 <body>
@@ -48,8 +65,12 @@
 
     </script>
     <script>
-        let elem = document.querySelector("html");
-        elem.style.setProperty("--primary-color", "{{primaryColor}}");
+        // let elem = document.querySelector("html");
+        <!--elem.style.setProperty("--primary-color", "{{primaryColor}}");-->
+
+
+
+
     </script>
         {{#if questionText}}
         <div class="question-text">
@@ -58,7 +79,7 @@
             </p>
         </div>
         {{/if}}
-    <div class="box" {{rtl}}>
+    <div class="problem-external-box" {{rtl}}>
         {{#each options}}
             <input type={{../type}} id="option{{@index}}" value={{@index}} name="example">
             <label class={{../type}} for="option{{@index}}">{{this.text}}</label>

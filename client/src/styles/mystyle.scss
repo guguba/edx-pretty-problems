@@ -83,15 +83,6 @@ body {
 }
 
 
-.widget-external-box {
-    height: 100%;
-    width: 25%;
-    margin-top: 2rem;
-    background: white;
-    border-radius: 3px;
-    text-align: left;
-    padding-bottom: 15px;
-}
 
 .problem-external-box {
     display: flex;
@@ -123,7 +114,7 @@ body {
     height: 50px;
     border-radius: 3px 3px 0 0;
     background-color: #E4E4E4;
-    
+
 
     h2 {
         margin: 0;
@@ -482,8 +473,8 @@ input:disabled + label {
           top: 50%;
           margin-top: -2px;
           right: 8px;
-          width: 0; 
-          height: 0; 
+          width: 0;
+          height: 0;
           border-left: 5px solid transparent;
           border-right: 5px solid transparent;
           border-top: 5px solid #aaa;

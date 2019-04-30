@@ -233,3 +233,43 @@ class MultipleChoice extends Component {
 }
 
 export default MultipleChoice;
+
+/**
+
+server
+    src
+        express code -> es6
+        public js render -> es5
+    public
+        edx-styling.css  -> use only old browsers styling
+
+ client
+    src
+        react code
+        back-office styling -> scss, without prefixes.
+
+
+    public
+        index.html => css from server
+
+
+
+
+ -----
+
+ div.designedx-version1-question
+    ol
+        li
+        li
+
+
+ ---
+
+ backoffice
+
+    main
+        widget
+        multiple choise .MultiChoise.designedx-version1-question
+
+
+ **/

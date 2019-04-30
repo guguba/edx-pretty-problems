@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import '../styles/mystyle.css';
+import Widget from "../DesignComponents/Widget";
 
 
 class Styler extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
         };
     }
-    
+
     onStyleChange(e, style) {
         this.props.onStyleChange(e, style);
     }
-    
+
   render() {
-      
+
       //isRadio need revactor to a better function
       let isRadio = this.props.styler.type === "radio";
       let language = this.props.styler.language;
@@ -26,6 +27,42 @@ class Styler extends Component {
         let newOption = <option value={font}>{font}</option>
         fontOptions.push(newOption)
       }
+
+      return (
+        <Widget headerText='Design Settings'>
+          <div className="options-box">
+            <h3>Problem type:</h3>
+            <div>
+              <input checked={isRadio} onChange={(e) => this.onStyleChange(e, "type")} type="radio" id="radio"
+                     name="type"/>
+              <label className="radio" htmlFor="radio">Single-choice (radio)</label>
+              <input checked={!isRadio} onChange={(e) => this.onStyleChange(e, "type")} type="radio" id="checkbox"
+                     name="type"/>
+              <label className="radio" htmlFor="checkbox">Multi-choice (checkboxes)</label>
+            </div>
+            <h3>Language:</h3>
+            <div>
+              <input checked={language === "enUs"} onChange={(e) => this.onStyleChange(e, "language")} type="radio"
+                     id="enUs" name="language"/>
+              <label className="radio" htmlFor="enUs">English</label>
+              <input checked={language === "heb"} onChange={(e) => this.onStyleChange(e, "language")} type="radio"
+                     id="heb" name="language"/>
+              <label className="radio" htmlFor="heb">עברית</label>
+            </div>
+            <h3>Background color:</h3>
+            <div className="picker">
+              <input type="color" id="primaryColor" value={this.props.styler.primaryColor}
+                     onChange={(e) => this.onStyleChange(e, "primaryColor")}/>
+            </div>
+            <h3>Font:</h3>
+            <div className="picker dropdown">
+              <select defaultValue='Segoe UI' onChange={(e) => this.onStyleChange(e, "fontFamily")}>
+                {fontOptions}
+              </select>
+            </div>
+          </div>
+        </Widget>
+      )
 
     return (
         <div className="widget-external-box">

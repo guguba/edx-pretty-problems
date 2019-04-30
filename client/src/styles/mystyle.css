@@ -391,23 +391,6 @@ label.radio:before {
   border-radius: 50%;
 }
 
-.widget-external-box label {
-  border: 0px;
-  padding: .5rem 1rem .5rem 3rem;
-  height: 2rem;
-}
-
-.widget-external-box label.radio:before {
-  top: 0.5rem;
-}
-
-.widget-external-box input:checked + label {
-  color: #e0758e;
-}
-
-.widget-external-box input:checked + label:before {
-  background-color: #e0758e;
-}
 
 .labelInput {
   font-size: 1rem;

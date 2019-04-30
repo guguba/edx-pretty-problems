@@ -1,0 +1,38 @@
+
+.Widget {
+  height: 100%;
+  width: 25%;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 3px;
+  text-align: left;
+  padding-bottom: 15px;
+
+
+  label {
+    border: 0px;
+    padding: .5rem 1rem .5rem 3rem;
+    height: 2rem;
+
+
+    &.radio:before {
+      top: 0.5rem;
+    }
+  }
+
+
+
+}
+
+
+.widget-external-box label.radio:before {
+  top: 0.5rem;
+}
+
+.widget-external-box input:checked + label {
+  color: #e0758e;
+}
+
+.widget-external-box input:checked + label:before {
+  background-color: #e0758e;
+}

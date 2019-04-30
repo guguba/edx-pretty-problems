@@ -11,8 +11,9 @@ class Output extends Component {
     }
 
   render() {
+      const {user, fileName} = this.props
 
-    let userId = this.props.user.userId;
+    let userId = user.userId;
     // this is an indirect lookup for options, so not to move them from MultipleChoice.js just for this
     let numOfOptions = document.getElementsByName('options').length;
     let root = document.getElementById('root');
@@ -47,7 +48,7 @@ class Output extends Component {
                 '  gradefn="try1.getGrade"' + '\n' +
                 '  width="600"' + '\n' +
                 '  height="' + height + '"' + '\n' +
-                '  html_file="' + this.props.fileName + '"' + '\n' +
+                '  html_file="' + fileName + '"' + '\n' +
                 '  title="Dropdown with Dynamic Text"' + '\n' +
                 '  sop="false"/>' + '\n' +
             ' </customresponse>' + '\n' +
