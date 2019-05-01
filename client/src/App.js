@@ -38,6 +38,8 @@ class Routing extends Component {
    user = JSON.parse(localStorage.getItem('designedx-user'))
 
    state = {
+      //login workaround
+      //loggedIn: true,
       loggedIn: this.user ? true : false,
       user: this.user ? this.user : ''
     }
