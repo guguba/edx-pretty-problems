@@ -92,7 +92,7 @@ class MultipleChoice extends Component {
         let textValidation = true;
         //one selected answer will make this true
         let selectValidation = false;
-        let texts = Array.from(document.getElementsByClassName('labelInput'));
+        let texts = Array.from(document.getElementsByClassName('label-input'));
         let selected = document.getElementsByName('options');
         //This assumes that there are as many inputs as checkboxes. fair assumption
         for (let i in texts) {
@@ -203,9 +203,9 @@ class MultipleChoice extends Component {
           let selected = (options[i-1].selected);
           arrOfOptions.push(
                 [
-                <input type="checkbox" id={"option" + i} name="options" checked={selected} onChange={(e)=>this.onSelect(e)}/>,
-                <label className={type} for={"option" + i}>
-                    <input className="labelInput" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></input>
+                <input className="radio-input" type="checkbox" id={"option" + i} name="options" checked={selected} onChange={(e)=>this.onSelect(e)}/>,
+                <label className={'radio-label ' + type} for={"option" + i}>
+                    <input className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></input>
                     <p id={"delete-" + i} onClick={(e)=>this.onDeleteOption(e)} className="delete-answer">✖</p>
                 </label>
                 ]
@@ -220,13 +220,13 @@ class MultipleChoice extends Component {
             className={this.props.styler.textDirection}
             onInput={(e)=>this.onUpdateQuestion(e)}
             ></p></div>
-            <div className={"box " + this.props.styler.textDirection}>
+            <div className={"multiple-choice-box " + this.props.styler.textDirection}>
                 {arrOfOptions}
-                <label className="add-option" onClick={(e)=>this.onAddOption(e)}>{langStrings.addOption}</label>
+                <label className="radio-label add-option" onClick={(e)=>this.onAddOption(e)}>{langStrings.addOption}</label>
             </div>
 
             <p style={validationStyle} className="validation">{this.state.validation.text}</p>
-            <button onClick={()=>this.onSubmit()}>Create</button>
+            <button className='button' onClick={()=>this.onSubmit()}>Create</button>
         </div>
     );
   }

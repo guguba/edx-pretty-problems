@@ -1,0 +1,46 @@
+.problem-external-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 35%;
+    margin-top: 2rem;
+    background: white;
+    border-radius: 3px;
+    background-color: var(--primary-color);
+    font-family: var(--primary-font), 'Open Sans', sans-serif;
+
+    .question-text {
+        padding: 1rem 2rem 0rem 2rem;
+        color: white;
+        font-weight: bold;
+        cursor: text;
+        :empty:before {
+            content: attr(placeholder);
+            color: #ddd;
+        }
+        :focus {
+            outline: none;
+        }
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+    }
+
+    label {
+        background-color: white;
+        input {
+            background-color: white;
+        }
+    }
+
+    .button {
+        background-color: white;
+        color: black;
+        margin: 1rem 2rem;
+        align-self: flex-end;
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}

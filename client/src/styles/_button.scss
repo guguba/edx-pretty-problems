@@ -1,0 +1,19 @@
+.button {
+    border: 0;
+    font-family: 'Segoe UI', 'Open Sans', sans-serif;
+    text-decoration: none;
+    display: block;
+    border-radius: 2px;
+    background-color: #e0758e;
+    margin: 30px auto 10px auto;
+    text-align: center;
+    padding: 5px 10px;
+    //width: 90%;
+    //height: 25px;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    &:hover {
+        background-color: #e093a5;
+    }
+}

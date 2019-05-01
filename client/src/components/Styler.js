@@ -35,17 +35,17 @@ class Styler extends Component {
             <div className="options-box">
                 <h3>Problem type:</h3>
                 <div>
-                  <input checked={isRadio} onChange={(e) => this.onStyleChange(e, "type")} type="radio" id="radio" name="type"/>
-                  <label className="radio" for="radio">Single-choice (radio)</label>
-                  <input checked={!isRadio} onChange={(e) => this.onStyleChange(e, "type")} type="radio" id="checkbox" name="type"/>
-                  <label className="radio" for="checkbox">Multi-choice (checkboxes)</label>
+                  <input className="radio-input" checked={isRadio} onChange={(e) => this.onStyleChange(e, "type")} type="radio" id="radio" name="type"/>
+                  <label className="radio-label radio" for="radio">Single-choice (radio)</label>
+                  <input className="radio-input" checked={!isRadio} onChange={(e) => this.onStyleChange(e, "type")} type="radio" id="checkbox" name="type"/>
+                  <label className="radio-label radio" for="checkbox">Multi-choice (checkboxes)</label>
                 </div>
                 <h3>Language:</h3>
                 <div>
-                  <input checked={language === "enUs"} onChange={(e) => this.onStyleChange(e, "language")} type="radio" id="enUs" name="language"/>
-                  <label className="radio" for="enUs">English</label>
-                  <input checked={language === "heb"} onChange={(e) => this.onStyleChange(e, "language")} type="radio" id="heb" name="language"/>
-                  <label className="radio" for="heb">עברית</label>
+                  <input className="radio-input" checked={language === "enUs"} onChange={(e) => this.onStyleChange(e, "language")} type="radio" id="enUs" name="language"/>
+                  <label className="radio-label radio" for="enUs">English</label>
+                  <input className="radio-input" checked={language === "heb"} onChange={(e) => this.onStyleChange(e, "language")} type="radio" id="heb" name="language"/>
+                  <label className="radio-label radio" for="heb">עברית</label>
                 </div>
                 <h3>Background color:</h3>
                 <div className="picker">

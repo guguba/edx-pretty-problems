@@ -26,7 +26,7 @@ class Login extends Component {
             <div className="options-box">
                 <input className="text-input" type="text" id="userName" placeholder="Organization name"/>
                 <input className="text-input" type="password" id="password" placeholder="Password"/>
-                <button className="login-button" onClick={()=>this.onLogin()}>Log in</button>
+                <button className="button login-button" onClick={()=>this.onLogin()}>Log in</button>
                 <p className="validation login-validation">Wrong username or password. Try again.</p>
 
             </div>

@@ -31,8 +31,14 @@
         border: 0px;
         padding: .5rem 1rem .5rem 3rem;
         height: 2rem;
-        &.radio:before {
+        &:before {
             top: 0.5rem;
+        }
+        &:hover {
+            color: #e0758e;
+            &:before {
+                border: .2rem solid #e0758e;
+            }
         }
     }
 

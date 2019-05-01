@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
-
 // general settings
 
 html {
@@ -41,11 +40,13 @@ h1, h2, h3, {
     margin: 0;
 }
 
-// header 
+// login specific elements
 
 @import 'header';
+@import 'loginElements';
 
-// app flex
+
+// the app
 
 .app-content {
     display: flex;
@@ -53,303 +54,33 @@ h1, h2, h3, {
     justify-content: space-evenly;
 }
 
-// widgets (design and output)
+// micro components
+
+@import 'button';
+@import 'text-input';
+@import 'radio-checkbox';
+@import 'dropdown';
+
+// app sections
 
 @import 'widget';
+@import 'problem-box';
+
+// specific problem types
+
+@import 'multiple-choice';
 
 
-//skipped
-.problem-external-box {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 35%;
-    margin-top: 2rem;
-    background: white;
-    border-radius: 3px;
-    background-color: var(--primary-color);
-    font-family: var(--primary-font), 'Open Sans', sans-serif;
-
-    label {
-        background-color: white;
-        input {
-            background-color: white;
-        }
-    }
-
-    button {
-        background-color: white;
-        color: black;
-        border: none;
-        border-radius: 1px;
-        padding: 5px 10px;
-        font-family: 'Segoe UI', 'Open Sans', sans-serif;
-        margin: 1rem 2rem;
-        align-self: flex-end;
-    }
-}
-
-.question-text {
-    padding: 1rem 2rem 0rem 2rem;
-    width: 100%;
-    p {
-        border: none;
-        background: none;
-        color: white;
-        opacity: 1;
-        font-family: inherit;
-        font-size: inherit;
-        font-weight: bold;
-        width: 100%;
-        cursor: text;
-    }
-    :empty:before {
-        content: attr(placeholder);
-        color: #ddd;
-    }
-    :focus {
-        outline: none;
-    }
-    .rtl {
-        direction: rtl;
-        text-align: right;
-    }
-}
-
-.box {
-    height: 100%;
-    margin: 0 2rem 0 2rem;
-    border: 1px solid white;
-    border-radius: 3px;
-
-    label .delete-answer {
-        position: absolute;
-        right: 1rem;
-        top: 0.25rem;
-        cursor: pointer;
-        color:white;
-        opacity: 0.6;
-    }
-
-    &.rtl {
-        direction: rtl;
-        text-align: right;
-
-        label {
-            padding: 1rem 3rem 1rem 1rem;
-
-            &:before {
-                right: 1rem;
-            }
-            .delete-answer {
-                position: absolute;
-                right: auto;
-                left: 1rem;
-                top: 0.25rem;
-                cursor: pointer;
-            }
-            &:last-of-type {
-                padding: 1rem 1rem 1rem 1rem;
-            }
-        }
-    }
-}
-
-.add-option {
-    padding: 1rem 1rem 1rem 1rem;
-    color: lightgrey;
-    &:before {
-        content: none;
-    }
-}
-
-
-
-
-/*****
- *
- * Radio checked style related
- * the fun part starts here
- *
- */
-
-
-// Hide those ugly radioboxes
-input[type=radio] {
-    display: none;
-}
-
-input[type=checkbox] {
-    display: none;
-}
-
-.text-input {
-    outline: none;
-    display: block;
-    border: 1px solid #e0758e;
-    border-radius: 2px;
-    margin: 30px auto 0 auto;
-    padding-left: 10px;
-    width: 90%;
-    height: 30px;;
-}
-
-.login-button {
-    border: 0;
-    text-decoration: none;
-    display: block;
-    border-radius: 2px;
-    background-color: #e0758e;
-    margin: 30px auto 30px auto;
-    text-align: center;
-    width: 90%;
-    height: 30px;
-    outline: none;
-    color: white;
-    &:hover {
-        background-color: #e093a5;
-    }
-}
-
-.change-login {
-    color: #707070;
-}
-
-/**
- * How it should look when hovered
- */
-.active-label {
-    color: var(--primary-color);
-
-    &:before {
-        background: white;
-        border-color: var(--primary-color);
-    }
-}
-
-/**
- * Make those labels sexy
- */
-label {
-    font-size: 1rem;
-    font-weight: bold;
-    line-height: 1.1rem;
-    height: 3rem;
-    cursor: pointer;
-    display: block;
-    padding: 1rem 1rem 1rem 3rem;
-    position: relative;
-    border-top: 1px solid rgba(black, .1);
-    background: white;
-    white-space: pre-wrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: all .15s ease;
-
-    &:focus,
-    &:active {
-        @extend .active-label;
-    }
-
-    &:hover {
-        @extend .active-label;
-
-        .labelInput {
-            @extend .active-label;
-        }
-        .delete-answer {
-            color: gray;
-        }
-    }
-
-
-    &:first-of-type {
-        border: 0;
-    }
-
-    /**
-   * This is the radio fake dot basically
-   */
-    &:before {
-        content: "";
-        position: absolute;
-        left: 1rem;
-        top: 1rem;
-        width: 16px;
-        height: 16px;
-        border: .2rem solid #ccc;
-    }
-
-    &.radio:before {
-        border-radius: 50%;
-    }
-}
-
-.labelInput {
-    font-size: 1rem;
-    height: 1rem;
-    padding: 0;
-    font-weight: bold;
-    border: none;
-    width: 100%;
-    font-family: inherit;
-
-
-    &::placeholder {
-        color: lightgrey;
-    }
-
-    &:focus {
-        outline: none;
-    }
-}
-
-/**
- * How it should look when checked
- */
-input:checked + label {
-    @extend .active-label;
-
-    .labelInput {
-        @extend .active-label;
-    }
-
-    &:before {
-        border-color: white;
-        border: none;
-        background: var(--primary-color);
-    }
-}
-
-/**
- * How it should look when disabled
- */
-input:disabled + label {
-    background: #efefef;
-    color: rgba(black, .5);
-    cursor: not-allowed;
-
-    &:hover {
-        border-color: rgba(black, .1);
-    }
-
-    &:before {
-        border-color: white;
-        background: white;
-    }
-}
-
-.options-box {
-    display: block;
-    position: relative;
-}
 
 .validation {
     align-self: center;
+    font-size: 0.9rem;
+    color: white;
     &.login-validation {
         width: 100%;
-        position: absolute;
+        //position: absolute;
         color: red;
+        opacity: 0.6;
         bottom: -25px;
         margin: 0;
         text-align: center;
@@ -363,4 +94,3 @@ input:disabled + label {
     margin-left: 15px;
 }
 
-@import 'dropdown';

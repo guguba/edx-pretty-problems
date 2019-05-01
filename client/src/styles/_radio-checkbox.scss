@@ -1,0 +1,42 @@
+// radio labels
+
+.radio-label {
+    font-weight: bold;
+    line-height: 1.1rem;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+   //This is the radio fake dot basically
+
+   &:before {
+        content: "";
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        width: 16px;
+        height: 16px;
+        border: .2rem solid #ccc;
+    }
+
+    &.radio:before {
+        border-radius: 50%;
+    }
+}
+
+.radio-input:checked + label {
+    @extend .active-label;
+
+    .label-input {
+        @extend .active-label;
+    }
+
+    &:before {
+        border-color: white;
+        border: none;
+        background: var(--primary-color);
+    }
+}

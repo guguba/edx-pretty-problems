@@ -112,6 +112,15 @@ h1, h2, h3 {
   color: #794d57;
 }
 
+.login-button {
+  width: 90%;
+  height: 30px;
+}
+
+.change-login {
+  color: #707070;
+}
+
 .app-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -122,193 +131,23 @@ h1, h2, h3 {
           justify-content: space-evenly;
 }
 
-.widget-external-box {
-  height: 100%;
-  width: 25%;
-  margin-top: 2rem;
-  background: white;
-  border-radius: 3px;
-  padding-bottom: 15px;
-}
-
-.widget-external-box .widget-header {
-  border-radius: 3px 3px 0 0;
-  background-color: #E4E4E4;
-}
-
-.widget-external-box .widget-header h2 {
-  font-size: 1.3rem;
-  line-height: 50px;
-  font-weight: 100;
-  margin-left: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.widget-external-box h3 {
-  font-size: 15px;
-  font-weight: 200;
-  margin: 15px 0 5px 15px;
-}
-
-.widget-external-box .radio {
-  border: 0px;
-  padding: .5rem 1rem .5rem 3rem;
-  height: 2rem;
-}
-
-.widget-external-box .radio.radio:before {
-  top: 0.5rem;
-}
-
-.widget-external-box input:checked + .radio {
-  color: #e0758e;
-}
-
-.widget-external-box input:checked + .radio:before {
-  background-color: #e0758e;
-}
-
-.widget-external-box .output {
-  font-size: 0.9rem;
-  color: #bbb;
-  margin: 15px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  height: 500px;
-}
-
-.problem-external-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100%;
-  width: 35%;
-  margin-top: 2rem;
-  background: white;
-  border-radius: 3px;
-  background-color: var(--primary-color);
-  font-family: var(--primary-font), "Open Sans", sans-serif;
-}
-
-.problem-external-box label {
-  background-color: white;
-}
-
-.problem-external-box label input {
-  background-color: white;
-}
-
-.problem-external-box button {
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 1px;
-  padding: 5px 10px;
+.button {
+  border: 0;
   font-family: 'Segoe UI', 'Open Sans', sans-serif;
-  margin: 1rem 2rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-}
-
-.question-text {
-  padding: 1rem 2rem 0rem 2rem;
-  width: 100%;
-}
-
-.question-text p {
-  border: none;
-  background: none;
-  color: white;
-  opacity: 1;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: bold;
-  width: 100%;
-  cursor: text;
-}
-
-.question-text :empty:before {
-  content: attr(placeholder);
-  color: #ddd;
-}
-
-.question-text :focus {
+  text-decoration: none;
+  display: block;
+  border-radius: 2px;
+  background-color: #e0758e;
+  margin: 30px auto 10px auto;
+  text-align: center;
+  padding: 5px 10px;
   outline: none;
-}
-
-.question-text .rtl {
-  direction: rtl;
-  text-align: right;
-}
-
-.box {
-  height: 100%;
-  margin: 0 2rem 0 2rem;
-  border: 1px solid white;
-  border-radius: 3px;
-}
-
-.box label .delete-answer {
-  position: absolute;
-  right: 1rem;
-  top: 0.25rem;
-  cursor: pointer;
   color: white;
-  opacity: 0.6;
-}
-
-.box.rtl {
-  direction: rtl;
-  text-align: right;
-}
-
-.box.rtl label {
-  padding: 1rem 3rem 1rem 1rem;
-}
-
-.box.rtl label:before {
-  right: 1rem;
-}
-
-.box.rtl label .delete-answer {
-  position: absolute;
-  right: auto;
-  left: 1rem;
-  top: 0.25rem;
   cursor: pointer;
 }
 
-.box.rtl label:last-of-type {
-  padding: 1rem 1rem 1rem 1rem;
-}
-
-.add-option {
-  padding: 1rem 1rem 1rem 1rem;
-  color: lightgrey;
-}
-
-.add-option:before {
-  content: none;
-}
-
-/*****
- *
- * Radio checked style related
- * the fun part starts here
- *
- */
-input[type=radio] {
-  display: none;
-}
-
-input[type=checkbox] {
-  display: none;
+.button:hover {
+  background-color: #e093a5;
 }
 
 .text-input {
@@ -322,73 +161,18 @@ input[type=checkbox] {
   height: 30px;
 }
 
-.login-button {
-  border: 0;
-  text-decoration: none;
-  display: block;
-  border-radius: 2px;
-  background-color: #e0758e;
-  margin: 30px auto 30px auto;
-  text-align: center;
-  width: 90%;
-  height: 30px;
-  outline: none;
-  color: white;
-}
-
-.login-button:hover {
-  background-color: #e093a5;
-}
-
-.change-login {
-  color: #707070;
-}
-
-/**
- * How it should look when hovered
- */
-.active-label, label:focus, label:active, label:hover, label:hover .labelInput, input:checked + label, input:checked + label .labelInput {
-  color: var(--primary-color);
-}
-
-.active-label:before, label:focus:before, label:active:before, label:hover:before, label:hover .labelInput:before, input:checked + label:before, input:checked + label .labelInput:before {
-  background: white;
-  border-color: var(--primary-color);
-}
-
-/**
- * Make those labels sexy
- */
-label {
-  font-size: 1rem;
+.radio-label {
   font-weight: bold;
   line-height: 1.1rem;
-  height: 3rem;
   cursor: pointer;
   display: block;
-  padding: 1rem 1rem 1rem 3rem;
   position: relative;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background: white;
-  white-space: pre-wrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-transition: all .15s ease;
-  transition: all .15s ease;
-  /**
-   * This is the radio fake dot basically
-   */
 }
 
-label:hover .delete-answer {
-  color: gray;
-}
-
-label:first-of-type {
-  border: 0;
-}
-
-label:before {
+.radio-label:before {
   content: "";
   position: absolute;
   left: 1rem;
@@ -398,96 +182,14 @@ label:before {
   border: .2rem solid #ccc;
 }
 
-label.radio:before {
+.radio-label.radio:before {
   border-radius: 50%;
 }
 
-.labelInput {
-  font-size: 1rem;
-  height: 1rem;
-  padding: 0;
-  font-weight: bold;
-  border: none;
-  width: 100%;
-  font-family: inherit;
-}
-
-.labelInput::-webkit-input-placeholder {
-  color: lightgrey;
-}
-
-.labelInput:-ms-input-placeholder {
-  color: lightgrey;
-}
-
-.labelInput::-ms-input-placeholder {
-  color: lightgrey;
-}
-
-.labelInput::placeholder {
-  color: lightgrey;
-}
-
-.labelInput:focus {
-  outline: none;
-}
-
-/**
- * How it should look when checked
- */
-input:checked + label:before {
+.radio-input:checked + label:before {
   border-color: white;
   border: none;
   background: var(--primary-color);
-}
-
-/**
- * How it should look when disabled
- */
-input:disabled + label {
-  background: #efefef;
-  color: rgba(0, 0, 0, 0.5);
-  cursor: not-allowed;
-}
-
-input:disabled + label:hover {
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-input:disabled + label:before {
-  border-color: white;
-  background: white;
-}
-
-.options-box {
-  display: block;
-  position: relative;
-}
-
-.validation {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.validation.login-validation {
-  width: 100%;
-  position: absolute;
-  color: red;
-  bottom: -25px;
-  margin: 0;
-  text-align: center;
-  visibility: hidden;
-}
-
-.picker {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  margin-left: 15px;
 }
 
 .dropdown {
@@ -532,5 +234,267 @@ input:disabled + label:before {
   border-right: 5px solid transparent;
   border-top: 5px solid #aaa;
   pointer-events: none;
+}
+
+.widget-external-box {
+  height: 100%;
+  width: 25%;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 3px;
+  padding-bottom: 15px;
+}
+
+.widget-external-box .widget-header {
+  border-radius: 3px 3px 0 0;
+  background-color: #E4E4E4;
+}
+
+.widget-external-box .widget-header h2 {
+  font-size: 1.3rem;
+  line-height: 50px;
+  font-weight: 100;
+  margin-left: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.widget-external-box h3 {
+  font-size: 15px;
+  font-weight: 200;
+  margin: 15px 0 5px 15px;
+}
+
+.widget-external-box .radio {
+  border: 0px;
+  padding: .5rem 1rem .5rem 3rem;
+  height: 2rem;
+}
+
+.widget-external-box .radio:before {
+  top: 0.5rem;
+}
+
+.widget-external-box .radio:hover {
+  color: #e0758e;
+}
+
+.widget-external-box .radio:hover:before {
+  border: .2rem solid #e0758e;
+}
+
+.widget-external-box input:checked + .radio {
+  color: #e0758e;
+}
+
+.widget-external-box input:checked + .radio:before {
+  background-color: #e0758e;
+}
+
+.widget-external-box .output {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin: 15px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  height: 500px;
+}
+
+.problem-external-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 35%;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  font-family: var(--primary-font), "Open Sans", sans-serif;
+}
+
+.problem-external-box .question-text {
+  padding: 1rem 2rem 0rem 2rem;
+  color: white;
+  font-weight: bold;
+  cursor: text;
+}
+
+.problem-external-box .question-text :empty:before {
+  content: attr(placeholder);
+  color: #ddd;
+}
+
+.problem-external-box .question-text :focus {
+  outline: none;
+}
+
+.problem-external-box .question-text .rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.problem-external-box label {
+  background-color: white;
+}
+
+.problem-external-box label input {
+  background-color: white;
+}
+
+.problem-external-box .button {
+  background-color: white;
+  color: black;
+  margin: 1rem 2rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.problem-external-box .button:hover {
+  background-color: #eee;
+}
+
+.active-label, .radio-input:checked + label, .radio-input:checked + label .label-input, .multiple-choice-box .radio-label:hover, .multiple-choice-box .radio-label:hover .label-input {
+  color: var(--primary-color);
+}
+
+.active-label:before, .radio-input:checked + label:before, .radio-input:checked + label .label-input:before, .multiple-choice-box .radio-label:hover:before, .multiple-choice-box .radio-label:hover .label-input:before {
+  border-color: var(--primary-color);
+}
+
+.multiple-choice-box {
+  height: 100%;
+  margin: 0 2rem 0 2rem;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+.multiple-choice-box .radio-label {
+  height: 3rem;
+  padding: 1rem 1rem 1rem 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+}
+
+.multiple-choice-box .radio-label:first-of-type {
+  border: 0;
+}
+
+.multiple-choice-box .radio-label.add-option {
+  padding: 1rem 1rem 1rem 1rem;
+  color: lightgrey;
+}
+
+.multiple-choice-box .radio-label.add-option:before {
+  content: none;
+}
+
+.multiple-choice-box .radio-label:hover .delete-answer {
+  color: gray;
+}
+
+.multiple-choice-box .delete-answer {
+  position: absolute;
+  right: 1rem;
+  top: 0.25rem;
+  cursor: pointer;
+  color: white;
+  opacity: 0.6;
+}
+
+.multiple-choice-box.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.multiple-choice-box.rtl label {
+  padding: 1rem 3rem 1rem 1rem;
+}
+
+.multiple-choice-box.rtl label:before {
+  right: 1rem;
+}
+
+.multiple-choice-box.rtl label .delete-answer {
+  position: absolute;
+  right: auto;
+  left: 1rem;
+  top: 0.25rem;
+  cursor: pointer;
+}
+
+.multiple-choice-box.rtl label:last-of-type {
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.label-input {
+  font-size: 1rem;
+  height: 1rem;
+  font-weight: bold;
+  border: none;
+  width: 100%;
+  font-family: inherit;
+}
+
+.label-input::-webkit-input-placeholder {
+  color: lightgrey;
+}
+
+.label-input:-ms-input-placeholder {
+  color: lightgrey;
+}
+
+.label-input::-ms-input-placeholder {
+  color: lightgrey;
+}
+
+.label-input::placeholder {
+  color: lightgrey;
+}
+
+.label-input:focus {
+  outline: none;
+}
+
+.validation {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.validation.login-validation {
+  width: 100%;
+  color: red;
+  opacity: 0.6;
+  bottom: -25px;
+  margin: 0;
+  text-align: center;
+  visibility: hidden;
+}
+
+.picker {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-left: 15px;
 }
 /*# sourceMappingURL=mystyle.css.map */
