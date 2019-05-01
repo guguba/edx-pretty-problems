@@ -4,7 +4,7 @@
     "sources": [
         "mystyle.scss",
         "_header.scss",
-        "_loginElements.scss",
+        "_login-elements.scss",
         "_button.scss",
         "_text-input.scss",
         "_radio-checkbox.scss",
