@@ -23,6 +23,13 @@ body {
     --primary-font: "Segoe UI";
 }
 
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -30,20 +37,6 @@ body {
 h1, h2, h3, {
     margin: 0;
 } */
-.container {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .header {
   background-color: #E4E4E4;
   height: 100px;

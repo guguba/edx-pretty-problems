@@ -27,6 +27,13 @@ body {
     --primary-font: "Segoe UI";
 }
 
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -34,13 +41,6 @@ body {
 h1, h2, h3, {
     margin: 0;
 } */
-
-.container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 // login specific elements
 

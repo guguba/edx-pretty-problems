@@ -1,4 +1,4 @@
-.p-problem-external-box {
+.problem-external-box {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -9,7 +9,7 @@
     font-family: var(--primary-font), 'Open Sans', sans-serif;
     padding: 2rem 2rem 1rem 2rem;
 
-    .p-question-text {
+    .question-text {
         margin: 0 0 1rem 0;
         color: white;
         font-weight: bold;
@@ -21,7 +21,7 @@
         :focus {
             outline: none;
         }
-        .p-rtl {
+        .rtl {
             direction: rtl;
             text-align: right;
         }
@@ -34,11 +34,11 @@
         }
     }
 
-    .p-validation {
+    .validation {
         margin: 1em 0;
     }
 
-    .p-button {
+    .button {
         background-color: white;
         color: black;
         margin: 1rem 0 0 0;

@@ -1,6 +1,6 @@
 // radio labels
 
-.p-radio-label {
+.radio-label {
     font-weight: bold;
     line-height: 1.1rem;
     cursor: pointer;
@@ -22,16 +22,16 @@
         border: .2rem solid #ccc;
     }
 
-    &.p-radio:before {
+    &.radio:before {
         border-radius: 50%;
     }
 }
 
-.p-radio-input:checked + label {
-    @extend .p-active-label;
+.radio-input:checked + label {
+    @extend .active-label;
 
-    .p-label-input {
-        @extend .p-active-label;
+    .label-input {
+        @extend .active-label;
     }
 
     &:before {

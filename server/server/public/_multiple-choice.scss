@@ -1,6 +1,6 @@
 // active-label will be extended for labels and inputs
 
-.p-active-label {
+.active-label {
     color: var(--primary-color);
 
     &:before {
@@ -8,13 +8,13 @@
     }
 }
 
-.p-multiple-choice-box {
+.multiple-choice-box {
     height: 100%;
     //margin: 0 2rem 0 2rem;
     border: 1px solid white;
     border-radius: 3px;
 
-    .p-radio-label {
+    .radio-label {
         height: 3rem;
         padding: 1rem 1rem 1rem 3rem;
         border-top: 1px solid rgba(black, .1);
@@ -24,7 +24,7 @@
             border: 0;
         }
 
-        &.p-add-option {
+        &.add-option {
             padding: 1rem 1rem 1rem 1rem;
             color: lightgrey;
             &:before {
@@ -33,18 +33,18 @@
         }
 
         &:hover {
-            @extend .p-active-label;
+            @extend .active-label;
     
-            .p-label-input {
-                @extend .p-active-label;
+            .label-input {
+                @extend .active-label;
             }
-            .p-delete-answer {
+            .delete-answer {
                 color: gray;
             }
         }
     }
 
-    .p-delete-answer {
+    .delete-answer {
         position: absolute;
         right: 1rem;
         top: 0.25rem;
@@ -53,7 +53,7 @@
         opacity: 0.6;
     }
 
-    &.p-rtl {
+    &.rtl {
         direction: rtl;
         text-align: right;
 
@@ -64,7 +64,7 @@
                 right: 1rem;
             }
 
-            .p-delete-answer {
+            .delete-answer {
                 position: absolute;
                 right: auto;
                 left: 1rem;
@@ -92,7 +92,7 @@ input[type=checkbox] {
     display: none;
 }
 
-.p-label-input {
+.label-input {
     font-size: 1rem;
     height: 1rem;
     font-weight: bold;
