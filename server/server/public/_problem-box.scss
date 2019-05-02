@@ -1,0 +1,50 @@
+.problem-external-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+    background-color: var(--primary-color);
+    font-family: var(--primary-font), 'Open Sans', sans-serif;
+    padding: 2rem 2rem 1rem 2rem;
+
+    .question-text {
+        margin: 0 0 1rem 0;
+        color: white;
+        font-weight: bold;
+        cursor: text;
+        :empty:before {
+            content: attr(placeholder);
+            color: #ddd;
+        }
+        :focus {
+            outline: none;
+        }
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+    }
+
+    label {
+        background-color: white;
+        input {
+            background-color: white;
+        }
+    }
+
+    .validation {
+        margin: 1em 0;
+    }
+
+    .button {
+        background-color: white;
+        color: black;
+        margin: 1rem 0 0 0;
+        align-self: flex-end;
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}

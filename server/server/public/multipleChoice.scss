@@ -1,10 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
-@import url("http://localhost:5000/multipleChoice.css");
-
 
 // general settings
 
-/* html {
+html {
     box-sizing: border-box;
     font-size: 15.2px;
     line-height: 1.5;
@@ -38,61 +36,21 @@ body {
     box-sizing: inherit;
 }
 
-h1, h2, h3, {
+h1, h2, h3, p {
     margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
-// login specific elements
-
-@import 'header';
-@import 'login-elements';
-
-
-// the app
-
-.app-content {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-}
 
 // micro components
 
-@import 'button';
-@import 'text-input';
 @import 'radio-checkbox';
-@import 'dropdown';
 
 // app sections
 
-@import 'widget';
 @import 'problem-box';
 
 // specific problem types
 
 @import 'multiple-choice';
-
-
-
-.validation {
-    align-self: center;
-    font-size: 0.9rem;
-    color: white;
-    &.login-validation {
-        width: 100%;
-        //position: absolute;
-        color: red;
-        opacity: 0.6;
-        bottom: -25px;
-        margin: 0;
-        text-align: center;
-        visibility: hidden;
-    }
-}
-
-.picker {
-    display: flex;
-    align-items: baseline;
-    margin-left: 15px;
-}
-

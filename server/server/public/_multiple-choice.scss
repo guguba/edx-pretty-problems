@@ -1,0 +1,111 @@
+// active-label will be extended for labels and inputs
+
+.active-label {
+    color: var(--primary-color);
+
+    &:before {
+        border-color: var(--primary-color);
+    }
+}
+
+.multiple-choice-box {
+    height: 100%;
+    //margin: 0 2rem 0 2rem;
+    border: 1px solid white;
+    border-radius: 3px;
+
+    .radio-label {
+        height: 3rem;
+        padding: 1rem 1rem 1rem 3rem;
+        border-top: 1px solid rgba(black, .1);
+        transition: all .15s ease;
+
+        &:first-of-type {
+            border: 0;
+        }
+
+        &.add-option {
+            padding: 1rem 1rem 1rem 1rem;
+            color: lightgrey;
+            &:before {
+                content: none;
+            }
+        }
+
+        &:hover {
+            @extend .active-label;
+    
+            .label-input {
+                @extend .active-label;
+            }
+            .delete-answer {
+                color: gray;
+            }
+        }
+    }
+
+    .delete-answer {
+        position: absolute;
+        right: 1rem;
+        top: 0.25rem;
+        cursor: pointer;
+        color:white;
+        opacity: 0.6;
+    }
+
+    &.rtl {
+        direction: rtl;
+        text-align: right;
+
+        label {
+            padding: 1rem 3rem 1rem 1rem;
+
+            &:before {
+                right: 1rem;
+            }
+
+            .delete-answer {
+                position: absolute;
+                right: auto;
+                left: 1rem;
+                top: 0.25rem;
+                cursor: pointer;
+            }
+
+            &:last-of-type {
+                padding: 1rem 1rem 1rem 1rem;
+            }
+        }
+    }
+}
+
+
+
+// inputs
+
+// Hide those ugly radioboxes
+input[type=radio] {
+    display: none;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.label-input {
+    font-size: 1rem;
+    height: 1rem;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    font-family: inherit;
+
+    &::placeholder {
+        color: lightgrey;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
