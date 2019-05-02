@@ -178,6 +178,7 @@ h1, h2, h3, p {
 .multiple-choice-box .radio-label.add-option {
   padding: 1rem 1rem 1rem 1rem;
   color: lightgrey;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 .multiple-choice-box .radio-label.add-option:before {
@@ -216,10 +217,6 @@ h1, h2, h3, p {
   left: 1rem;
   top: 0.25rem;
   cursor: pointer;
-}
-
-.multiple-choice-box.rtl label:last-of-type {
-  padding: 1rem 1rem 1rem 1rem;
 }
 
 input[type=radio] {

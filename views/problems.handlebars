@@ -60,7 +60,7 @@
             </p>
         </div>
         {{/if}}
-        <div class="multiple-choice-box ltr" {{rtl}}>
+        <div class="multiple-choice-box {{rtl}}">
             {{#each options}}
                 <input class="radio-input" type={{../type}} id="option{{@index}}" value={{@index}} name="example">
                 <label class="radio-label {{../type}}" for="option{{@index}}">{{this.text}}</label>

@@ -27,6 +27,7 @@
         &.add-option {
             padding: 1rem 1rem 1rem 1rem;
             color: lightgrey;
+            padding: 1rem 1rem 1rem 1rem;
             &:before {
                 content: none;
             }
@@ -70,10 +71,6 @@
                 left: 1rem;
                 top: 0.25rem;
                 cursor: pointer;
-            }
-
-            &:last-of-type {
-                padding: 1rem 1rem 1rem 1rem;
             }
         }
     }
