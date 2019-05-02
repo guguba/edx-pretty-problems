@@ -19,7 +19,7 @@
         border-top: 1px solid rgba(black, .1);
         transition: all .15s ease;
         background-color: white;
-        input {
+        .label-input {
             background-color: white;
         }
 
@@ -44,7 +44,7 @@
                 @extend .active-label;
             }
             .delete-answer {
-                color: gray;
+                visibility: visible; 
             }
         }
     }
@@ -54,7 +54,8 @@
         right: 1rem;
         top: 1rem;
         cursor: pointer;
-        color:white;
+        color: gray;
+        visibility: hidden;
         opacity: 0.6;
     }
 
@@ -80,6 +81,33 @@
     }
 }
 
+.inverted .multiple-choice-box {
+    .radio-label {
+        background-color: var(--primary-color);
+        border-top: 1px solid rgba(white, .1);
+
+        .label-input {
+            background-color: var(--primary-color);
+            color: white;
+            &::placeholder {
+                color: #eee;
+            }
+        }
+        &:hover {
+            opacity: .8;
+            &:before {
+                border-color: white;
+            }
+        }
+        &.add-option {
+            color: white;
+        }
+    }
+    .delete-answer {
+        color: white;
+    }
+}
+
 
 
 // inputs
@@ -102,7 +130,7 @@ input[type=checkbox] {
     font-family: inherit;
 
     &::placeholder {
-        color: lightgrey;
+        opacity: .7;
     }
 
     &:focus {

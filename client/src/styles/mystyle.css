@@ -328,6 +328,27 @@ h1, h2, h3, {
   background-color: #eee;
 }
 
+.problem-external-box.inverted {
+  background-color: white;
+}
+
+.problem-external-box.inverted .question-text {
+  color: var(--primary-color);
+}
+
+.problem-external-box.inverted .validation {
+  color: var(--primary-color);
+}
+
+.problem-external-box.inverted button {
+  background-color: gray;
+  color: white;
+}
+
+.problem-external-box.inverted button:hover {
+  background-color: #9a9a9a;
+}
+
 .validation {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;

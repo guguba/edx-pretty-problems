@@ -27,6 +27,7 @@
     }
 }
 
+
 .radio-input:checked + label {
     @extend .active-label;
 
@@ -38,5 +39,29 @@
         border-color: white;
         border: none;
         background: var(--primary-color);
+    }
+}
+
+.inverted {
+    .radio-label {
+        &:before {
+            border: .2rem solid white;
+        }
+    }
+    .radio-input:checked + label {
+        color: white;
+
+        .label-input {
+            color: white;
+            &:before {
+                border-color: white;
+            }
+        }
+    
+        &:before {
+            border-color: white;
+            border: none;
+            background: white;
+        }
     }
 }

@@ -213,7 +213,7 @@ class MultipleChoice extends Component {
       };
       let validationStyle = {visibility: this.state.validation.show ? 'visible' : 'hidden'};
     return (
-        <div className="problem-external-box">
+        <div className="problem-external-box inverted">
             <div className="question-text"><p
             contenteditable="true"
             placeholder={langStrings.question}

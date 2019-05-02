@@ -8,4 +8,7 @@
     background-color: var(--primary-color);
     font-family: var(--primary-font), 'Open Sans', sans-serif;
     padding: 2rem 2rem 1rem 2rem;
+    &.inverted {
+        background-color: white;
+    }
 }

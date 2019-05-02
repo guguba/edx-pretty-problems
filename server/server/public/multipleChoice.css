@@ -87,6 +87,28 @@ h1, h2, h3, p {
   background: var(--primary-color);
 }
 
+.inverted .radio-label:before {
+  border: .2rem solid white;
+}
+
+.inverted .radio-input:checked + label {
+  color: white;
+}
+
+.inverted .radio-input:checked + label .label-input {
+  color: white;
+}
+
+.inverted .radio-input:checked + label .label-input:before {
+  border-color: white;
+}
+
+.inverted .radio-input:checked + label:before {
+  border-color: white;
+  border: none;
+  background: white;
+}
+
 .p-problem-external-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,6 +124,10 @@ h1, h2, h3, p {
   background-color: var(--primary-color);
   font-family: var(--primary-font), "Open Sans", sans-serif;
   padding: 2rem 2rem 1rem 2rem;
+}
+
+.p-problem-external-box.inverted {
+  background-color: white;
 }
 
 .active-label, .radio-input:checked + label, .radio-input:checked + label .label-input, .multiple-choice-box .radio-label:hover, .multiple-choice-box .radio-label:hover .label-input {
@@ -127,7 +153,7 @@ h1, h2, h3, p {
   background-color: white;
 }
 
-.multiple-choice-box .radio-label input {
+.multiple-choice-box .radio-label .label-input {
   background-color: white;
 }
 
@@ -146,7 +172,7 @@ h1, h2, h3, p {
 }
 
 .multiple-choice-box .radio-label:hover .delete-answer {
-  color: gray;
+  visibility: visible;
 }
 
 .multiple-choice-box .delete-answer {
@@ -154,7 +180,8 @@ h1, h2, h3, p {
   right: 1rem;
   top: 1rem;
   cursor: pointer;
-  color: white;
+  color: gray;
+  visibility: hidden;
   opacity: 0.6;
 }
 
@@ -179,6 +206,48 @@ h1, h2, h3, p {
   cursor: pointer;
 }
 
+.inverted .multiple-choice-box .radio-label {
+  background-color: var(--primary-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.inverted .multiple-choice-box .radio-label .label-input {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.inverted .multiple-choice-box .radio-label .label-input::-webkit-input-placeholder {
+  color: #eee;
+}
+
+.inverted .multiple-choice-box .radio-label .label-input:-ms-input-placeholder {
+  color: #eee;
+}
+
+.inverted .multiple-choice-box .radio-label .label-input::-ms-input-placeholder {
+  color: #eee;
+}
+
+.inverted .multiple-choice-box .radio-label .label-input::placeholder {
+  color: #eee;
+}
+
+.inverted .multiple-choice-box .radio-label:hover {
+  opacity: .8;
+}
+
+.inverted .multiple-choice-box .radio-label:hover:before {
+  border-color: white;
+}
+
+.inverted .multiple-choice-box .radio-label.add-option {
+  color: white;
+}
+
+.inverted .multiple-choice-box .delete-answer {
+  color: white;
+}
+
 input[type=radio] {
   display: none;
 }
@@ -197,19 +266,19 @@ input[type=checkbox] {
 }
 
 .label-input::-webkit-input-placeholder {
-  color: lightgrey;
+  opacity: .7;
 }
 
 .label-input:-ms-input-placeholder {
-  color: lightgrey;
+  opacity: .7;
 }
 
 .label-input::-ms-input-placeholder {
-  color: lightgrey;
+  opacity: .7;
 }
 
 .label-input::placeholder {
-  color: lightgrey;
+  opacity: .7;
 }
 
 .label-input:focus {
