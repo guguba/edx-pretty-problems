@@ -65,7 +65,7 @@
 
 .top-section .top-description .button {
   background-color: #4CAF50;
-  /* Green */
+  margin-left: 0;
   border: none;
   color: white;
   padding: 15px 62px;

@@ -20,20 +20,21 @@ class Signup extends Component {
   render() {
       
     return (
-        [<div className="widget-external-box">
-            <div className="widget-header">
-                <h2>Sign up</h2>
+        <div className="login-wrapper">
+            <div className="widget-external-box">
+                <div className="widget-header">
+                    <h2>Sign up</h2>
+                </div>
+                <div className="options-box">
+                    <input className="text-input" type="text" id="userName" placeholder="Organization name"/>
+                    <input className="text-input" type="text" id="email" placeholder="Contact email"/>
+                    <input className="text-input" type="password" id="password" placeholder="Password"/>
+                    <button className="button login-button" onClick={()=>this.onSignup()}>Sign up</button>
+                    <p className="validation login-validation">username already exists. please choose another one</p>
+                </div>
             </div>
-            <div className="options-box">
-                <input className="text-input" type="text" id="userName" placeholder="Organization name"/>
-                <input className="text-input" type="text" id="email" placeholder="Contact email"/>
-                <input className="text-input" type="password" id="password" placeholder="Password"/>
-                <button className="button login-button" onClick={()=>this.onSignup()}>Sign up</button>
-                <p className="validation login-validation">username already exists. please choose another one</p>
-            </div>
-        </div>,
-        <p className="change-login">Already have an account? <a href="/">Log in</a></p>
-        ]
+            <p className="change-login">Already have an account? <a href="/">Log in</a></p>
+        </div>
     );
   }
 }

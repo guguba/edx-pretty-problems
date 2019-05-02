@@ -97,6 +97,21 @@ h1, h2, h3, {
   color: #794d57;
 }
 
+.login-wrapper {
+  width: 33%;
+  margin: 2rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .login-button {
   width: 90%;
   height: 30px;
@@ -104,6 +119,9 @@ h1, h2, h3, {
 
 .change-login {
   color: #707070;
+  font-size: .9rem;
+  opacity: 0.6;
+  margin: 1rem;
 }
 
 .app-content {
@@ -198,6 +216,9 @@ h1, h2, h3, {
   border-radius: 3px;
   padding-bottom: 15px;
   margin: 0 3.75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .widget-external-box .widget-header {
@@ -210,9 +231,6 @@ h1, h2, h3, {
   line-height: 50px;
   font-weight: 100;
   margin-left: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .widget-external-box h3 {

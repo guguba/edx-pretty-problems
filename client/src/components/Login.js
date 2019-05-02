@@ -19,20 +19,21 @@ class Login extends Component {
   render() {
       
     return (
-        [<div className="widget-external-box">
-            <div className="widget-header">
-                <h2>Log in</h2>
-            </div>
-            <div className="options-box">
-                <input className="text-input" type="text" id="userName" placeholder="Organization name"/>
-                <input className="text-input" type="password" id="password" placeholder="Password"/>
-                <button className="button login-button" onClick={()=>this.onLogin()}>Log in</button>
-                <p className="validation login-validation">Wrong username or password. Try again.</p>
+        <div className="login-wrapper">
+            <div className="widget-external-box">
+                <div className="widget-header">
+                    <h2>Log in</h2>
+                </div>
+                <div className="options-box">
+                    <input className="text-input" type="text" id="userName" placeholder="Organization name"/>
+                    <input className="text-input" type="password" id="password" placeholder="Password"/>
+                    <button className="button login-button" onClick={()=>this.onLogin()}>Log in</button>
+                    <p className="validation login-validation">Wrong username or password. Try again.</p>
 
+                </div>
             </div>
-        </div>,
-        <p className="change-login">Want to start designing your courses? <a href="/signup">Sign up!</a></p>
-        ]
+            <p className="change-login">Want to start designing your courses? <a href="/signup">Sign up!</a></p>
+        </div>
     );
   }
 }
