@@ -10,7 +10,6 @@
 
 .multiple-choice-box {
     height: 100%;
-    //margin: 0 2rem 0 2rem;
     border: 1px solid white;
     border-radius: 3px;
 
@@ -19,6 +18,11 @@
         padding: 1rem 1rem 1rem 3rem;
         border-top: 1px solid rgba(black, .1);
         transition: all .15s ease;
+        background-color: white;
+        input {
+            background-color: white;
+        }
+
 
         &:first-of-type {
             border: 0;
@@ -48,7 +52,7 @@
     .delete-answer {
         position: absolute;
         right: 1rem;
-        top: 0.25rem;
+        top: 1rem;
         cursor: pointer;
         color:white;
         opacity: 0.6;

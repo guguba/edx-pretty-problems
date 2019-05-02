@@ -98,7 +98,7 @@ h1, h2, h3, {
 }
 
 .login-wrapper {
-  width: 33%;
+  width: 100%;
   margin: 2rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -211,7 +211,7 @@ h1, h2, h3, {
 
 .widget-external-box {
   height: 100%;
-  width: 75%;
+  width: 25%;
   background: white;
   border-radius: 3px;
   padding-bottom: 15px;
@@ -274,12 +274,60 @@ h1, h2, h3, {
   height: 500px;
 }
 
-/* 
-@import 'problem-box';
-@import 'multiple-choice';
-@import 'radio-checkbox';
+.problem-external-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 35%;
+  background: white;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  font-family: var(--primary-font), "Open Sans", sans-serif;
+  padding: 2rem 2rem 1rem 2rem;
+}
 
- */
+.problem-external-box .question-text {
+  margin: 0 0 1rem 0;
+  color: white;
+  font-weight: bold;
+  cursor: text;
+}
+
+.problem-external-box .question-text :empty:before {
+  content: attr(placeholder);
+  color: #ddd;
+}
+
+.problem-external-box .question-text :focus {
+  outline: none;
+}
+
+.problem-external-box .question-text .rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.problem-external-box .validation {
+  margin: 1em 0;
+}
+
+.problem-external-box .button {
+  background-color: white;
+  color: black;
+  margin: 1rem 0 0 0;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.problem-external-box .button:hover {
+  background-color: #eee;
+}
+
 .validation {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;

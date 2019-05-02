@@ -87,7 +87,7 @@ h1, h2, h3, p {
   background: var(--primary-color);
 }
 
-.problem-external-box {
+.p-problem-external-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -102,51 +102,6 @@ h1, h2, h3, p {
   background-color: var(--primary-color);
   font-family: var(--primary-font), "Open Sans", sans-serif;
   padding: 2rem 2rem 1rem 2rem;
-}
-
-.problem-external-box .question-text {
-  margin: 0 0 1rem 0;
-  color: white;
-  font-weight: bold;
-  cursor: text;
-}
-
-.problem-external-box .question-text :empty:before {
-  content: attr(placeholder);
-  color: #ddd;
-}
-
-.problem-external-box .question-text :focus {
-  outline: none;
-}
-
-.problem-external-box .question-text .rtl {
-  direction: rtl;
-  text-align: right;
-}
-
-.problem-external-box label {
-  background-color: white;
-}
-
-.problem-external-box label input {
-  background-color: white;
-}
-
-.problem-external-box .validation {
-  margin: 1em 0;
-}
-
-.problem-external-box .button {
-  background-color: white;
-  color: black;
-  margin: 1rem 0 0 0;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-}
-
-.problem-external-box .button:hover {
-  background-color: #eee;
 }
 
 .active-label, .radio-input:checked + label, .radio-input:checked + label .label-input, .multiple-choice-box .radio-label:hover, .multiple-choice-box .radio-label:hover .label-input {
@@ -169,6 +124,11 @@ h1, h2, h3, p {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-transition: all .15s ease;
   transition: all .15s ease;
+  background-color: white;
+}
+
+.multiple-choice-box .radio-label input {
+  background-color: white;
 }
 
 .multiple-choice-box .radio-label:first-of-type {
@@ -192,7 +152,7 @@ h1, h2, h3, p {
 .multiple-choice-box .delete-answer {
   position: absolute;
   right: 1rem;
-  top: 0.25rem;
+  top: 1rem;
   cursor: pointer;
   color: white;
   opacity: 0.6;
