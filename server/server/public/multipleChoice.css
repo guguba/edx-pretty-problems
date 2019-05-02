@@ -209,6 +209,7 @@ h1, h2, h3, p {
 .inverted .multiple-choice-box .radio-label {
   background-color: var(--primary-color);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .inverted .multiple-choice-box .radio-label .label-input {
