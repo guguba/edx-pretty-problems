@@ -11,6 +11,11 @@ const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/
 
  // TODO change name to problem
 
+// test api
+api.get('/test', (req, res) => {
+  res.send('hey man');
+});
+
 api.post('/problem', (req, res) => {
 
   let params = req.body.params;

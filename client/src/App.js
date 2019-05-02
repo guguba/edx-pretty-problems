@@ -39,8 +39,8 @@ class Routing extends Component {
 
    state = {
       //login workaround
-      //loggedIn: true,
-      loggedIn: this.user ? true : false,
+      loggedIn: true,
+      //loggedIn: this.user ? true : false,
       user: this.user ? this.user : ''
     }
 

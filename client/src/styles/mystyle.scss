@@ -40,7 +40,7 @@ body {
 
 h1, h2, h3, {
     margin: 0;
-}
+} */
 
 // login specific elements
 
@@ -54,25 +54,28 @@ h1, h2, h3, {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+    padding-top: 2rem;
 }
 
 // micro components
 
 @import 'button';
 @import 'text-input';
-@import 'radio-checkbox';
+//@import 'radio-checkbox';
 @import 'dropdown';
 
 // app sections
 
 @import 'widget';
-@import 'problem-box';
+//@import 'problem-box';
 
 // specific problem types
-
+/* 
+@import 'problem-box';
 @import 'multiple-choice';
+@import 'radio-checkbox';
 
-
+ */
 
 .validation {
     align-self: center;

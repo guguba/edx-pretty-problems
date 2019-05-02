@@ -60,7 +60,7 @@ class Output extends Component {
                 <h2>Script (copy-paste to edX editor)</h2>
             </div>
             <div className="widget-internal-box">
-            <p className="output">{showOutput}</p>
+                <p className="output">{showOutput}</p>
             </div>
         </div>
     );

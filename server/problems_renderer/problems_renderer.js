@@ -8,8 +8,6 @@ const problems = express.Router()
 problems.get('/multipleChoice/:id', function (req, res) {
 
   const problemId = {_id: ObjectId(req.params.id)};
-  let params;
-
 
   // get problem params from DB
   const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/test?retryWrites=true";
@@ -23,7 +21,6 @@ problems.get('/multipleChoice/:id', function (req, res) {
       dbo.collection("problems").findOne(problemId)
         .then((response) => {
           if (response) {
-            // params = response;
 
             let questionText = response.question;
             let options = response.options;
