@@ -52,18 +52,18 @@
         let elem = document.querySelector("html");
         elem.style.setProperty("--primary-color", "{{primaryColor}}");
     </script>
-    <div class="problem-external-box">
+    <div class="p-problem-external-box">
         {{#if questionText}}
-        <div class="question-text">
-            <p class={{rtl}}
+        <div class="p-question-text">
+            <p class=p-{{rtl}}
                 {{questionText}}
             </p>
         </div>
         {{/if}}
-        <div class="multiple-choice-box ltr" {{rtl}}>
+        <div class="p-multiple-choice-box p-{{rtl}}"">
             {{#each options}}
-                <input class="radio-input" type={{../type}} id="option{{@index}}" value={{@index}} name="example">
-                <label class="radio-label {{../type}}" for="option{{@index}}">{{this.text}}</label>
+                <input class="p-radio-input" type={{../type}} id="option{{@index}}" value={{@index}} name="example">
+                <label class="p-radio-label {{../type}}" for="option{{@index}}">{{this.text}}</label>
             {{/each}}
         </div>
     </div>

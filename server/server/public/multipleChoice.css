@@ -56,7 +56,7 @@ h1, h2, h3, p {
           margin-block-end: 0;
 }
 
-.radio-label {
+.p-radio-label {
   font-weight: bold;
   line-height: 1.1rem;
   cursor: pointer;
@@ -67,7 +67,7 @@ h1, h2, h3, p {
   text-overflow: ellipsis;
 }
 
-.radio-label:before {
+.p-radio-label:before {
   content: "";
   position: absolute;
   left: 1rem;
@@ -77,17 +77,17 @@ h1, h2, h3, p {
   border: .2rem solid #ccc;
 }
 
-.radio-label.radio:before {
+.p-radio-label.p-radio:before {
   border-radius: 50%;
 }
 
-.radio-input:checked + label:before {
+.p-radio-input:checked + label:before {
   border-color: white;
   border: none;
   background: var(--primary-color);
 }
 
-.problem-external-box {
+.p-problem-external-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -104,40 +104,40 @@ h1, h2, h3, p {
   padding: 2rem 2rem 1rem 2rem;
 }
 
-.problem-external-box .question-text {
+.p-problem-external-box .p-question-text {
   margin: 0 0 1rem 0;
   color: white;
   font-weight: bold;
   cursor: text;
 }
 
-.problem-external-box .question-text :empty:before {
+.p-problem-external-box .p-question-text :empty:before {
   content: attr(placeholder);
   color: #ddd;
 }
 
-.problem-external-box .question-text :focus {
+.p-problem-external-box .p-question-text :focus {
   outline: none;
 }
 
-.problem-external-box .question-text .rtl {
+.p-problem-external-box .p-question-text .p-rtl {
   direction: rtl;
   text-align: right;
 }
 
-.problem-external-box label {
+.p-problem-external-box label {
   background-color: white;
 }
 
-.problem-external-box label input {
+.p-problem-external-box label input {
   background-color: white;
 }
 
-.problem-external-box .validation {
+.p-problem-external-box .p-validation {
   margin: 1em 0;
 }
 
-.problem-external-box .button {
+.p-problem-external-box .p-button {
   background-color: white;
   color: black;
   margin: 1rem 0 0 0;
@@ -145,25 +145,25 @@ h1, h2, h3, p {
       align-self: flex-end;
 }
 
-.problem-external-box .button:hover {
+.p-problem-external-box .p-button:hover {
   background-color: #eee;
 }
 
-.active-label, .radio-input:checked + label, .radio-input:checked + label .label-input, .multiple-choice-box .radio-label:hover, .multiple-choice-box .radio-label:hover .label-input {
+.p-active-label, .p-radio-input:checked + label, .p-radio-input:checked + label .p-label-input, .p-multiple-choice-box .p-radio-label:hover, .p-multiple-choice-box .p-radio-label:hover .p-label-input {
   color: var(--primary-color);
 }
 
-.active-label:before, .radio-input:checked + label:before, .radio-input:checked + label .label-input:before, .multiple-choice-box .radio-label:hover:before, .multiple-choice-box .radio-label:hover .label-input:before {
+.p-active-label:before, .p-radio-input:checked + label:before, .p-radio-input:checked + label .p-label-input:before, .p-multiple-choice-box .p-radio-label:hover:before, .p-multiple-choice-box .p-radio-label:hover .p-label-input:before {
   border-color: var(--primary-color);
 }
 
-.multiple-choice-box {
+.p-multiple-choice-box {
   height: 100%;
   border: 1px solid white;
   border-radius: 3px;
 }
 
-.multiple-choice-box .radio-label {
+.p-multiple-choice-box .p-radio-label {
   height: 3rem;
   padding: 1rem 1rem 1rem 3rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -171,24 +171,24 @@ h1, h2, h3, p {
   transition: all .15s ease;
 }
 
-.multiple-choice-box .radio-label:first-of-type {
+.p-multiple-choice-box .p-radio-label:first-of-type {
   border: 0;
 }
 
-.multiple-choice-box .radio-label.add-option {
+.p-multiple-choice-box .p-radio-label.p-add-option {
   padding: 1rem 1rem 1rem 1rem;
   color: lightgrey;
 }
 
-.multiple-choice-box .radio-label.add-option:before {
+.p-multiple-choice-box .p-radio-label.p-add-option:before {
   content: none;
 }
 
-.multiple-choice-box .radio-label:hover .delete-answer {
+.p-multiple-choice-box .p-radio-label:hover .p-delete-answer {
   color: gray;
 }
 
-.multiple-choice-box .delete-answer {
+.p-multiple-choice-box .p-delete-answer {
   position: absolute;
   right: 1rem;
   top: 0.25rem;
@@ -197,20 +197,20 @@ h1, h2, h3, p {
   opacity: 0.6;
 }
 
-.multiple-choice-box.rtl {
+.p-multiple-choice-box.p-rtl {
   direction: rtl;
   text-align: right;
 }
 
-.multiple-choice-box.rtl label {
+.p-multiple-choice-box.p-rtl label {
   padding: 1rem 3rem 1rem 1rem;
 }
 
-.multiple-choice-box.rtl label:before {
+.p-multiple-choice-box.p-rtl label:before {
   right: 1rem;
 }
 
-.multiple-choice-box.rtl label .delete-answer {
+.p-multiple-choice-box.p-rtl label .p-delete-answer {
   position: absolute;
   right: auto;
   left: 1rem;
@@ -218,7 +218,7 @@ h1, h2, h3, p {
   cursor: pointer;
 }
 
-.multiple-choice-box.rtl label:last-of-type {
+.p-multiple-choice-box.p-rtl label:last-of-type {
   padding: 1rem 1rem 1rem 1rem;
 }
 
@@ -230,7 +230,7 @@ input[type=checkbox] {
   display: none;
 }
 
-.label-input {
+.p-label-input {
   font-size: 1rem;
   height: 1rem;
   font-weight: bold;
@@ -239,23 +239,23 @@ input[type=checkbox] {
   font-family: inherit;
 }
 
-.label-input::-webkit-input-placeholder {
+.p-label-input::-webkit-input-placeholder {
   color: lightgrey;
 }
 
-.label-input:-ms-input-placeholder {
+.p-label-input:-ms-input-placeholder {
   color: lightgrey;
 }
 
-.label-input::-ms-input-placeholder {
+.p-label-input::-ms-input-placeholder {
   color: lightgrey;
 }
 
-.label-input::placeholder {
+.p-label-input::placeholder {
   color: lightgrey;
 }
 
-.label-input:focus {
+.p-label-input:focus {
   outline: none;
 }
 /*# sourceMappingURL=multipleChoice.css.map */
