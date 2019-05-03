@@ -82,6 +82,8 @@
 }
 
 .inverted .multiple-choice-box {
+    border: 1px solid var(--primary-color);
+
     .radio-label {
         background-color: var(--primary-color);
         border-top: 1px solid rgba(white, .1);

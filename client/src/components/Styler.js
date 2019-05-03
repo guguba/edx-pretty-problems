@@ -47,9 +47,13 @@ class Styler extends Component {
                   <input className="radio-input" checked={language === "heb"} onChange={(e) => this.onStyleChange(e, "language")} type="radio" id="heb" name="language"/>
                   <label className="radio-label radio" for="heb">עברית</label>
                 </div>
-                <h3>Background color:</h3>
+                <h3>Color:</h3>
                 <div className="picker">
                   <input type="color" id="primaryColor" value={this.props.styler.primaryColor} onChange={(e) => this.onStyleChange(e, "primaryColor")}/>
+                </div>
+                <div>
+                  <input className="radio-input" id="invertedColor" type="checkbox" name="inverted" value={this.props.styler.inverted} onChange={(e) => this.onStyleChange(e, "inverted")}/>
+                  <label class="radio-label" for="invertedColor">Flip colors</label>
                 </div>
                 <h3>Font:</h3>
                 <div className="picker dropdown">

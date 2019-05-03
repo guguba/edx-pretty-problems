@@ -206,6 +206,10 @@ h1, h2, h3, p {
   cursor: pointer;
 }
 
+.inverted .multiple-choice-box {
+  border: 1px solid var(--primary-color);
+}
+
 .inverted .multiple-choice-box .radio-label {
   background-color: var(--primary-color);
   border-top: 1px solid rgba(255, 255, 255, 0.1);

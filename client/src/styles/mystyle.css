@@ -239,29 +239,29 @@ h1, h2, h3, {
   margin: 15px 0 5px 15px;
 }
 
-.widget-external-box .radio {
+.widget-external-box .radio-label {
   border: 0px;
   padding: .5rem 1rem .5rem 3rem;
   height: 2rem;
 }
 
-.widget-external-box .radio:before {
+.widget-external-box .radio-label:before {
   top: 0.5rem;
 }
 
-.widget-external-box .radio:hover {
+.widget-external-box .radio-label:hover {
   color: #e0758e;
 }
 
-.widget-external-box .radio:hover:before {
+.widget-external-box .radio-label:hover:before {
   border: .2rem solid #e0758e;
 }
 
-.widget-external-box input:checked + .radio {
+.widget-external-box input:checked + .radio-label {
   color: #e0758e;
 }
 
-.widget-external-box input:checked + .radio:before {
+.widget-external-box input:checked + .radio-label:before {
   background-color: #e0758e;
 }
 

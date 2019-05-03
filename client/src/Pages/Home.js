@@ -23,6 +23,7 @@ class Home extends Component {
                 language: "enUs",
                 textDirection: "ltr",
                 primaryColor: "#e0758e",
+                inverted: false,
                 fontFamily: "Segoe UI"
             },
             showOutput: false,
@@ -58,6 +59,12 @@ class Home extends Component {
             val = target.value;
             let elem = document.getElementById("root");
             elem.style.setProperty("--primary-color", val);
+        }
+        else if (style === "inverted") {
+            val = target.checked;
+            console.log('inverted', val)
+            let elem = document.querySelector(".problem-external-box");
+            elem.classList.toggle("inverted");
         }
         else if (style === "fontFamily") {
             val = target.value;

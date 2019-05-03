@@ -27,7 +27,7 @@
         margin: 15px 0 5px 15px;
     }
 
-    .radio {
+    .radio-label {
         border: 0px;
         padding: .5rem 1rem .5rem 3rem;
         height: 2rem;
@@ -43,7 +43,7 @@
     }
 
     //might be able to remove
-    input:checked + .radio{
+    input:checked + .radio-label{
         color:  #e0758e;
         &:before {
             background-color: #e0758e;

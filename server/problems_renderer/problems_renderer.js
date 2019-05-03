@@ -26,6 +26,7 @@ problems.get('/multipleChoice/:id', function (req, res) {
             let options = response.options;
             let type = response.styler.type;
             let primaryColor = response.styler.primaryColor;
+            let inverted = response.styler.inverted ? '' : "inverted";
             let rtl = (response.styler.textDirection === "rtl") ? "rtl" : '';
 
             //inputs
@@ -46,6 +47,7 @@ problems.get('/multipleChoice/:id', function (req, res) {
               corrects,
               optionLength: options.length,
               primaryColor,
+              inverted,
               questionText,
               rtl,
               type,
