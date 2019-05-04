@@ -28,6 +28,7 @@ problems.get('/multipleChoice/:id', function (req, res) {
             let primaryColor = response.styler.primaryColor;
             let inverted = response.styler.inverted ? '' : "inverted";
             let rtl = (response.styler.textDirection === "rtl") ? "rtl" : '';
+            let fontFamily = response.styler.fontFamily.replace(" ", "+");
 
             //inputs
             let inputs = '';
@@ -51,6 +52,7 @@ problems.get('/multipleChoice/:id', function (req, res) {
               questionText,
               rtl,
               type,
+              fontFamily
             })
 
           } else res.send({

@@ -6,7 +6,6 @@ html {
     box-sizing: border-box;
     font-size: 15.2px;
     line-height: 1.5;
-    font-family: 'Segoe UI', 'Open Sans', sans-serif;
     background: #f1f1f1;
     color: #333;
     text-align: left;
@@ -14,6 +13,10 @@ html {
 
 body {
     margin: 0;
+    font-family: 'Segoe UI', 'Open Sans', sans-serif;
+    --primary-color: #e0758e;
+    --primary-font: "Segoe UI";
+
 }
 
 #root {
@@ -21,8 +24,6 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
 
-    --primary-color: #e0758e;
-    --primary-font: "Segoe UI";
 }
 
 .container {

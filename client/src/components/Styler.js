@@ -20,7 +20,7 @@ class Styler extends Component {
       let isRadio = this.props.styler.type === "radio";
       let language = this.props.styler.language;
 
-      let fonts = ["Alef", "Amatic SC", "Arial Black", "Arial Narrow", "Avante Garde", "Bookman", "Calibri", "Courier", "Courier New", "Futura", "Garamond", "Georgia", "Helvetica", "Impact", "Monaco", "Palatino", "Segoe UI", "Tahoma", "Times", "Times New Roman", "Trebuchet MS", "Varela Round", "Verdana"]
+      let fonts = ['Alef','Arial','Arial Narrow','Calibri','Concert One','Courier New','Frank Ruhl Libre','Georgia','Impact','Lato','Lora','Montserrat','Nunito Sans','Open Sans','Oswald','Rakkas','Raleway','Roboto','Segoe UI','Spectral','Tahoma','Times New Roman','Ubuntu','Verdana','Yatra One']
       let fontOptions = []
       for (const font of fonts) {
         let newOption = <option value={font}>{font}</option>

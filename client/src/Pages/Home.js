@@ -57,7 +57,7 @@ class Home extends Component {
         }
         else if (style === "primaryColor") {
             val = target.value;
-            let elem = document.getElementById("root");
+            let elem = document.querySelector("body");
             elem.style.setProperty("--primary-color", val);
         }
         else if (style === "inverted") {
@@ -68,7 +68,7 @@ class Home extends Component {
         }
         else if (style === "fontFamily") {
             val = target.value;
-            let elem = document.getElementById("root");
+            let elem = document.querySelector("body");
             elem.style.setProperty("--primary-font", val);
         }
         newStyler[style] = val;

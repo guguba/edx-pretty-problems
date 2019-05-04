@@ -4,7 +4,6 @@ html {
           box-sizing: border-box;
   font-size: 15.2px;
   line-height: 1.5;
-  font-family: 'Segoe UI', 'Open Sans', sans-serif;
   background: #f1f1f1;
   color: #333;
   text-align: left;
@@ -12,6 +11,9 @@ html {
 
 body {
   margin: 0;
+  font-family: 'Segoe UI', 'Open Sans', sans-serif;
+  --primary-color: #e0758e;
+  --primary-font: "Segoe UI";
 }
 
 #root {
@@ -25,8 +27,6 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  --primary-color: #e0758e;
-  --primary-font: "Segoe UI";
 }
 
 .container {
@@ -126,8 +126,33 @@ h1, h2, h3, p {
   padding: 2rem 2rem 1rem 2rem;
 }
 
+.p-problem-external-box .question-text {
+  margin: 0 0 1rem 0;
+  color: white;
+  font-weight: bold;
+  cursor: text;
+}
+
+.p-problem-external-box .question-text :empty:before {
+  content: attr(placeholder);
+  color: #ddd;
+}
+
+.p-problem-external-box .question-text :focus {
+  outline: none;
+}
+
+.p-problem-external-box .question-text .rtl {
+  direction: rtl;
+  text-align: right;
+}
+
 .p-problem-external-box.inverted {
   background-color: white;
+}
+
+.p-problem-external-box.inverted .question-text {
+  color: var(--primary-color);
 }
 
 .active-label, .radio-input:checked + label, .radio-input:checked + label .label-input, .multiple-choice-box .radio-label:hover, .multiple-choice-box .radio-label:hover .label-input {

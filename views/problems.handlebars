@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Untitled Document</title>
-    {{!-- <link rel="stylesheet" href="https://s3.us-east-2.amazonaws.com/edx-js-problems/styles.css"> --}}
     <link rel="stylesheet" href="../../multipleChoice.css">
+    <link href="https://fonts.googleapis.com/css?family={{fontFamily}}" rel="stylesheet">
 
 </head>
 
@@ -49,20 +49,21 @@
 
     </script>
     <script>
-        let elem = document.querySelector("html");
+        let elem = document.querySelector("body");
         elem.style.setProperty("--primary-color", "{{primaryColor}}");
+        elem.style.setProperty("--primary-font", "{{fontFamily}}");
     </script>
     <div class="p-problem-external-box {{inverted}}">
         {{#if questionText}}
         <div class="question-text">
-            <p class={{rtl}}
+            <p class={{rtl}}>
                 {{questionText}}
             </p>
         </div>
         {{/if}}
         <div class="multiple-choice-box {{rtl}}">
             {{#each options}}
-                <input class="radio-input" type={{../type}} id="option{{@index}}" value={{@index}}>
+                <input class="radio-input" type={{../type}} id="option{{@index}}" value={{@index}} name="options">
                 <label class="radio-label {{../type}}" for="option{{@index}}">{{this.text}}</label>
             {{/each}}
         </div>
