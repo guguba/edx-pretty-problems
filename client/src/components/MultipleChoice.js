@@ -165,12 +165,14 @@ class MultipleChoice extends Component {
 
     onUpdateQuestion(e) {
         let value = e.target.innerHTML;
+        console.log("value", value);
+
         value = value.replace(/<br>/g, '');
         value = value.replace(/<div>/g, '<br>');
         value = value.replace(/<\/div>/g, '');
-        let question = value || this.state.question;
+        //let question = value || this.state.question;
         this.setState({
-            question: question
+            question: value
         })
     }
 
