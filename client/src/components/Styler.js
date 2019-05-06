@@ -18,6 +18,7 @@ class Styler extends Component {
       
       //isRadio need revactor to a better function
       let isRadio = this.props.styler.type === "radio";
+      let layout = this.props.styler.layout;
       let language = this.props.styler.language;
 
       let fonts = ['Alef','Arial','Arial Narrow','Calibri','Concert One','Courier New','Frank Ruhl Libre','Georgia','Impact','Lato','Lora','Montserrat','Nunito Sans','Open Sans','Oswald','Rakkas','Raleway','Roboto','Segoe UI','Spectral','Tahoma','Times New Roman','Ubuntu','Verdana','Yatra One']
@@ -39,6 +40,13 @@ class Styler extends Component {
                   <label className="radio-label radio" for="radio">Single-choice (radio)</label>
                   <input className="radio-input" checked={!isRadio} onChange={(e) => this.onStyleChange(e, "type")} type="radio" id="checkbox" name="type"/>
                   <label className="radio-label radio" for="checkbox">Multi-choice (checkboxes)</label>
+                </div>
+                <h3>layout:</h3>
+                <div>
+                  <input className="radio-input" checked={layout === "rows"} onChange={(e) => this.onStyleChange(e, "layout")} type="radio" id="rows" name="layout"/>
+                  <label className="radio-label radio" for="rows">rows</label>
+                  <input className="radio-input" checked={layout === "boxes"} onChange={(e) => this.onStyleChange(e, "layout")} type="radio" id="boxes" name="layout"/>
+                  <label className="radio-label radio" for="boxes">boxes</label>
                 </div>
                 <h3>Language:</h3>
                 <div>

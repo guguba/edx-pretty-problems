@@ -301,14 +301,14 @@ h1, h2, h3, {
   width: 35%;
   background: white;
   border-radius: 3px;
-  background-color: var(--primary-color);
+  background-color: white;
   font-family: var(--primary-font), "Open Sans", sans-serif;
   padding: 2rem 2rem 1rem 2rem;
 }
 
 .problem-external-box .question-text {
   margin: 0 0 1rem 0;
-  color: white;
+  color: var(--primary-color);
   font-weight: bold;
   cursor: text;
 }
@@ -328,39 +328,19 @@ h1, h2, h3, {
 }
 
 .problem-external-box .validation {
+  color: gray;
   margin: 1em 0;
 }
 
 .problem-external-box .button {
-  background-color: white;
-  color: black;
+  background-color: gray;
+  color: white;
   margin: 1rem 0 0 0;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
 
 .problem-external-box .button:hover {
-  background-color: #eee;
-}
-
-.problem-external-box.inverted {
-  background-color: white;
-}
-
-.problem-external-box.inverted .question-text {
-  color: var(--primary-color);
-}
-
-.problem-external-box.inverted .validation {
-  color: var(--primary-color);
-}
-
-.problem-external-box.inverted button {
-  background-color: gray;
-  color: white;
-}
-
-.problem-external-box.inverted button:hover {
   background-color: #9a9a9a;
 }
 

@@ -20,6 +20,7 @@ class Home extends Component {
         this.state = {
             styler: {
                 type: "radio",
+                layout: "rows",
                 language: "enUs",
                 textDirection: "ltr",
                 primaryColor: "#e0758e",
@@ -53,6 +54,9 @@ class Home extends Component {
             }
         }
         else if (style === "type") {
+            val = target.id;
+        }
+        else if (style === "layout") {
             val = target.id;
         }
         else if (style === "primaryColor") {

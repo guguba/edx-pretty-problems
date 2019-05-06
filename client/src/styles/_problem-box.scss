@@ -5,13 +5,14 @@
     width: 35%;
     background: white;
     border-radius: 3px;
-    background-color: var(--primary-color);
+    //background-color: var(--primary-color);
+    background-color: white;
     font-family: var(--primary-font), 'Open Sans', sans-serif;
     padding: 2rem 2rem 1rem 2rem;
     
     .question-text {
         margin: 0 0 1rem 0;
-        color: white;
+        color: var(--primary-color);
         font-weight: bold;
         cursor: text;
         :empty:before {
@@ -28,33 +29,17 @@
     }
 
     .validation {
+        color: gray;
         margin: 1em 0;
     }
 
     .button {
-        background-color: white;
-        color: black;
+        background-color: gray;
+        color: white;
         margin: 1rem 0 0 0;
         align-self: flex-end;
         &:hover {
-            background-color: #eee;
-        }
-    }
-
-    &.inverted {
-        background-color: white;
-        .question-text {
-            color: var(--primary-color);
-        }
-        .validation {
-            color: var(--primary-color);
-        }
-        button {
-            background-color: gray;
-            color: white;
-            &:hover {
-                background-color: lighten( gray, 10% );
-            }
+            background-color: lighten( gray, 10% );
         }
     }
 }

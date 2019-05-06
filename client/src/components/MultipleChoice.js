@@ -189,6 +189,9 @@ class MultipleChoice extends Component {
 
       this.checkChangeToRadio();
       let type = this.props.styler.type;
+      // TODO: refactor this to a more general class
+      const layout = this.props.styler.layout === "boxes" ? "box-layout" : "";
+      const textDirection = this.props.styler.textDirection;
       let arrOfOptions = [];
       let allSelected = [];
       let options = this.state.options;
@@ -207,7 +210,7 @@ class MultipleChoice extends Component {
                 [
                 <input className="radio-input" type="checkbox" id={"option" + i} name="options" checked={selected} onChange={(e)=>this.onSelect(e)}/>,
                 <label className={'radio-label ' + type} for={"option" + i}>
-                    <input className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></input>
+                    <textarea className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></textarea>
                     <p id={"delete-" + i} onClick={(e)=>this.onDeleteOption(e)} className="delete-answer">✖</p>
                 </label>
                 ]
@@ -219,10 +222,10 @@ class MultipleChoice extends Component {
             <div className="question-text"><p
             contenteditable="true"
             placeholder={langStrings.question}
-            className={this.props.styler.textDirection}
+            className={textDirection}
             onInput={(e)=>this.onUpdateQuestion(e)}
             ></p></div>
-            <div className={"multiple-choice-box " + this.props.styler.textDirection}>
+            <div className={"multiple-choice-box " + textDirection + " " + layout}>
                 {arrOfOptions}
                 <label className="radio-label add-option" onClick={(e)=>this.onAddOption(e)}>{langStrings.addOption}</label>
             </div>
