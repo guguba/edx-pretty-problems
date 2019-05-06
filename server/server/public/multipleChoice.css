@@ -93,7 +93,8 @@ textarea {
 }
 
 .label-input {
-  line-height: 0.5rem;
+  line-height: 1.2rem;
+  height: 1.2rem;
 }
 
 .radio-input:checked + label:before {
@@ -182,7 +183,7 @@ textarea {
   border: 2px solid var(--primary-color);
   border-bottom: 0;
   height: 3rem;
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 0.8rem 1rem 1rem 3rem;
   -webkit-transition: all .15s ease;
   transition: all .15s ease;
   background-color: white;
@@ -232,7 +233,7 @@ textarea {
 }
 
 .multiple-choice-box.rtl label {
-  padding: 1rem 3rem 1rem 1rem;
+  padding: 0.8rem 3rem 1rem 1rem;
 }
 
 .multiple-choice-box.rtl label:before {
@@ -245,6 +246,15 @@ textarea {
   left: 1rem;
   top: 0.25rem;
   cursor: pointer;
+}
+
+.inverted .multiple-choice-box.box-layout .radio-input:hover + label, .inverted .multiple-choice-box.box-layout .radio-input:checked + label {
+  border: 2px solid white;
+}
+
+.inverted .multiple-choice-box.box-layout .radio-input:hover + label:before, .inverted .multiple-choice-box.box-layout .radio-input:checked + label:before {
+  border-color: white transparent transparent transparent;
+  background: none;
 }
 
 .inverted .multiple-choice-box .radio-label {
@@ -302,19 +312,38 @@ textarea {
           justify-content: space-between;
 }
 
-.multiple-choice-box.box-layout .radio-label {
+.multiple-choice-box.box-layout .radio-input:hover + label, .multiple-choice-box.box-layout .radio-input:checked + label {
   border: 2px solid var(--primary-color);
+}
+
+.multiple-choice-box.box-layout .radio-input:hover + label:before, .multiple-choice-box.box-layout .radio-input:checked + label:before {
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-color: var(--primary-color) transparent transparent transparent;
+  background: none;
+}
+
+.multiple-choice-box.box-layout .radio-label {
+  border: 2px solid lightgray;
   height: 10rem;
   width: 47%;
   margin: 0 auto 10px auto;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /*         padding: 1rem;
-        &:before {
-            border: 0;
-        }
- */
+  padding: 0.8rem 1rem;
+}
+
+.multiple-choice-box.box-layout .radio-label:before {
+  left: 0rem;
+  top: 0rem;
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-color: lightgray transparent transparent transparent;
+  line-height: 0;
 }
 
 .multiple-choice-box.box-layout .label-input {
@@ -332,7 +361,7 @@ input[type=checkbox] {
 
 .label-input {
   font-size: 1rem;
-  height: 1rem;
+  height: 1.2rem;
   font-weight: bold;
   border: none;
   width: 100%;

@@ -13,8 +13,8 @@
     .radio-label {
         border: 2px solid var(--primary-color);
         border-bottom: 0;
-            height: 3rem;
-        padding: 1rem 1rem 1rem 3rem;
+        height: 3rem;
+        padding: 0.8rem 1rem 1rem 3rem;
         transition: all .15s ease;
         background-color: white;
         .label-input {
@@ -67,7 +67,7 @@
         text-align: right;
 
         label {
-            padding: 1rem 3rem 1rem 1rem;
+            padding: 0.8rem 3rem 1rem 1rem;
 
             &:before {
                 right: 1rem;
@@ -86,6 +86,18 @@
 
 .inverted .multiple-choice-box {
     //border: 1px solid var(--primary-color);
+
+    &.box-layout {
+        .radio-input {
+            &:hover + label, &:checked + label {
+                border: 2px solid white;
+                &:before { 
+                    border-color: white transparent transparent transparent;
+                    background: none;
+                }   
+            }
+        }
+    }
 
     .radio-label {
         background-color: var(--primary-color);
@@ -119,20 +131,40 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    .radio-input {
+        &:hover + label, &:checked + label {
+            border: 2px solid var(--primary-color);
+            &:before { 
+                border-style: solid;
+                border-width: 20px 20px 0 0;
+    
+                border-color: var(--primary-color) transparent transparent transparent;
+                background: none;
+            }   
+        }
+    }
+    
     .radio-label {
-        border: 2px solid var(--primary-color);
+        border: 2px solid lightgray;
         height: 10rem;
         width: 47%;
         margin: 0 auto 10px auto;
         white-space: pre-wrap;
         word-wrap: break-word;
-        overflow-wrap: break-word;
-/*         padding: 1rem;
-        &:before {
-            border: 0;
-        }
- */
-    
+        overflow-wrap: break-word; 
+        padding: 0.8rem 1rem;
+        &:before { 
+            left: 0rem;
+            top: 0rem;
+            width: 0;
+            height: 0;
+            border-radius: 0;
+            border-style: solid;
+            border-width: 20px 20px 0 0;
+            border-color: lightgray transparent transparent transparent;
+            line-height: 0;
+        }   
     }
     .label-input {
         height: 100%;
@@ -155,7 +187,7 @@ input[type=checkbox] {
 
 .label-input {
     font-size: 1rem;
-    height: 1rem;
+    height: 1.2rem;
     font-weight: bold;
     border: none;
     width: 100%;
@@ -169,4 +201,3 @@ input[type=checkbox] {
         outline: none;
     }
 }
-
