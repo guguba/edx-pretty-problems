@@ -66,8 +66,8 @@ class Home extends Component {
         }
         else if (style === "inverted") {
             val = target.checked;
-            console.log('inverted', val)
-            let elem = document.querySelector(".problem-external-box");
+            console.log('inverted');
+            let elem = document.querySelector(".multiple-choice-box");
             elem.classList.toggle("inverted");
         }
         else if (style === "fontFamily") {

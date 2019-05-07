@@ -26,12 +26,4 @@
             text-align: right;
         }
     }
-
-    &.inverted {
-        background-color: white;
-        .question-text {
-            color: var(--primary-color);
-        }
-    }
-
 }

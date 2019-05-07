@@ -163,14 +163,6 @@ textarea {
   text-align: right;
 }
 
-.p-problem-external-box.inverted {
-  background-color: white;
-}
-
-.p-problem-external-box.inverted .question-text {
-  color: var(--primary-color);
-}
-
 .active-label, .radio-input:checked + label, .radio-input:checked + label .label-input, .multiple-choice-box .radio-label:hover, .multiple-choice-box .radio-label:hover .label-input {
   color: var(--primary-color);
 }
@@ -183,7 +175,7 @@ textarea {
   border: 2px solid var(--primary-color);
   border-bottom: 0;
   height: 3rem;
-  padding: 0.8rem 1rem 1rem 3rem;
+  padding: 0.7rem 1rem 1rem 3rem;
   -webkit-transition: all .15s ease;
   transition: all .15s ease;
   background-color: white;
@@ -227,76 +219,46 @@ textarea {
   opacity: 0.6;
 }
 
-.multiple-choice-box.rtl {
-  direction: rtl;
-  text-align: right;
-}
-
-.multiple-choice-box.rtl label {
-  padding: 0.8rem 3rem 1rem 1rem;
-}
-
-.multiple-choice-box.rtl label:before {
-  right: 1rem;
-}
-
-.multiple-choice-box.rtl label .delete-answer {
-  position: absolute;
-  right: auto;
-  left: 1rem;
-  top: 0.25rem;
-  cursor: pointer;
-}
-
-.inverted .multiple-choice-box.box-layout .radio-input:hover + label, .inverted .multiple-choice-box.box-layout .radio-input:checked + label {
-  border: 2px solid white;
-}
-
-.inverted .multiple-choice-box.box-layout .radio-input:hover + label:before, .inverted .multiple-choice-box.box-layout .radio-input:checked + label:before {
-  border-color: white transparent transparent transparent;
-  background: none;
-}
-
-.inverted .multiple-choice-box .radio-label {
+.multiple-choice-box.inverted .radio-label {
   background-color: var(--primary-color);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
 }
 
-.inverted .multiple-choice-box .radio-label .label-input {
+.multiple-choice-box.inverted .radio-label .label-input {
   background-color: var(--primary-color);
   color: white;
 }
 
-.inverted .multiple-choice-box .radio-label .label-input::-webkit-input-placeholder {
+.multiple-choice-box.inverted .radio-label .label-input::-webkit-input-placeholder {
   color: #eee;
 }
 
-.inverted .multiple-choice-box .radio-label .label-input:-ms-input-placeholder {
+.multiple-choice-box.inverted .radio-label .label-input:-ms-input-placeholder {
   color: #eee;
 }
 
-.inverted .multiple-choice-box .radio-label .label-input::-ms-input-placeholder {
+.multiple-choice-box.inverted .radio-label .label-input::-ms-input-placeholder {
   color: #eee;
 }
 
-.inverted .multiple-choice-box .radio-label .label-input::placeholder {
+.multiple-choice-box.inverted .radio-label .label-input::placeholder {
   color: #eee;
 }
 
-.inverted .multiple-choice-box .radio-label:hover {
+.multiple-choice-box.inverted .radio-label:hover {
   opacity: .8;
 }
 
-.inverted .multiple-choice-box .radio-label:hover:before {
+.multiple-choice-box.inverted .radio-label:hover:before {
   border-color: white;
 }
 
-.inverted .multiple-choice-box .radio-label.add-option {
+.multiple-choice-box.inverted .radio-label.add-option {
   color: white;
 }
 
-.inverted .multiple-choice-box .delete-answer {
+.multiple-choice-box.inverted .delete-answer {
   color: white;
 }
 
@@ -324,6 +286,7 @@ textarea {
 }
 
 .multiple-choice-box.box-layout .radio-label {
+  border-radius: 3px;
   border: 2px solid lightgray;
   height: 10rem;
   width: 47%;
@@ -331,7 +294,7 @@ textarea {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding: 0.8rem 1rem;
+  padding: 0.7rem 1rem;
 }
 
 .multiple-choice-box.box-layout .radio-label:before {
@@ -349,6 +312,57 @@ textarea {
 .multiple-choice-box.box-layout .label-input {
   height: 100%;
   background-color: white;
+}
+
+.multiple-choice-box.inverted.box-layout .radio-input:hover + label, .multiple-choice-box.inverted.box-layout .radio-input:checked + label {
+  border: 2px solid var(--primary-color);
+  border-radius: 3px;
+}
+
+.multiple-choice-box.inverted.box-layout .radio-input:hover + label:before, .multiple-choice-box.inverted.box-layout .radio-input:checked + label:before {
+  border-color: white transparent transparent transparent;
+  background: none;
+}
+
+.multiple-choice-box.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.multiple-choice-box.rtl .radio-label {
+  padding: 0.7rem 3rem 1rem 1rem;
+}
+
+.multiple-choice-box.rtl .radio-label:before {
+  right: 1rem;
+}
+
+.multiple-choice-box.rtl .radio-label .delete-answer {
+  position: absolute;
+  right: auto;
+  left: 1rem;
+  cursor: pointer;
+}
+
+.multiple-choice-box.rtl.box-layout .radio-label {
+  padding: 0.7rem 1rem;
+}
+
+.multiple-choice-box.rtl.box-layout .radio-label:before {
+  right: 0;
+  left: auto;
+  border-width: 0 20px 20px 0;
+  border-color: transparent lightgray transparent transparent;
+}
+
+.multiple-choice-box.rtl.box-layout .radio-input:hover + label:before, .multiple-choice-box.rtl.box-layout .radio-input:checked + label:before {
+  border-width: 0 20px 20px 0;
+  border-color: transparent var(--primary-color) transparent transparent;
+}
+
+.multiple-choice-box.rtl.box-layout.inverted .radio-input:hover + label:before, .multiple-choice-box.rtl.box-layout.inverted .radio-input:checked + label:before {
+  border-width: 0 20px 20px 0;
+  border-color: transparent white  transparent transparent;
 }
 
 input[type=radio] {

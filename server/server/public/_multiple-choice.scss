@@ -14,7 +14,7 @@
         border: 2px solid var(--primary-color);
         border-bottom: 0;
         height: 3rem;
-        padding: 0.8rem 1rem 1rem 3rem;
+        padding: 0.7rem 1rem 1rem 3rem;
         transition: all .15s ease;
         background-color: white;
         .label-input {
@@ -62,12 +62,101 @@
         opacity: 0.6;
     }
 
+    &.inverted {
+        .radio-label {
+            background-color: var(--primary-color);
+            border-top: 1px solid rgba(white, .1);
+            color: white;
+    
+            .label-input {
+                background-color: var(--primary-color);
+                color: white;
+                &::placeholder {
+                    color: #eee;
+                }
+            }
+            &:hover {
+                opacity: .8;
+                &:before {
+                    border-color: white;
+                }
+            }
+            &.add-option {
+                color: white;
+            }
+        }
+        .delete-answer {
+            color: white;
+        }
+    }
+
+    &.box-layout {
+        border: 0px solid white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    
+        .radio-input {
+            &:hover + label, &:checked + label {
+                border: 2px solid var(--primary-color);
+                &:before { 
+                    border-style: solid;
+                    border-width: 20px 20px 0 0;
+        
+                    border-color: var(--primary-color) transparent transparent transparent;
+                    background: none;
+                }   
+            }
+        }
+        
+        .radio-label {
+            border-radius: 3px;
+            border: 2px solid lightgray;
+            height: 10rem;
+            width: 47%;
+            margin: 0 auto 10px auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word; 
+            padding: 0.7rem 1rem;
+            &:before { 
+                left: 0rem;
+                top: 0rem;
+                width: 0;
+                height: 0;
+                border-radius: 0;
+                border-style: solid;
+                border-width: 20px 20px 0 0;
+                border-color: lightgray transparent transparent transparent;
+                line-height: 0;
+            }   
+        }
+        .label-input {
+            height: 100%;
+            background-color: white;
+        }
+    }
+
+    &.inverted.box-layout {
+        .radio-input {
+            &:hover + label, &:checked + label {
+                border: 2px solid var(--primary-color);
+                border-radius: 3px;
+                &:before { 
+                    border-color: white transparent transparent transparent;
+                    background: none;
+                }   
+            }
+        }
+    }
+
+
     &.rtl {
         direction: rtl;
         text-align: right;
 
-        label {
-            padding: 0.8rem 3rem 1rem 1rem;
+        .radio-label {
+            padding: 0.7rem 3rem 1rem 1rem;
 
             &:before {
                 right: 1rem;
@@ -77,102 +166,42 @@
                 position: absolute;
                 right: auto;
                 left: 1rem;
-                top: 0.25rem;
                 cursor: pointer;
             }
         }
-    }
-}
-
-.inverted .multiple-choice-box {
-    //border: 1px solid var(--primary-color);
-
-    &.box-layout {
-        .radio-input {
-            &:hover + label, &:checked + label {
-                border: 2px solid white;
-                &:before { 
-                    border-color: white transparent transparent transparent;
-                    background: none;
-                }   
+        &.box-layout {
+            .radio-label {
+                padding: 0.7rem 1rem;
+                &:before {
+                    right: 0;
+                    left: auto;
+                    border-width: 0 20px 20px 0;
+                    border-color: transparent lightgray transparent transparent;
+                }
             }
-        }
-    }
-
-    .radio-label {
-        background-color: var(--primary-color);
-        border-top: 1px solid rgba(white, .1);
-        color: white;
-
-        .label-input {
-            background-color: var(--primary-color);
-            color: white;
-            &::placeholder {
-                color: #eee;
-            }
-        }
-        &:hover {
-            opacity: .8;
-            &:before {
-                border-color: white;
-            }
-        }
-        &.add-option {
-            color: white;
-        }
-    }
-    .delete-answer {
-        color: white;
-    }
-}
-
-.multiple-choice-box.box-layout {
-    border: 0px solid white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    .radio-input {
-        &:hover + label, &:checked + label {
-            border: 2px solid var(--primary-color);
-            &:before { 
-                border-style: solid;
-                border-width: 20px 20px 0 0;
-    
-                border-color: var(--primary-color) transparent transparent transparent;
-                background: none;
+            .radio-input {
+                &:hover + label, &:checked + label {
+                    //border: 2px solid var(--primary-color);
+                    //border-radius: 3px;
+                    &:before { 
+                        border-width: 0 20px 20px 0;
+                        border-color: transparent var(--primary-color)  transparent transparent;
+                    }   
+                }
+            } 
+            &.inverted {
+                .radio-input {
+                    &:hover + label, &:checked + label {
+                        &:before { 
+                            border-width: 0 20px 20px 0;
+                            border-color: transparent white  transparent transparent;
+                        }   
+                    }
+                }
             }   
         }
     }
-    
-    .radio-label {
-        border: 2px solid lightgray;
-        height: 10rem;
-        width: 47%;
-        margin: 0 auto 10px auto;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        overflow-wrap: break-word; 
-        padding: 0.8rem 1rem;
-        &:before { 
-            left: 0rem;
-            top: 0rem;
-            width: 0;
-            height: 0;
-            border-radius: 0;
-            border-style: solid;
-            border-width: 20px 20px 0 0;
-            border-color: lightgray transparent transparent transparent;
-            line-height: 0;
-        }   
-    }
-    .label-input {
-        height: 100%;
-        background-color: white;
-    }
 }
-
-
 
 // inputs
 
