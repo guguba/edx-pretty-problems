@@ -191,6 +191,7 @@ class MultipleChoice extends Component {
       let type = this.props.styler.type;
       // TODO: refactor this to a more general class
       const layout = this.props.styler.layout === "boxes" ? "box-layout" : "";
+      const inverted = this.props.styler.inverted === true ? 'inverted' : "";
       const textDirection = this.props.styler.textDirection;
       let arrOfOptions = [];
       let allSelected = [];
@@ -218,14 +219,14 @@ class MultipleChoice extends Component {
       };
       let validationStyle = {visibility: this.state.validation.show ? 'visible' : 'hidden'};
     return (
-        <div className="problem-external-box inverted">
+        <div className="problem-external-box">
             <div className="question-text"><p
             contenteditable="true"
             placeholder={langStrings.question}
             className={textDirection}
             onInput={(e)=>this.onUpdateQuestion(e)}
             ></p></div>
-            <div className={"multiple-choice-box " + textDirection + " " + layout}>
+            <div className={"multiple-choice-box " + textDirection + " " + layout + " " + inverted}>
                 {arrOfOptions}
                 <label className="radio-label add-option" onClick={(e)=>this.onAddOption(e)}>{langStrings.addOption}</label>
             </div>
