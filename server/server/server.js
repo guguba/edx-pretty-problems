@@ -24,8 +24,11 @@ app.engine('handlebars', hbs.engine);
 
 app.set('view engine', 'handlebars');
 
-// allows to serve public
+// allows to serve public htmls
 app.use(express.static(__dirname + '/public'));
+
+// allow to store images locally
+app.use(express.static(__dirname + '/uploads'))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

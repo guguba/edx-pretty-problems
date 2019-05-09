@@ -40,9 +40,12 @@ class MultipleChoice extends Component {
 
     // controls image drop
     onImageDrop(files, id) {
+        console.log(files);
+        console.log(files[0]);
         id = id.substring(5) - 1;
         let options = [...this.state.options];
-        options[id].image = URL.createObjectURL(files[0]);
+        //options[id].image = URL.createObjectURL(files[0]);
+        options[id].image = files[0];
         this.setState({
             options: options
         })    

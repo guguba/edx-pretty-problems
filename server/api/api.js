@@ -1,8 +1,9 @@
 const express = require('express')
 const path = require('path');
 const MongoClient = require('mongodb').MongoClient;
+const api = express.Router();
 
-const api = express.Router()
+const ImageUploader = require('../server/ImageUploader');
 
 //api.use('/problem',problem_api)
 
@@ -19,10 +20,19 @@ api.get('/test', (req, res) => {
 api.post('/problem', (req, res) => {
 
   let params = req.body.params;
-  console.log('params are ');
-  console.log(params);
-  // TODO - refactor the uploader callback to a async promise
-  //res.send({filename: filename});
+
+  // if there are images - send to S3 and get urls
+
+  Object.values(params.options).forEach(elem => {
+    console.log("elem", elem)
+    ImageUploader(elem.image, 'filename', 'userId');
+    return('filename')
+  });
+
+
+  
+
+
 
   // uploading the problem to the DB and retrieving the uuid
 
@@ -33,9 +43,6 @@ api.post('/problem', (req, res) => {
     dbo.collection("problems").insertOne(params)
     .then( response => {
       res.send({ url: '/problems/multipleChoice/' + response.insertedId });
-      //createProblemHtml(params, response.insertedId + '.html', uploader);
-      //params.userId = response.insertedId;
-      //const res = await fetch('/problemsRouter/multipleChoice', params);
     })
     .catch( err => console.log(`Failed to insert problem: ${err}`) )
   })
