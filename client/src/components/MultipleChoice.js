@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/mystyle.css';
 import translations from '../Translations/translations';
-import {Client_config} from '../client_config'
+import {Client_config} from '../client_config';
+import ImageUploader from './ImageUploader';
 
 
 let emptyOptions = [
@@ -35,6 +36,16 @@ class MultipleChoice extends Component {
                 text: 'placeholder'
             }
         };
+    }
+
+    // controls image drop
+    onImageDrop(files, id) {
+        id = id.substring(5) - 1;
+        let options = [...this.state.options];
+        options[id].image = URL.createObjectURL(files[0]);
+        this.setState({
+            options: options
+        })    
     }
 
     //controls the checkboxes for radio/checkbox behaviors
@@ -209,8 +220,10 @@ class MultipleChoice extends Component {
           let selected = (options[i-1].selected);
           arrOfOptions.push(
                 [
+                
                 <input className="radio-input" type="checkbox" id={"option" + i} name="options" checked={selected} onChange={(e)=>this.onSelect(e)}/>,
                 <label className={'radio-label ' + type} for={"option" + i}>
+                    <ImageUploader id={"image" + i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)}/>
                     <textarea className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></textarea>
                     <p id={"delete-" + i} onClick={(e)=>this.onDeleteOption(e)} className="delete-answer">✖</p>
                 </label>

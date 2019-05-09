@@ -28,6 +28,7 @@
         "multer": "^1.3.1",
         "node-fetch": "^2.2.0",
         "path": "^0.12.7",
+        "react-dropzone": "^10.1.4",
         "react-fullstory": "^1.0.3",
         "react-router": "^4.3.1",
         "react-router-dom": "^4.3.1"
