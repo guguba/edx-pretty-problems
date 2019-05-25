@@ -33,7 +33,6 @@
         &.add-option {
             padding: 1rem 1rem 1rem 1rem;
             color: lightgrey;
-            padding: 1rem 1rem 1rem 1rem;
             line-height: 0.7rem;
             &:before {
                 content: none;
@@ -118,8 +117,9 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             overflow-wrap: break-word; 
-            padding: 0.7rem 1rem;
+            padding: 0;
             &:before { 
+                z-index: 2;
                 left: 0rem;
                 top: 0rem;
                 width: 0;
@@ -130,9 +130,14 @@
                 border-color: lightgray transparent transparent transparent;
                 line-height: 0;
             }   
+            &.add-option {
+                text-align: center;
+                padding-top: 7rem;
+            }
         }
         .label-input {
-            height: 100%;
+            text-align: center;
+            height: 40%;
             background-color: white;
         }
     }
@@ -171,12 +176,15 @@
         }
         &.box-layout {
             .radio-label {
-                padding: 0.7rem 1rem;
+                padding: 0;
                 &:before {
                     right: 0;
                     left: auto;
                     border-width: 0 20px 20px 0;
                     border-color: transparent lightgray transparent transparent;
+                }
+                &.add-option {
+                    padding-top: 7rem;
                 }
             }
             .radio-input {

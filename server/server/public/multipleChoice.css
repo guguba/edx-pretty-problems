@@ -197,7 +197,6 @@ textarea {
 .multiple-choice-box .radio-label.add-option {
   padding: 1rem 1rem 1rem 1rem;
   color: lightgrey;
-  padding: 1rem 1rem 1rem 1rem;
   line-height: 0.7rem;
 }
 
@@ -294,10 +293,11 @@ textarea {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding: 0.7rem 1rem;
+  padding: 0;
 }
 
 .multiple-choice-box.box-layout .radio-label:before {
+  z-index: 2;
   left: 0rem;
   top: 0rem;
   width: 0;
@@ -309,8 +309,14 @@ textarea {
   line-height: 0;
 }
 
+.multiple-choice-box.box-layout .radio-label.add-option {
+  text-align: center;
+  padding-top: 7rem;
+}
+
 .multiple-choice-box.box-layout .label-input {
-  height: 100%;
+  text-align: center;
+  height: 40%;
   background-color: white;
 }
 
@@ -345,7 +351,7 @@ textarea {
 }
 
 .multiple-choice-box.rtl.box-layout .radio-label {
-  padding: 0.7rem 1rem;
+  padding: 0;
 }
 
 .multiple-choice-box.rtl.box-layout .radio-label:before {
@@ -353,6 +359,10 @@ textarea {
   left: auto;
   border-width: 0 20px 20px 0;
   border-color: transparent lightgray transparent transparent;
+}
+
+.multiple-choice-box.rtl.box-layout .radio-label.add-option {
+  padding-top: 7rem;
 }
 
 .multiple-choice-box.rtl.box-layout .radio-input:hover + label:before, .multiple-choice-box.rtl.box-layout .radio-input:checked + label:before {

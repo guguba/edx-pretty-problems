@@ -17,7 +17,7 @@ class ImageUploader extends Component {
           <section className="dropzone-container">
             <div {...getRootProps({className: 'dropzone'})}>
               <input {...getInputProps()} />
-              <p>Drag 'n' drop some files here, or click to select files</p>
+              <p>Drag 'n' drop some files here, {"\n"}or click to select files</p>
             </div>
             {this.props.image && (
                 <div className="preview-image">
