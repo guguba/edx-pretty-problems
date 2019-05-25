@@ -260,7 +260,8 @@ class MultipleChoice extends Component {
                 
                 <input className="radio-input" type="checkbox" id={"option" + i} name="options" checked={selected} onChange={(e)=>this.onSelect(e)}/>,
                 <label className={'radio-label ' + type} for={"option" + i}>
-                    <ImageUploader id={"image" + i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)} user={this.props.user}/>
+                    {/* the OR condition is so that the image only appears in box layout*/}
+                    {!layout || <ImageUploader id={"image" + i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)} user={this.props.user}/>}
                     <textarea className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></textarea>
                     <p id={"delete-" + i} onClick={(e)=>this.onDeleteOption(e)} className="delete-answer">✖</p>
                 </label>
