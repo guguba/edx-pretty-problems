@@ -3,6 +3,8 @@ import '../styles/mystyle.css';
 import translations from '../Translations/translations';
 import {Client_config} from '../client_config';
 import ImageUploader from './ImageUploader';
+import axios from "axios";
+
 
 
 let emptyOptions = [
@@ -39,18 +41,50 @@ class MultipleChoice extends Component {
     }
 
     // controls image drop
-    onImageDrop(files, id) {
-        console.log(files);
-        console.log(files[0]);
-        id = id.substring(5) - 1;
+    async onImageDrop(image, id) {
+
+        //remove the "image" and keep it
+        id = id.substr(5) - 1
+
+        const getUrl = async (ext) => {
+    
+          const timestamp = new Date();
+          const formattedTimestamp = timestamp.getDate() + "-" + (timestamp.getMonth() + 1) + "-" + timestamp.getFullYear() + "/" + timestamp.getTime();
+          const imageName = this.props.user.userId + "/" + formattedTimestamp + "." + ext;
+          console.log(imageName)
+          const request = new Request(Client_config.SERVER + '/api/getS3Url' + "?imageName=" + imageName);
+          const response = await fetch(request);
+          const url = await response.text();
+          console.log(url)
+          return(url);
+          
+        }
+      
+        const file = image[0];
+        const ext = image[0].path.split('.').pop();
+        const tempUrl = await getUrl(ext);
+    
+        const config = {
+            headers: { 
+                'Content-Disposition': 'inline',
+                'content-type': "image/" + ext
+         }
+        }
+
+        const response = await axios.put(tempUrl, file, config);
+        if (response) {
+
+            console.log(response.config.url);
+        }
+        else if (!response) {console.log("error uploading image!")}
+
         let options = [...this.state.options];
-        //options[id].image = URL.createObjectURL(files[0]);
-        options[id].image = files[0];
+        options[id].image = file;
         this.setState({
             options: options
-        })    
-    }
-
+        })
+      }
+    
     //controls the checkboxes for radio/checkbox behaviors
     onSelect(e) {
         //debugger;
@@ -226,7 +260,7 @@ class MultipleChoice extends Component {
                 
                 <input className="radio-input" type="checkbox" id={"option" + i} name="options" checked={selected} onChange={(e)=>this.onSelect(e)}/>,
                 <label className={'radio-label ' + type} for={"option" + i}>
-                    <ImageUploader id={"image" + i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)}/>
+                    <ImageUploader id={"image" + i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)} user={this.props.user}/>
                     <textarea className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></textarea>
                     <p id={"delete-" + i} onClick={(e)=>this.onDeleteOption(e)} className="delete-answer">✖</p>
                 </label>

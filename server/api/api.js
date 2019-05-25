@@ -13,8 +13,13 @@ const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/
  // TODO change name to problem
 
 // test api
-api.get('/test', (req, res) => {
-  res.send('hey man');
+api.get('/getS3Url', (req, res) => {
+
+  const filename = req.query.imageName;
+
+  ImageUploader(filename).
+    then((tempUrl => res.send(tempUrl)))
+  
 });
 
 api.post('/problem', (req, res) => {

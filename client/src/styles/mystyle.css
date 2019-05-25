@@ -380,6 +380,7 @@ h1, h2, h3, {
 }
 
 .preview-image {
+  pointer-events: none;
   background-color: white;
   border-radius: 3px;
   position: absolute;

@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState} from 'react';
 import Dropzone from 'react-dropzone';
 
+const AWS = require('aws-sdk');
 
 class ImageUploader extends Component {
 
