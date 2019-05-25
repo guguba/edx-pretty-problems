@@ -61,10 +61,17 @@
             </p>
         </div>
         {{/if}}
-        <div class="multiple-choice-box {{rtl}}">
+        <div class="multiple-choice-box {{rtl}} {{problemLayout}}">
             {{#each options}}
                 <input class="radio-input" type={{../type}} id="option{{@index}}" value={{@index}} name="options">
-                <label class="radio-label {{../type}}" for="option{{@index}}">{{this.text}}</label>
+                <label class="radio-label {{../type}}" for="option{{@index}}">
+                <div className="preview-image">
+                  <img
+                    src={{this.image}}
+                  />
+                </div>
+                {{this.text}}
+                </label>
             {{/each}}
         </div>
     </div>

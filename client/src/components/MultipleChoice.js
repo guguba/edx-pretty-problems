@@ -73,13 +73,14 @@ class MultipleChoice extends Component {
 
         const response = await axios.put(tempUrl, file, config);
         if (response) {
-
             console.log(response.config.url);
         }
         else if (!response) {console.log("error uploading image!")}
 
+        let imageUrl = response.config.url;
+        imageUrl = imageUrl.substring(0, imageUrl.indexOf('?'));
         let options = [...this.state.options];
-        options[id].image = file;
+        options[id].image = imageUrl;
         this.setState({
             options: options
         })

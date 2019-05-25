@@ -28,6 +28,7 @@ problems.get('/multipleChoice/:id', function (req, res) {
             let primaryColor = response.styler.primaryColor;
             let inverted = response.styler.inverted ? '' : "inverted";
             let rtl = (response.styler.textDirection === "rtl") ? "rtl" : '';
+            const problemLayout = (response.styler.layout === "boxes") ? "box-layout" : "";
             let fontFamily = response.styler.fontFamily.replace(" ", "+");
 
             //inputs
@@ -51,6 +52,7 @@ problems.get('/multipleChoice/:id', function (req, res) {
               inverted,
               questionText,
               rtl,
+              problemLayout,
               type,
               fontFamily
             })

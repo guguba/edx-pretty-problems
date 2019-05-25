@@ -22,7 +22,7 @@ class ImageUploader extends Component {
             {this.props.image && (
                 <div className="preview-image">
                   <img
-                    src={URL.createObjectURL(this.props.image)}
+                    src={this.props.image}
                   />
                 </div>
             )}
