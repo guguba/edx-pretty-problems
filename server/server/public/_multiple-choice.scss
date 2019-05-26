@@ -9,6 +9,7 @@
 }
 
 .multiple-choice-box {
+    //position: relative;
 
     .radio-label {
         border: 2px solid var(--primary-color);
@@ -112,7 +113,6 @@
             position: relative;
             border-radius: 3px;
             border: 2px solid lightgray;
-            //height: 10rem;
             padding: 35.25% 0 0 0; // 3:4 ratio on the 47% width
             height: auto;
             width: 47%;
@@ -120,7 +120,6 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             overflow-wrap: break-word; 
-            //padding: 0;
             &:before { 
                 z-index: 2;
                 left: 0rem;
@@ -133,16 +132,17 @@
                 border-color: lightgray transparent transparent transparent;
                 line-height: 0;
             }   
-            &.add-option {
+            &.add-option p {
+                position: absolute;
+                top: 83%;
+                width: 100%;
                 text-align: center;
-                padding-top: 7rem;
             }
         }
         .label-input {
             position: absolute;
             top: 83%;
             text-align: center;
-            //height: 43.75%;
             background-color: white;
         }
     }
@@ -181,21 +181,16 @@
         }
         &.box-layout {
             .radio-label {
-                padding: 0;
+                padding: 35.25% 0 0 0; // 3:4 ratio on the 47% width
                 &:before {
                     right: 0;
                     left: auto;
                     border-width: 0 20px 20px 0;
                     border-color: transparent lightgray transparent transparent;
                 }
-                &.add-option {
-                    padding-top: 7rem;
-                }
             }
             .radio-input {
                 &:hover + label, &:checked + label {
-                    //border: 2px solid var(--primary-color);
-                    //border-radius: 3px;
                     &:before { 
                         border-width: 0 20px 20px 0;
                         border-color: transparent var(--primary-color)  transparent transparent;

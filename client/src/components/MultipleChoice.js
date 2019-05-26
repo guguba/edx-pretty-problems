@@ -280,7 +280,7 @@ class MultipleChoice extends Component {
             ></p></div>
             <div className={"multiple-choice-box " + textDirection + " " + layout + " " + inverted}>
                 {arrOfOptions}
-                <label className="radio-label add-option" onClick={(e)=>this.onAddOption(e)}>{langStrings.addOption}</label>
+                <label className="radio-label add-option" onClick={(e)=>this.onAddOption(e)}><p>{langStrings.addOption}</p></label>
             </div>
 
             <p style={validationStyle} className="validation">{this.state.validation.text}</p>
