@@ -285,15 +285,16 @@ textarea {
 }
 
 .multiple-choice-box.box-layout .radio-label {
+  position: relative;
   border-radius: 3px;
   border: 2px solid lightgray;
-  height: 10rem;
+  padding: 35.25% 0 0 0;
+  height: auto;
   width: 47%;
   margin: 0 auto 10px auto;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding: 0;
 }
 
 .multiple-choice-box.box-layout .radio-label:before {
@@ -315,8 +316,9 @@ textarea {
 }
 
 .multiple-choice-box.box-layout .label-input {
+  position: absolute;
+  top: 83%;
   text-align: center;
-  height: 40%;
   background-color: white;
 }
 
@@ -410,5 +412,23 @@ input[type=checkbox] {
 
 .label-input:focus {
   outline: none;
+}
+
+.preview-image {
+  pointer-events: none;
+  background-color: white;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.preview-image img {
+  width: auto;
+  max-height: 100%;
+  display: block;
+  margin: auto;
 }
 /*# sourceMappingURL=multipleChoice.css.map */

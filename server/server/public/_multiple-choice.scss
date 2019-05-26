@@ -109,15 +109,18 @@
         }
         
         .radio-label {
+            position: relative;
             border-radius: 3px;
             border: 2px solid lightgray;
-            height: 10rem;
+            //height: 10rem;
+            padding: 35.25% 0 0 0; // 3:4 ratio on the 47% width
+            height: auto;
             width: 47%;
             margin: 0 auto 10px auto;
             white-space: pre-wrap;
             word-wrap: break-word;
             overflow-wrap: break-word; 
-            padding: 0;
+            //padding: 0;
             &:before { 
                 z-index: 2;
                 left: 0rem;
@@ -136,8 +139,10 @@
             }
         }
         .label-input {
+            position: absolute;
+            top: 83%;
             text-align: center;
-            height: 40%;
+            //height: 43.75%;
             background-color: white;
         }
     }
