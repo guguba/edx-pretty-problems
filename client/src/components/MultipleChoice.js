@@ -43,8 +43,8 @@ class MultipleChoice extends Component {
     // controls image drop
     async onImageDrop(image, id) {
 
-        //remove the "image" and keep it
-        id = id.substr(5) - 1
+        //set indexes to 0 (refactor needed)
+        id = id - 1
 
         const getUrl = async (ext) => {
     
@@ -60,6 +60,7 @@ class MultipleChoice extends Component {
           
         }
       
+        // upload image to S3 and get url
         const file = image[0];
         const ext = image[0].path.split('.').pop();
         const tempUrl = await getUrl(ext);
@@ -79,6 +80,13 @@ class MultipleChoice extends Component {
 
         let imageUrl = response.config.url;
         imageUrl = imageUrl.substring(0, imageUrl.indexOf('?'));
+
+        // make the dropzone transparent behine the image preview - TODO refactor needed on the indexes
+
+        document.getElementById("dropzone"+(id+1)).style.opacity = 0;
+
+        // save image to state
+
         let options = [...this.state.options];
         options[id].image = imageUrl;
         this.setState({
@@ -262,7 +270,7 @@ class MultipleChoice extends Component {
                 <input className="radio-input" type="checkbox" id={"option" + i} name="options" checked={selected} onChange={(e)=>this.onSelect(e)}/>,
                 <label className={'radio-label ' + type} for={"option" + i}>
                     {/* the OR condition is so that the image only appears in box layout*/}
-                    {!layout || <ImageUploader id={"image" + i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)} user={this.props.user}/>}
+                    {!layout || <ImageUploader id={i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)} user={this.props.user}/>}
                     <input className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></input>
                     <p id={"delete-" + i} onClick={(e)=>this.onDeleteOption(e)} className="delete-answer">✖</p>
                 </label>

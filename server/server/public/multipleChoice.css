@@ -137,7 +137,7 @@ textarea {
   width: 100%;
   background: white;
   border-radius: 3px;
-  background-color: var(--primary-color);
+  background-color: white;
   font-family: var(--primary-font), "Open Sans", sans-serif;
   padding: 2rem 2rem 1rem 2rem;
 }
@@ -289,7 +289,6 @@ textarea {
   border-radius: 3px;
   border: 2px solid lightgray;
   padding: 35.25% 0 0 0;
-  height: auto;
   width: 47%;
   margin: 0 auto 10px auto;
   white-space: pre-wrap;
@@ -412,9 +411,16 @@ input[type=checkbox] {
   outline: none;
 }
 
+.image-container {
+  position: absolute;
+  top: 0;
+  height: 75%;
+  width: 100%;
+}
+
 .preview-image {
   pointer-events: none;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 3px;
   position: absolute;
   left: 0;
@@ -424,7 +430,7 @@ input[type=checkbox] {
 }
 
 .preview-image img {
-  width: auto;
+  max-width: 100%;
   max-height: 100%;
   display: block;
   margin: auto;
