@@ -81,10 +81,6 @@ class MultipleChoice extends Component {
         let imageUrl = response.config.url;
         imageUrl = imageUrl.substring(0, imageUrl.indexOf('?'));
 
-        // make the dropzone transparent behine the image preview - TODO refactor needed on the indexes
-
-        document.getElementById("dropzone"+(id+1)).style.opacity = 0;
-
         // save image to state
 
         let options = [...this.state.options];
