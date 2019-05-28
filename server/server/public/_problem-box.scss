@@ -11,7 +11,7 @@
 
     .question-text {
         margin: 0 0 1rem 0;
-        color: white;
+        color: var(--primary-color);
         font-weight: bold;
         cursor: text;
         :empty:before {

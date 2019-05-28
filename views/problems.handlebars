@@ -65,6 +65,7 @@
             {{#each options}}
                 <input class="radio-input" type={{../type}} id="option{{@index}}" value={{@index}} name="options"><!--
                 --><label class="radio-label {{../type}}" for="option{{@index}}"><!--
+                    -->{{#if this.image}}<!--
                     --><div class="image-container"><!--
                         --><div class="preview-image"><!--
                             --><img
@@ -72,6 +73,7 @@
                             /><!--
                         --></div><!--
                     --></div><!--
+                    -->{{/if}}<!--
                     --><p class="label-input">{{this.text}}</p><!--
                 --></label>
             {{/each}}
