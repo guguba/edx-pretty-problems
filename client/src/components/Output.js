@@ -12,24 +12,15 @@ class Output extends Component {
 
   render() {
 
-    let userId = this.props.user.userId;
-    // this is an indirect lookup for options, so not to move them from MultipleChoice.js just for this
-    let numOfOptions = document.getElementsByName('options').length;
-    let root = document.getElementById('root');
-    let remInPixels = getComputedStyle(root, null).fontSize;
-    remInPixels = parseInt(remInPixels, 10);
-    // 2 rem up and sown margin, plus 3 rem per option, plus 2 per each option to to borders
     // let height =  (4 + (numOfOptions * 3))  * remInPixels + (numOfOptions)*2;
-    let elem = document.getElementsByClassName('problem-external-box')[0];
-    let height;
-    if (elem) {
-        height = getComputedStyle(elem).height;
-        height = parseInt(height);
-        height -= 117;
-    }
+    const problemBox = document.getElementsByClassName('problem-external-box')[0];
+    const fullHeight = problemBox ? parseInt(window.getComputedStyle(problemBox, null).height) : 0;
 
-
-
+    const layout = this.props.styler.layout;
+    const height = layout === "rows" ? 
+        fullHeight - 135 :
+        // TODO - couldnt get boxes real height, only doing 4 boxes at the moment
+        493;
 
     let output =
         '<problem>' + '\n' +

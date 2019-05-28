@@ -100,7 +100,7 @@ class Home extends Component {
         <div className="app-content">
             <Styler styler={this.state.styler} onStyleChange={(e, style)=>this.onStyleChange(e, style)}/>
             <MultipleChoice user={this.props.user} styler={this.state.styler} showOutput={(e) => this.showOutput(e)} setFilename={(e) => this.setFilename(e)}/>
-            <Output user={this.props.user} fileName={this.state.fileName} showOutput={this.state.showOutput}/>
+            <Output user={this.props.user} styler={this.state.styler} fileName={this.state.fileName} showOutput={this.state.showOutput}/>
         </div>
         ]
         
