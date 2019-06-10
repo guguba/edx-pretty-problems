@@ -12,6 +12,11 @@ const uri = "mongodb+srv://guybarner:fuckU456@designedx-users-bbhgk.mongodb.net/
 
  // TODO change name to problem
 
+
+ // test api
+api.get('/test', (req, res) => {
+  res.send('hey')
+});
 // test api
 api.get('/getS3Url', (req, res) => {
 

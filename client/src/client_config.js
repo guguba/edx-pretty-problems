@@ -3,7 +3,7 @@ const local_config = {
 }
 
 const prod_config = {
-  SERVER: 'http://designedx.xyz'
+  SERVER: 'http://designedx-env.pudztim2wa.us-east-2.elasticbeanstalk.com'
 }
 
 
@@ -13,14 +13,13 @@ const Client_config = (() => {
 
   switch (env) {
 
-    case 'prod':
+    case 'production':
       return prod_config
 
     case 'local':
       return local_config
   }
 })()
-
 
 console.log(process.env.REACT_APP_ENV || process.env.NODE_ENV, Client_config, 'env')
 
