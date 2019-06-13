@@ -1,8 +1,11 @@
 import React, {Component, useEffect, useState} from 'react';
 import Dropzone from 'react-dropzone';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
+import translations from '../Translations/translations';
+
 
 const AWS = require('aws-sdk');
+
 
 class ImageUploader extends Component {
 
@@ -22,6 +25,9 @@ class ImageUploader extends Component {
 
   render() {
 
+    const langStrings = translations[this.props.styler.language];
+    console.log(langStrings.imageDrag);
+
     return (
       <Dropzone onDrop={(accepted) => this.onImageDrop(accepted, this.props.id)}>
         {({getRootProps, getInputProps}) => (
@@ -35,7 +41,7 @@ class ImageUploader extends Component {
             /> : 
             <div {...getRootProps({className: 'dropzone', id: 'dropzone'+this.props.id})}>
               <input {...getInputProps()} />
-              <p>Drag 'n' drop some files here, {"\n"}or click to select files</p>
+              <p>{langStrings.imageDrag}</p>
             </div>}
             {this.props.image && !this.state.loadingImage && (
                 <div className="preview-image">

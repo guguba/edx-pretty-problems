@@ -273,7 +273,13 @@ class MultipleChoice extends Component {
                 <input className="radio-input" type="checkbox" id={"option" + i} name="options" checked={selected} onChange={(e)=>this.onSelect(e)}/>,
                 <label className={'radio-label ' + type} for={"option" + i}>
                     {/* the OR condition is so that the image only appears in box layout*/}
-                    {!layout || <ImageUploader id={i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)} user={this.props.user}/>}
+                    {!layout || <ImageUploader 
+                    id={i} 
+                    image={this.state.options[i-1].image} 
+                    onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)} 
+                    user={this.props.user}
+                    styler={this.props.styler}
+                    />}
                     <p
             contenteditable="true"
             className="label-input"
