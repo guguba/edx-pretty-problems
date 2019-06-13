@@ -3,7 +3,7 @@ const local_config = {
 }
 
 const prod_config = {
-  SERVER: 'http://designedx-env.pudztim2wa.us-east-2.elasticbeanstalk.com'
+  SERVER: 'https://api.designedx.xyz'
 }
 
 

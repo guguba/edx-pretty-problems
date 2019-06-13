@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url("https://api.designedx.xyz/multipleChoice.css");
 @import url("http://localhost:5000/multipleChoice.css");
-@import url("http://designedx-env.pudztim2wa.us-east-2.elasticbeanstalk.com/multipleChoice.css");
 /* html {
     box-sizing: border-box;
     font-size: 15.2px;
@@ -301,7 +301,6 @@ h1, h2, h3, {
   height: 100%;
   width: 35%;
   min-width: 600px;
-  background: white;
   border-radius: 3px;
   background-color: white;
   font-family: var(--primary-font), "Open Sans", sans-serif;

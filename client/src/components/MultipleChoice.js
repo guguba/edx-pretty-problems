@@ -145,13 +145,15 @@ class MultipleChoice extends Component {
         let textValidation = true;
         //one selected answer will make this true
         let selectValidation = false;
-        let texts = Array.from(document.getElementsByClassName('label-input'));
-        let selected = document.getElementsByName('options');
+        const texts = Object.values(this.state.options).map(it=>it.text);      
+        const selected = Object.values(this.state.options).map(it=>it.selected);   
+        console.log(texts)
+        console.log(selected)
         //This assumes that there are as many inputs as checkboxes. fair assumption
         for (let i in texts) {
             // updating this checked boxes because can't control them since :before doesn't trigger onChange
-            if (!texts[i].value) {textValidation = false};
-            if (selected[i].checked) {
+            if (!texts[i]) {textValidation = false};
+            if (selected[i]) {
                 selectValidation = true;
             };
         }
@@ -205,11 +207,20 @@ class MultipleChoice extends Component {
         })
     }
 
+    formatInputText(text) {
+        text = text.replace(/<br>/g, '');
+        text = text.replace(/<div>/g, '<br>');
+        text = text.replace(/<\/div>/g, '');
+        return text
+
+    }
+
     onUpdateOption(e) {
         let id = e.target.id;
         id = id.substring(6);
-        let value = e.target.value;
-        let options = this.state.options;
+        let value = e.target.innerHTML;
+        value = this.formatInputText(value);
+        let options = [...this.state.options];
         options[id-1].text = value;
         this.setState({
             options: options
@@ -218,11 +229,7 @@ class MultipleChoice extends Component {
 
     onUpdateQuestion(e) {
         let value = e.target.innerHTML;
-        console.log("value", value);
-
-        value = value.replace(/<br>/g, '');
-        value = value.replace(/<div>/g, '<br>');
-        value = value.replace(/<\/div>/g, '');
+        value = this.formatInputText(value);
         //let question = value || this.state.question;
         this.setState({
             question: value
@@ -267,7 +274,16 @@ class MultipleChoice extends Component {
                 <label className={'radio-label ' + type} for={"option" + i}>
                     {/* the OR condition is so that the image only appears in box layout*/}
                     {!layout || <ImageUploader id={i} image={this.state.options[i-1].image} onImageDrop={(acc, rej, e)=>this.onImageDrop(acc, rej, e)} user={this.props.user}/>}
-                    <input className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></input>
+                    <p
+            contenteditable="true"
+            className="label-input"
+            placeholder={langStrings.option+i}
+            id={'input-' + i}
+            value={this.state.options[i-1].text}
+            onInput={(e)=>this.onUpdateOption(e)}
+            onClick={(e)=>{e.preventDefault()}}
+            ></p>
+                    {/* <input className="label-input" id={'input-' + i} type="text" placeholder={langStrings.option+i} value={this.state.options[i-1].text} onChange={(e)=>this.onUpdateOption(e)}></input> */}
                     <p id={"delete-" + i} onClick={(e)=>this.onDeleteOption(e)} className="delete-answer">✖</p>
                 </label>
                 ]

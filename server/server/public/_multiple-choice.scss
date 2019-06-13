@@ -230,6 +230,11 @@ input[type=checkbox] {
     width: 100%;
     font-family: inherit;
 
+    &:empty:before {
+        content: attr(placeholder);
+        color: #ddd;
+    }
+
     &::placeholder {
         opacity: .7;
     }

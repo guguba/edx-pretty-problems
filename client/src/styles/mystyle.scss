@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 // TODO this is so ugly needs to be dynamically selected by env
+@import url("https://api.designedx.xyz/multipleChoice.css");
 @import url("http://localhost:5000/multipleChoice.css"); 
-@import url("http://designedx-env.pudztim2wa.us-east-2.elasticbeanstalk.com/multipleChoice.css");
 
 // general settings
 
@@ -69,7 +69,6 @@ h1, h2, h3, {
 // app sections
 
 @import 'widget';
-//@import 'problem-box';
 
 // specific problem types
  

@@ -39,11 +39,6 @@ api.post('/problem', (req, res) => {
     return('filename')
   });
 
-
-  
-
-
-
   // uploading the problem to the DB and retrieving the uuid
 
   MongoClient.connect(uri, { useNewUrlParser: true })

@@ -391,6 +391,11 @@ input[type=checkbox] {
   font-family: inherit;
 }
 
+.label-input:empty:before {
+  content: attr(placeholder);
+  color: #ddd;
+}
+
 .label-input::-webkit-input-placeholder {
   opacity: .7;
 }
