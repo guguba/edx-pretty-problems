@@ -15,7 +15,6 @@
 
         var try1 = (function () {
           var dbCorrects = [{{ corrects}}];
-          console.log({dbCorrects})
 
             let channel;
 
@@ -27,14 +26,22 @@
                 });
 
                 channel.bind("getGrade", getGrade);
+                channel.bind("getState", getState);
+                channel.bind("setState", setState);
             }
 
-            function getGrade() {
+            // internal fn to get an array of answers marked correct
+            function getCorrects() {
                 let corrects = [];
-                // let correct = true;
                 for (let i = 0; i < dbCorrects.length; i++) {
                     corrects.push(document.getElementById("option" + i).checked);
-                }
+                };
+                return corrects;
+            }
+
+
+            function getGrade() {
+                var corrects = getCorrects();
                 var isCorrect = (JSON.stringify(corrects) === JSON.stringify(dbCorrects))
                 // correct = correct ? "correct" : "";
                 return JSON.stringify({
@@ -42,9 +49,25 @@
                 });
             };
 
-            return {
-                getGrade: getGrade,
+            function getState() {
+                corrects = getCorrects();
+                return JSON.stringify({state: corrects});
             };
+
+            function setState() {
+                var answers = arguments.length === 1 ? JSON.parse(arguments[0]) : JSON.parse(arguments[1]);
+                answers = answers["state"];
+                if (answers) {
+                    const options = document.getElementsByClassName("radio-input");
+                    Array.from(options).forEach(
+                        function(option, i) {
+                            option.checked = answers[i];
+                        }
+                    )
+                }
+            };
+
+            return { getGrade, getState, setState };
         }());
 
     </script>

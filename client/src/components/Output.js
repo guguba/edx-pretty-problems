@@ -33,12 +33,15 @@ class Output extends Component {
         'import json' + '\n' +
         'def check_function(e, ans):' + '\n' +
         ' response = json.loads(ans)' + '\n' +
-        ' answer = response["answer"]' + '\n' +
-        ' return answer == "correct"' + '\n' +
+        ' answerObj = json.loads(response["answer"])' + '\n' +
+        ' finalAnswer = answerObj["answer"]' + '\n' +
+        ' return finalAnswer == "correct"' + '\n' +
         ']]>' + '\n' +
         '</script>' + '\n' +
             ' <jsinput' + '\n' +
-                '  gradefn="try1.getGrade"' + '\n' +
+                '  gradefn="designedxApp.getGrade"' + '\n' +
+                '  get_statefn="designedxApp.getState"' + '\n' +
+                '  set_statefn="designedxApp.setState"' + '\n' +
                 '  width="600"' + '\n' +
                 '  height="' + height + '"' + '\n' +
                 '  html_file="' + this.props.fileName + '"' + '\n' +
