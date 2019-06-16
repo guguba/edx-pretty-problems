@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../styles/mystyle.css';
 
 
 
@@ -16,11 +15,15 @@ class Output extends Component {
     const problemBox = document.getElementsByClassName('problem-external-box')[0];
     const fullHeight = problemBox ? parseInt(window.getComputedStyle(problemBox, null).height) : 0;
 
+    //calculate number of options for a very ugly height calculation
+    const numOfOptions = document.getElementsByClassName("label-input").length;
+    const rows = Math.ceil(numOfOptions / 2)
+
     const layout = this.props.styler.layout;
     const height = layout === "rows" ? 
         fullHeight - 135 :
         // TODO - couldnt get boxes real height, only doing 4 boxes at the moment
-        493;
+        80 + (205*rows);
 
     let output =
         '<problem>' + '\n' +
