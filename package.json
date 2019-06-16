@@ -6,7 +6,8 @@
         "client:prod": "cd client && cross-env REACT_APP_ENV=prod npm start",
         "server": "nodemon server/server/server.js",
         "start": "node server/server/server.js",
-        "start:dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client:local\""
+        "start:dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client:local\"",
+        "deploy": "eb deploy Designedx-env"
     },
     "dependencies": {
         "@google-cloud/storage": "^2.0.3",
