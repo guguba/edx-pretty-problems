@@ -44,9 +44,9 @@ class Styler extends Component {
                 <h3>layout:</h3>
                 <div>
                   <input className="radio-input" checked={layout === "rows"} onChange={(e) => this.onStyleChange(e, "layout")} type="radio" id="rows" name="layout"/>
-                  <label className="radio-label radio" for="rows">rows</label>
+                  <label className="radio-label radio" for="rows">Text</label>
                   <input className="radio-input" checked={layout === "boxes"} onChange={(e) => this.onStyleChange(e, "layout")} type="radio" id="boxes" name="layout"/>
-                  <label className="radio-label radio" for="boxes">boxes</label>
+                  <label className="radio-label radio" for="boxes">Images</label>
                 </div>
                 <h3>Language:</h3>
                 <div>

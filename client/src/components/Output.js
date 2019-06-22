@@ -21,7 +21,7 @@ class Output extends Component {
 
     const layout = this.props.styler.layout;
     const height = layout === "rows" ? 
-        fullHeight - 135 :
+        fullHeight - 134 :
         // TODO - couldnt get boxes real height, only doing 4 boxes at the moment
         80 + (205*rows);
 

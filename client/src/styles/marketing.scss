@@ -34,6 +34,13 @@
         flex-direction: column;
         justify-content: space-between;
         text-align: left;
+        .new-feature {
+            background-color: #E0758E;
+            border-radius: 10px;
+            padding: 0 10px;
+            color: white;
+            margin-left: 10px;
+        }
         .button {
             background-color: #4CAF50;
             margin-left: 0;
@@ -86,6 +93,7 @@
         text-align: left;
         p {
             line-height: 1.5;
+            margin: 1rem 0
         }
         h2:last-of-type {
             text-align: center;

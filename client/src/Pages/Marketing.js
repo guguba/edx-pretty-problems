@@ -10,11 +10,6 @@ import {
   Redirect
 } from 'react-router-dom'
 
-
-
-
-
-
 class Marketing extends Component {
 
   render() {
@@ -32,11 +27,13 @@ class Marketing extends Component {
                 <div><h2>Create quicker, better looking problems for edX and Open edX</h2>
                 <p>
                 - First ever visual problem editing tool for edX<br/>
+                - Create great looking image problems in seconds<br/>
                 - Control colors, fonts and more  <br/>
                 - Uses edX's custom JavaScript abilities to connect to your course's grading system  <br/>
-                - More problem types comming soon - image questions, matching questions, and more!
+                - Batch creation of problems from a spreadsheet - build your entire course in one click!<span className="new-feature">coming soon!</span>   <br/>
+                - More problem types - sorting questions, matching, and more<span className="new-feature">coming soon!</span>
                 </p></div>
-                <a className="button" href="/signup">Sign up!</a>
+                <a className="button" href="/signup">Sign up for a free trial</a>
               </div>
               <div className="video-box"><iframe src="https://www.useloom.com/embed/e7de9c57ce804278a976a54413b793cf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{position: "absolute", top: "0", left: "0", width: "100%", height: "100%"}}></iframe></div>
             </div>
@@ -51,16 +48,16 @@ class Marketing extends Component {
               <div className="price-box">
                 <h2>Live Courses</h2>
                 <p>Use in as many courses as you'd like</p>
-                <h2>$500/y</h2>
+                <h2>Email me</h2>
               </div>
               <div className="price-box">
                 <h2>Custom Components</h2>
                 <ul>
                   <li>Use in as many courses as you'd like</li>
                   <li>Development of custom features and 
-                  components to suit your unique needs</li>
+                  problem types to suit your unique needs</li>
                 </ul>
-                <h2>Email me :)</h2>
+                <h2>Let's talk :)</h2>
               </div>
             </div>
             <h2 className="contact">Any questions? Contact me at guybarner1@gmail.com</h2>
