@@ -5,6 +5,10 @@ import {Client_config} from '../client_config';
 import ImageUploader from './ImageUploader';
 import axios from "axios";
 
+import mixpanel from '../helpers/mixpanel'
+
+
+
 
 
 let emptyOptions = [
@@ -157,14 +161,16 @@ class MultipleChoice extends Component {
                 selectValidation = true;
             };
         }
+        //debugger;
         let newValidation = {show: false, text: 'placeholder'};
         //if all fields are okay
         if (textValidation && selectValidation) {
-            () => this.setState({
+            this.setState({
                 validation: newValidation
-            });
+            })
             this.sendJson()
             this.props.showOutput();
+            mixpanel.track('submitted problem')
         }
         else {
             if (!textValidation || !selectValidation) {newValidation.show = true};

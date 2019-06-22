@@ -7,8 +7,6 @@ import {
   Redirect
 } from 'react-router-dom'
 
-import FullStory from 'react-fullstory';
-
 import Home from './Pages/Home'
 import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
@@ -159,10 +157,9 @@ class Routing extends Component {
  }
 
  const App = () => (
-        [<FullStory org="K3EEH" />,
         <div className="container">
             <Routing />
-        </div>]
+        </div>
  )
 
 export default App

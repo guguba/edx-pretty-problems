@@ -5,7 +5,9 @@ import Styler from '../components/Styler';
 import Output from '../components/Output';
 import Header from '../components/SiteHeader';
 
-import { FullStoryAPI } from 'react-fullstory';
+
+import mixpanel from '../helpers/mixpanel'
+
 
   
 
@@ -30,14 +32,7 @@ class Home extends Component {
             showOutput: false,
             fileName: ''
         };
-    }
-
-    componentDidMount() {
-        FullStoryAPI('identify', this.props.user.userId, {
-            displayName: this.props.user.username
-        });
-    }
-    
+    } 
    
     onStyleChange(e, style) {
         let target = e.target;
@@ -92,6 +87,13 @@ class Home extends Component {
     
     
   render() {
+
+    mixpanel.identify(this.props.user.userId);
+    mixpanel.track('Successful login');
+    mixpanel.people.set({
+        "$name": this.props.user.username,
+    });
+
       
     return (
         
