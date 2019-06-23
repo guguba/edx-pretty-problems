@@ -61,11 +61,11 @@ h1, h2, h3, {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   color: #e0758e;
 }
 
@@ -76,14 +76,14 @@ h1, h2, h3, {
   margin-left: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .header .logo-box .logo {
@@ -105,11 +105,27 @@ h1, h2, h3, {
   margin-right: 40px;
 }
 
-.header .my-profile #logout {
+.header .my-profile .nav-button {
   cursor: pointer;
 }
 
-.header .my-profile #logout:hover {
+.header .my-profile .nav-button a {
+  text-decoration: none;
+}
+
+.header .my-profile .nav-button a:-webkit-any-link {
+  color: inherit;
+}
+
+.header .my-profile .nav-button a:-moz-any-link {
+  color: inherit;
+}
+
+.header .my-profile .nav-button a:any-link {
+  color: inherit;
+}
+
+.header .my-profile .nav-button:hover {
   color: #794d57;
 }
 
@@ -121,11 +137,11 @@ h1, h2, h3, {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .login-button {
@@ -140,14 +156,38 @@ h1, h2, h3, {
   margin: 1rem;
 }
 
+.how-to-list {
+  margin: 2rem;
+  padding: 0;
+  list-style-type: none;
+  width: 50%;
+}
+
+.how-to-list li {
+  counter-increment: step-counter;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.how-to-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: -40px;
+  background-color: #00c8c8;
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 50px;
+}
+
 .app-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
   -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
   padding-top: 2rem;
 }
 
@@ -208,7 +248,7 @@ h1, h2, h3, {
 .dropdown select:active, .dropdown select:focus {
   outline: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .dropdown:after {
@@ -296,8 +336,8 @@ h1, h2, h3, {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   height: 100%;
   width: 35%;
   min-width: 600px;
@@ -338,7 +378,7 @@ h1, h2, h3, {
   color: white;
   margin: 1rem 0 0 0;
   -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
 .problem-external-box .button:hover {
@@ -354,11 +394,11 @@ h1, h2, h3, {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .dropzone {
@@ -369,11 +409,11 @@ h1, h2, h3, {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
   border-width: 2px;
   background-color: #f1f1f1;
@@ -390,7 +430,7 @@ h1, h2, h3, {
 
 .validation {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
+  -ms-grid-row-align: center;
       align-self: center;
   font-size: 0.9rem;
   color: white;
@@ -411,8 +451,8 @@ h1, h2, h3, {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
   margin-left: 15px;
 }
 /*# sourceMappingURL=mystyle.css.map */

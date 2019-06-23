@@ -84,17 +84,18 @@ class Home extends Component {
     showOutput() {
         this.setState({showOutput: true });
     }
-    
+
+    componentDidMount() {
+        mixpanel.identify(this.props.user.userId);
+        mixpanel.track('Successful login');
+        mixpanel.people.set({
+            "$name": this.props.user.username,
+        });    
+      }
+      
     
   render() {
 
-    mixpanel.identify(this.props.user.userId);
-    mixpanel.track('Successful login');
-    mixpanel.people.set({
-        "$name": this.props.user.username,
-    });
-
-      
     return (
         
         [

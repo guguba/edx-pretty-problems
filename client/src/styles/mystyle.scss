@@ -49,13 +49,21 @@ h1, h2, h3, {
 @import 'header';
 @import 'login-elements';
 
+// how-to page
+
+@import 'how-to';
+
 
 // the app
 
 .app-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     padding-top: 2rem;
 }
 
@@ -80,7 +88,8 @@ h1, h2, h3, {
  
 
 .validation {
-    align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
     font-size: 0.9rem;
     color: white;
     &.login-validation {
@@ -96,8 +105,12 @@ h1, h2, h3, {
 }
 
 .picker {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: baseline;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
     margin-left: 15px;
 }
 

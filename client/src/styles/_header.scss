@@ -2,16 +2,31 @@
     background-color: #E4E4E4;
     height: 100px;
     width: 100%;;
+    display: -webkit-box;;
+    display: -ms-flexbox;;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     color: #e0758e;
     .logo-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         margin-left: 20px;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         .logo {
             font-size: 27px;
         }
@@ -21,15 +36,29 @@
         }
     }
     .my-profile {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         p {
             margin-right: 40px;
         }
-        #logout {
+        .nav-button {
             cursor: pointer;
+            a {
+                text-decoration: none;
+                &:-webkit-any-link {
+                    color: inherit;
+                }
+                &:-moz-any-link {
+                    color: inherit;
+                }
+                &:any-link {
+                    color: inherit;
+                }
+            }
             &:hover {
                 color: #794d57;
-            }
+            }    
         }
     }    
 }

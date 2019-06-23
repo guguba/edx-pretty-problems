@@ -10,7 +10,13 @@ import {
   Redirect
 } from 'react-router-dom'
 
+import mixpanel from '../helpers/mixpanel'
+
 class Marketing extends Component {
+
+  componentDidMount() {
+    mixpanel.track('Marketing');
+  }
 
   render() {
 

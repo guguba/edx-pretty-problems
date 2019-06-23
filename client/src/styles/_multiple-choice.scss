@@ -18,6 +18,7 @@
         height: 3rem;
         padding: 1rem 1rem 1rem 3rem;
         border-top: 1px solid rgba(black, .1);
+        -webkit-transition: all .15s ease;
         transition: all .15s ease;
 
         &:first-of-type {
@@ -99,6 +100,18 @@ input[type=checkbox] {
     border: none;
     width: 100%;
     font-family: inherit;
+
+    &::-webkit-input-placeholder {
+        color: lightgrey;
+    }
+
+    &:-ms-input-placeholder {
+        color: lightgrey;
+    }
+
+    &::-ms-input-placeholder {
+        color: lightgrey;
+    }
 
     &::placeholder {
         color: lightgrey;

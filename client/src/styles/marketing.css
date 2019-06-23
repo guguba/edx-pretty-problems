@@ -63,6 +63,14 @@
   text-align: left;
 }
 
+.top-section .top-description .back-button {
+  margin: 0 0 1rem 0;
+}
+
+.top-section .top-description .back-button a:active, .top-section .top-description .back-button a:visited {
+  color: inherit;
+}
+
 .top-section .top-description .new-feature {
   background-color: #E0758E;
   border-radius: 10px;

@@ -35,12 +35,13 @@ class Header extends Component {
             </div>
             {isUserConnected && <div className="my-profile" >
                 <p>Hello, {username}</p>
-                <p id="logout" onClick={()=>this.onLogout()}>Log out</p>
+                <p className="nav-button"><a href="/howto">How to</a></p>
+                <p className="nav-button" onClick={()=>this.onLogout()}>Log out</p>
             </div>}
             {!isUserConnected && <div className="my-profile" >
-                <p><a href="/marketing">homepage</a></p>
+                <p><a href="/marketing">Homepage</a></p>
                 <p><a href="/signup">Sign up</a></p>
-                <p><a href="/login">login</a></p>
+                <p><a href="/login">Login</a></p>
             </div>}
         </div>
     );

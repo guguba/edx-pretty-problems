@@ -11,6 +11,8 @@ import Home from './Pages/Home'
 import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
 import Marketing from './Pages/Marketing'
+import HowTo from './Pages/HowTo'
+
 import { Client_config } from "./client_config";
 
 // Private Route HOC
@@ -138,6 +140,7 @@ class Routing extends Component {
           <Route key="login" exact path="/login" component={() => <LoginPage loggedIn={loggedIn} onLogin={this.handleLogin} />} />,
           <Route key="signup" exact path="/signup" component={() => <SignupPage loggedIn={loggedIn} onSignup={this.handleSignup} />} />,
           <Route key="marketing" exact path="/marketing" component={() => <Marketing loggedIn={loggedIn} />} />,
+          <Route key="howto" exact path="/howto" component={() => <HowTo onLogout={()=>this.onLogout()} user={this.state.user}/>} />
        ];
 
        if (!loggedIn) {

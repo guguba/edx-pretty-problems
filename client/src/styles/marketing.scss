@@ -34,6 +34,14 @@
         flex-direction: column;
         justify-content: space-between;
         text-align: left;
+        .back-button {
+            margin: 0 0 1rem 0;
+            a {
+                &:active, &:visited {
+                    color: inherit;
+                }    
+            }
+        }
         .new-feature {
             background-color: #E0758E;
             border-radius: 10px;

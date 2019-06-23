@@ -1,0 +1,22 @@
+.how-to-list {
+    margin: 2rem;
+    padding: 0;
+    list-style-type: none;
+    width: 50%;
+    li {
+        counter-increment: step-counter;
+        margin-bottom: 1rem; 
+        position: relative; 
+    }
+    li::before {
+        content: counter(step-counter);
+        position: absolute;
+        left: -40px;
+        background-color: rgb(0,200,200);
+        color: white;
+        font-weight: bold;
+        padding: 3px 8px;
+        border-radius: 50px;    
+    }
+  }
+    

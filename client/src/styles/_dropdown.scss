@@ -21,7 +21,8 @@
       &:active,
       &:focus {
         outline: none;
-        box-shadow: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
       }
     }
     &:after {

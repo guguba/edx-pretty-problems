@@ -21,6 +21,6 @@ const Client_config = (() => {
   }
 })()
 
-console.log(process.env.REACT_APP_ENV || process.env.NODE_ENV, Client_config, 'env')
+// console.log(process.env.REACT_APP_ENV || process.env.NODE_ENV, Client_config, 'env')
 
 export { Client_config }
